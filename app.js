@@ -27,7 +27,7 @@ app.get("/search", function(req,res){
 app.get("/films/:id", function(req, res){
     let filmID = req.params.id;
 
-    fetch("http://www.omdbapi.com/?apikey=5f9b92a2&i="+filmID)
+    fetch("http://www.omdbapi.com/?apikey=5f9b92a2&plot=full&i="+filmID)
     .then(handleResponseError)
     .then(response => response.json())
     .then(data => {

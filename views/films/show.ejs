@@ -1,5 +1,28 @@
 <% include ../partials/header %>
 
+<% include ../partials/search %>
+
+
+<img src="<%=data.Poster%>"/>
 <h1><%=data.Title%></h1>
+
+<h2>Information</h2>
+<p><%=data.Released%></p>
+<p><%=data.Runtime%></p>
+<p><%=data.Genre%></p>
+
+<h2>Cast and Crew</h2>
+<p>Director: <%=data.Director%></p>
+<p>Writer(s): <%=data.Writer%></p>
+<p>Actors: <%=data.Actors%></p>
+
+<h2>Plot</h2>
+<p><%=data.Plot%></p>
+
+<h2>Critics</h2>
+<% data.Ratings.forEach(rating => { %>
+    <strong><%=rating.Source%></strong><p><%=rating.Value%></p>
+<% }); %>
+
 
 <% include ../partials/footer %>
