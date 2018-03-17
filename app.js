@@ -9,7 +9,6 @@ app.use(express.static(__dirname + "/styles"));
 app.get("/search", function(req,res){
     let filmName = req.query.filmName;
     let page = (req.query.page) ? parseInt(req.query.page) : 1;
-
     
     fetch("http://www.omdbapi.com/?apikey=5f9b92a2&s="+filmName+"&page="+page+"&type=movie")
     .then(response => response.json())

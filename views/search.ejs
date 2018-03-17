@@ -1,5 +1,7 @@
 <% include partials/header.ejs %>
 
+<% include partials/search.ejs %>
+
 <% films.forEach(film => { %>
     <div class="film">
         <% if(film.Poster === "N/A") { %>
