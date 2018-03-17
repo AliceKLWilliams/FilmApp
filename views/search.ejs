@@ -15,4 +15,12 @@
     </div>
 <% }) %>
 
+<% let numberPages = Math.ceil(totalResults/10); %>
+<div class="pagination">
+    <% for(let i = 0; i < numberPages; i++){ %>
+        <a href="/search?filmName=<%=filmName %>&page=<%=i+1%>"><%= i+1 %></button>
+    <% } %>
+</div>
+
+
 <% include partials/footer.ejs %>
