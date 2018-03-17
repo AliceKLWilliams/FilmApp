@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+
+<% films.forEach(film => { %>
+    <div class="film">
+        <% if(film.Poster === "N/A") { %>
+            <img class="film__poster" src= "http://via.placeholder.com/350x450" />
+        <% } else {%>
+            <img class="film__poster" src= <%= film.Poster %> />
+        <% } %>
+        <div class="film__content">
+            <h1 class="film__title"><%= film.Title %></h1>
+            <p><%= film.Year %> </p>
+        </div>
+        <a href="#">Find Out More...</a>
+    </div>
+<% }) %>
+
+<% include partials/footer.ejs %>
