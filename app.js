@@ -24,6 +24,21 @@ app.get("/search", function(req,res){
     });
 });
 
+app.get("/films/:id", function(req, res){
+    let filmID = req.params.id;
+
+    fetch("http://www.omdbapi.com/?apikey=5f9b92a2&i="+filmID)
+    .then(handleResponseError)
+    .then(response => response.json())
+    .then(data => {
+        res.render("films/show", {
+            data:data
+        });
+    }).catch(error => {
+        res.redirect("/error");
+    });
+}); 
+
 app.get("/error", function(req, res){
     res.render("error");
 }); 
