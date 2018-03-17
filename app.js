@@ -9,8 +9,9 @@ app.use(express.static(__dirname + "/styles"));
 app.get("/search", function(req,res){
     let filmName = req.query.filmName;
     let page = (req.query.page) ? parseInt(req.query.page) : 1;
-    
+
     fetch("http://www.omdbapi.com/?apikey=5f9b92a2&s="+filmName+"&page="+page+"&type=movie")
+    .then(handleResponseError)
     .then(response => response.json())
     .then(data => {
         res.render("search", {
@@ -18,8 +19,14 @@ app.get("/search", function(req,res){
             totalResults:data.totalResults,  
             filmName:filmName
         });
+    }).catch(error => {
+        res.redirect("/error");
     });
 });
+
+app.get("/error", function(req, res){
+    res.render("error");
+}); 
 
 app.get("/", function(req, res){
     res.render("home");
@@ -28,3 +35,10 @@ app.get("/", function(req, res){
 app.listen(3000, function(){
     console.log("Film App is running");
 });
+
+function handleResponseError(response){
+    if(!response.ok){
+        throw Error(response.statusText);
+    }
+    return response;
+}
