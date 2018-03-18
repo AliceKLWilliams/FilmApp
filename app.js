@@ -24,7 +24,7 @@ app.get("/search", function(req,res){
         let paginationStart = page - paginationRange;
         let numberPages = Math.ceil(data.totalResults/10);
         if(page === numberPages){
-            paginationStart = page - (paginationRange+1);
+            paginationStart = page - (paginationRange+2);
         } else if(page === 1){
             paginationStart = page;
         }
@@ -33,7 +33,7 @@ app.get("/search", function(req,res){
         if(page === numberPages){
             paginationEnd = page;
         } else if(page === 1){
-            paginationEnd = page + (paginationRange+1);
+            paginationEnd = page + (paginationRange+2);
         }
 
         let paginationData = [];
