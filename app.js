@@ -18,10 +18,37 @@ app.get("/search", function(req,res){
     .then(handleResponseError)
     .then(response => response.json())
     .then(data => {
+
+        let paginationRange = 2;
+
+        let paginationStart = page - paginationRange;
+        let numberPages = Math.ceil(data.totalResults/10);
+        if(page === numberPages){
+            paginationStart = page - (paginationRange+1);
+        } else if(page === 1){
+            paginationStart = page;
+        }
+
+        let paginationEnd = page+paginationRange;
+        if(page === numberPages){
+            paginationEnd = page;
+        } else if(page === 1){
+            paginationEnd = page + (paginationRange+1);
+        }
+
+        let paginationData = [];
+        for(let i = paginationStart; i<= paginationEnd; i++){
+            if(i > 0 && i<=numberPages){
+                paginationData.push(i);
+            }
+        }
+
         res.render("search", {
             films:data.Search,
             totalResults:data.totalResults,  
-            filmName:filmName
+            searchQuery:filmName,
+            currentPage:page,
+            paginationData:paginationData
         });
     }).catch(error => {
         res.redirect("/error");
