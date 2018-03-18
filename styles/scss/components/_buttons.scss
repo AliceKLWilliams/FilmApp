@@ -1,0 +1,22 @@
+.btn{
+    text-transform:uppercase;
+    letter-spacing: 1px;
+    font-weight:$bold;
+
+    padding:5px;
+
+    border-radius:10px;
+
+    background: transparent;
+    border:none;
+
+    cursor:pointer;
+
+    &--large{
+        font-size:$size-large;
+    }
+
+    &--med{
+        font-size:$size-med;
+    }
+}

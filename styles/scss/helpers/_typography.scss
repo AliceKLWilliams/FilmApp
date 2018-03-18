@@ -1,0 +1,20 @@
+$base-font-stack: 'Josefin Sans', Tahoma, Geneva, Verdana, sans-serif;
+
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+$size-med:14pt;
+$size-large: 30pt;
+$size-xl: 60pt;
+
+.header{
+    text-transform: uppercase;
+
+    &--large{
+        @extend .header;
+        
+        font-size:$size-xl;
+        letter-spacing: 5px;
+    }
+}

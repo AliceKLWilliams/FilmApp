@@ -1,4 +1,13 @@
-@import "reset";
+@import "helpers/typography";
+@import "helpers/colours";
+@import "helpers/reset";
+@import "helpers/mixins";
+@import "helpers/layout";
 
-@import "films";
-@import "home";
+@import "components/pagination";
+@import "components/navigation";
+@import "components/buttons";
+@import "components/films";
+@import "components/search";
+
+@import "pages/home";

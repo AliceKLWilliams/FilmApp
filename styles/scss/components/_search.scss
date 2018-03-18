@@ -1,0 +1,50 @@
+.search{
+    margin:10px;
+
+    display:flex;
+    align-items: center;
+
+    &__bar{
+        background:transparent;
+
+        border:none;
+        border-bottom:4px solid black;
+    
+        &::placeholder{
+            font-family: $base-font-stack;
+            color:$txt-primary;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight:$bold;
+        }
+    
+        &:focus{
+            outline:none;
+        }
+    }
+
+
+    &--large{
+        height:75px;
+
+        .search__bar{
+            padding:20px;
+            
+            margin:20px;
+            width:600px;
+
+            font-size:$size-large;
+        }
+    }
+
+    &--med{
+        .search__bar{
+            width:300px;
+            
+            padding:5px;
+
+            font-size: $size-med;
+            border-width:2px;
+        }
+    }
+}

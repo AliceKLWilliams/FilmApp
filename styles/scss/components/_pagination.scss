@@ -1,0 +1,32 @@
+.pagination{
+    @extend .full-width;
+    @extend .vh-centre;
+
+    margin:30px 0px;
+
+    &__link{
+        padding:5px;
+        font-size:$size-med;
+        
+        position:relative;
+
+        margin:0px 10px;
+
+        &::after{
+            width:100%;
+
+            position: absolute;
+            left:0px;
+            top:100%;
+
+            border-bottom:2px solid black;
+            content:"";
+            
+            display:none;
+        }
+
+        &:hover::after{
+            display:inline-block;
+        }
+    }
+}
