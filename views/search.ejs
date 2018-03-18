@@ -25,7 +25,9 @@
     </div>
 
 <% } else { %>
-    <h1>Sorry... Nothing matched <%= filmName %></h1>
+    <div class="msg-container">
+        <h1 class="msg">Sorry... Nothing matched <%= filmName %></h1>
+    </div>
 <% } %>
 
 <% let numberPages = Math.ceil(totalResults/10); %>

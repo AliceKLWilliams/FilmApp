@@ -1,10 +1,6 @@
 .hero{
-    display:inline-block;
+    @include flex-container(center, center, wrap, column);
 
-    left:50%;
-    top:50%;
-
-    transform:translate(50%, 60%);
-
-    text-align: center;
+    margin-top:100px;
+    width:100%;
 }

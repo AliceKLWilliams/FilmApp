@@ -9,6 +9,8 @@
 
         border:none;
         border-bottom:4px solid black;
+
+        font-family: $base-font-stack;
     
         &::placeholder{
             font-family: $base-font-stack;
@@ -21,6 +23,11 @@
         &:focus{
             outline:none;
         }
+    }
+
+    &__btn:hover{
+        position: relative;
+        left:3px;
     }
 
 

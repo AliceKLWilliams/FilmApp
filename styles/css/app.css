@@ -1,8 +1,26 @@
-.header, .header--large {
+.header {
   text-transform: uppercase; }
-  .header--large {
+  .header--xl {
     font-size: 60pt;
-    letter-spacing: 5px; }
+    letter-spacing: 5px;
+    margin: 30px 0px; }
+  .header--large {
+    font-size: 40pt;
+    letter-spacing: 5px;
+    margin: 6px 0px; }
+  .header--med {
+    font-size: 20pt;
+    letter-spacing: 3px;
+    margin: 5px 0px; }
+  .header--sm {
+    font-size: 16pt;
+    margin: 2px 0px; }
+
+.msg-container {
+  margin-top: 100px; }
+
+.msg {
+  font-size: 40pt; }
 
 html, body {
   widows: 100%;
@@ -24,21 +42,31 @@ a {
 a:visited {
   color: black; }
 
-.vh-centre, .pagination {
+p {
+  font-size: 14pt; }
+
+.full-width, .msg-container, .pagination {
+  width: 100%; }
+
+.h-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row; }
+
+.vh-centre, .msg-container, .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row; }
 
-.full-width, .pagination {
-  width: 100%; }
-
 .pagination {
   margin: 30px 0px; }
   .pagination__link {
     padding: 5px;
-    font-size: 14pt;
+    font-size: 20pt;
     position: relative;
     margin: 0px 10px; }
     .pagination__link::after {
@@ -82,9 +110,9 @@ a:visited {
   border: none;
   cursor: pointer; }
   .btn--large {
-    font-size: 30pt; }
+    font-size: 40pt; }
   .btn--med {
-    font-size: 14pt; }
+    font-size: 20pt; }
 
 .film {
   display: inline-block;
@@ -103,8 +131,41 @@ a:visited {
     align-items: center;
     margin: 20px 0px; }
   .film__title {
-    font-size: 14pt;
+    font-size: 20pt;
     width: 70%; }
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: no-wrap;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 30px 0px;
+  width: 90%;
+  padding: 30px;
+  background: white; }
+  .card__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: no-wrap;
+    flex-direction: row;
+    height: 100%; }
+  .card__poster {
+    width: 100%; }
+  .card__column {
+    margin: 0px 20px; }
+    .card__column--left {
+      text-align: right;
+      width: 35%; }
+    .card__column--right {
+      text-align: left;
+      width: 35%; }
+    .card__column--centre {
+      width: 30%; }
+  .card__section {
+    margin: 40px 0px; }
 
 .search {
   margin: 10px;
@@ -113,7 +174,8 @@ a:visited {
   .search__bar {
     background: transparent;
     border: none;
-    border-bottom: 4px solid black; }
+    border-bottom: 4px solid black;
+    font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif; }
     .search__bar::placeholder {
       font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
       color: #222222;
@@ -122,24 +184,29 @@ a:visited {
       font-weight: 700; }
     .search__bar:focus {
       outline: none; }
+  .search__btn:hover {
+    position: relative;
+    left: 3px; }
   .search--large {
     height: 75px; }
     .search--large .search__bar {
       padding: 20px;
       margin: 20px;
       width: 600px;
-      font-size: 30pt; }
+      font-size: 40pt; }
   .search--med .search__bar {
     width: 300px;
     padding: 5px;
-    font-size: 14pt;
+    font-size: 20pt;
     border-width: 2px; }
 
 .hero {
-  display: inline-block;
-  left: 50%;
-  top: 50%;
-  transform: translate(50%, 60%);
-  text-align: center; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 100%; }
 
 /*# sourceMappingURL=app.css.map */

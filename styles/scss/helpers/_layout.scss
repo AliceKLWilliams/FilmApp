@@ -1,3 +1,11 @@
 .full-width{
     width:100%;
 }
+
+.h-left{
+    @include flex-container(center, flex-start);
+}
+
+.vh-centre{
+    @include flex-container(center, center);
+}
