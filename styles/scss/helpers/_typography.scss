@@ -4,42 +4,42 @@ $light: 300;
 $normal: 400;
 $bold: 700;
 
-$size-xs:14pt;
-$size-sm:16pt;
-$size-med:20pt;
-$size-large: 40pt;
-$size-xl: 60pt;
+$txt-xs:14pt;
+$txt-sm:16pt;
+$txt-med:20pt;
+$txt-large: 40pt;
+$txt-xl: 60pt;
 
-.header{
+h1, h2, h3, h4, h5, h6{
     text-transform: uppercase;
-
-    &--xl{
-        font-size:$size-xl;
-        letter-spacing: 5px;
-
-        margin:30px 0px;
-    }
-
-    &--large{
-        font-size:$size-large;
-        letter-spacing: 5px;
-
-        margin:6px 0px;
-    }
-
-    &--med{
-        font-size:$size-med;
-        letter-spacing: 3px;
-
-        margin:5px 0px;
-    }
-
-    &--sm{
-        font-size: $size-sm;
-        margin:2px 0px;
-    }
 }
 
+h1{
+    font-size:$txt-xl;
+    letter-spacing: 5px;
+    margin:30px 0px;
+}
+
+h2{
+    font-size:$txt-large;
+    letter-spacing: 5px;
+    margin:6px 0px;
+}
+
+h3{
+    font-size:$txt-med;
+    letter-spacing: 3px;
+    margin:5px 0px;
+}
+
+h4{
+    font-size: $txt-sm;
+    margin:2px 0px;
+}
+
+p{
+    font-size:$txt-xs;
+}
 
 .msg-container{
     @extend .vh-centre;
@@ -49,5 +49,5 @@ $size-xl: 60pt;
 }
 
 .msg{
-    font-size:$size-large;
+    font-size:$txt-large;
 }

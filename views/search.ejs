@@ -16,7 +16,7 @@
                 <img class="film__poster" src= <%= film.Poster %> />
             <% } %>
             <div class="film__content">
-                <h1 class="film__title"><%= film.Title %></h1>
+                <h4 class="film__title"><%= film.Title %></h4>
                 <p><%= film.Year %> </p>
             </div>
             <a class="btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i></a>
@@ -26,7 +26,7 @@
 
 <% } else { %>
     <div class="msg-container">
-        <h1 class="msg">Sorry... Nothing matched <%= searchQuery %></h1>
+        <h3 class="msg">Sorry... Nothing matched <%= searchQuery %></h3>
     </div>
 <% } %>
 
