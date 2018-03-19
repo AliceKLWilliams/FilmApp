@@ -1,6 +1,5 @@
 .home-container{
     @include flex-container(center, center, wrap, column);
-
     margin-top:100px;
     width:100%;
 }
