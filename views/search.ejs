@@ -1,9 +1,13 @@
 <% include partials/header.ejs %>
 
-<% include partials/search.ejs %>
+<div class="vh-centre full-width">
+
+    <%- include("partials/search-bar",{size:"med"}) %>
+
+</div>
 
 <% if(films) { %>
-
+    <div class="full-width vh-centre">
     <% films.forEach(film => { %>
         <div class="film">
             <% if(film.Poster === "N/A") { %>
@@ -15,18 +19,27 @@
                 <h1 class="film__title"><%= film.Title %></h1>
                 <p><%= film.Year %> </p>
             </div>
-            <a href="/films/<%=film.imdbID%>">Find Out More...</a>
+            <a class="btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i></a>
         </div>
     <% }) %>
+    </div>
 
 <% } else { %>
-    <h1>Sorry... Nothing matched <%= filmName %></h1>
+    <div class="msg-container">
+        <h1 class="msg">Sorry... Nothing matched <%= searchQuery %></h1>
+    </div>
 <% } %>
 
 <% let numberPages = Math.ceil(totalResults/10); %>
 <div class="pagination">
-    <% for(let i = 0; i < numberPages; i++){ %>
-        <a href="/search?filmName=<%=filmName %>&page=<%=i+1%>"><%= i+1 %></button>
+    <% if(currentPage !== 1) { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>
+    <% } %>
+    <% paginationData.forEach((pageNum) => { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum%></a>
+    <% }); %>
+    <% if(currentPage !== numberPages) { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link"><i class="fa fa-arrow-right"></i></a>
     <% } %>
 </div>
 

@@ -1,28 +1,46 @@
 <% include ../partials/header %>
 
-<% include ../partials/search %>
+<div class="vh-centre full-width">
+    <div class="card">
+    <h1 class="header header--large"><%=data.Title%></h1>
+    <div class="card__content">
+        <div class="card__column card__column--left">
 
+            <div class="card__section">
+                <h2 class="header header--med">Information</h2>
+                <p><%=data.Released%></p>
+                <p><%=data.Runtime%></p>
+                <p><%=data.Genre%></p>
+            </div>
 
-<img src="<%=data.Poster%>"/>
-<h1><%=data.Title%></h1>
+            <div class="card__section">
+                <h2 class="header header--med">Cast and Crew</h2>
+                <p>Director: <%=data.Director%></p>
+                <p>Writer(s): <%=data.Writer%></p>
+                <p>Actors: <%=data.Actors%></p>
+            </div>
+        </div>
+        
+        <div class="card__column card__column--centre">
+            <img class="card__poster" src="<%=data.Poster%>"/>
+        </div>
+        
 
-<h2>Information</h2>
-<p><%=data.Released%></p>
-<p><%=data.Runtime%></p>
-<p><%=data.Genre%></p>
+        <div class="card__column card__column--right">
+            <div class="card__section">
+                <h2 class="header header--med">Plot</h2>
+                <p><%=data.Plot%></p>
+            </div>
 
-<h2>Cast and Crew</h2>
-<p>Director: <%=data.Director%></p>
-<p>Writer(s): <%=data.Writer%></p>
-<p>Actors: <%=data.Actors%></p>
-
-<h2>Plot</h2>
-<p><%=data.Plot%></p>
-
-<h2>Critics</h2>
-<% data.Ratings.forEach(rating => { %>
-    <strong><%=rating.Source%></strong><p><%=rating.Value%></p>
-<% }); %>
-
+            <div class="card__section">
+                <h2 class="header header--med">Critics</h2>
+                <% data.Ratings.forEach(rating => { %>
+                    <strong class="header header--sm"><%=rating.Source%></strong><p><%=rating.Value%></p>
+                <% }); %>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
 
 <% include ../partials/footer %>

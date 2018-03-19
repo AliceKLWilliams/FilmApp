@@ -1,11 +1,8 @@
 <% include partials/header.ejs %>
 
-<div class="home">
-
-    <h1 class="large-header">Search</h1>
-    
-    <% include partials/search.ejs %>
-
+<div class="hero">
+    <h1 class="header header--xl">Search</h1>
+    <%- include("partials/search-bar",{size:"large"}) %>
 </div>
 
 <% include partials/footer.ejs %>

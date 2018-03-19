@@ -1,0 +1,53 @@
+$base-font-stack: 'Josefin Sans', Tahoma, Geneva, Verdana, sans-serif;
+
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+$size-xs:14pt;
+$size-sm:16pt;
+$size-med:20pt;
+$size-large: 40pt;
+$size-xl: 60pt;
+
+.header{
+    text-transform: uppercase;
+
+    &--xl{
+        font-size:$size-xl;
+        letter-spacing: 5px;
+
+        margin:30px 0px;
+    }
+
+    &--large{
+        font-size:$size-large;
+        letter-spacing: 5px;
+
+        margin:6px 0px;
+    }
+
+    &--med{
+        font-size:$size-med;
+        letter-spacing: 3px;
+
+        margin:5px 0px;
+    }
+
+    &--sm{
+        font-size: $size-sm;
+        margin:2px 0px;
+    }
+}
+
+
+.msg-container{
+    @extend .vh-centre;
+    @extend .full-width;
+
+    margin-top:100px;
+}
+
+.msg{
+    font-size:$size-large;
+}
