@@ -1,45 +1,41 @@
 <% include ../partials/header %>
 
 <div class="vh-centre full-width">
-    <div class="card">
-    <h1 class="header header--large"><%=data.Title%></h1>
-    <div class="card__content">
-        <div class="card__column card__column--left">
+    <div class="panel">
+        <h2 class="panel__title"><%=data.Title%></h2>
+            <div class="panel__column panel__column--left">
+                <div class="panel__section">
+                    <h3>Information</h3>
+                    <p><%=data.Released%></p>
+                    <p><%=data.Runtime%></p>
+                    <p><%=data.Genre%></p>
+                </div>
 
-            <div class="card__section">
-                <h2 class="header header--med">Information</h2>
-                <p><%=data.Released%></p>
-                <p><%=data.Runtime%></p>
-                <p><%=data.Genre%></p>
+                <div class="panel__section">
+                    <h3>Cast and Crew</h3>
+                    <p>Director: <%=data.Director%></p>
+                    <p>Writer(s): <%=data.Writer%></p>
+                    <p>Actors: <%=data.Actors%></p>
+                </div>
             </div>
-
-            <div class="card__section">
-                <h2 class="header header--med">Cast and Crew</h2>
-                <p>Director: <%=data.Director%></p>
-                <p>Writer(s): <%=data.Writer%></p>
-                <p>Actors: <%=data.Actors%></p>
-            </div>
-        </div>
         
-        <div class="card__column card__column--centre">
-            <img class="card__poster" src="<%=data.Poster%>"/>
-        </div>
-        
-
-        <div class="card__column card__column--right">
-            <div class="card__section">
-                <h2 class="header header--med">Plot</h2>
-                <p><%=data.Plot%></p>
+            <div class="panel__column panel__column--centre">
+                <img class="panel__poster" src="<%=data.Poster%>"/>
             </div>
 
-            <div class="card__section">
-                <h2 class="header header--med">Critics</h2>
-                <% data.Ratings.forEach(rating => { %>
-                    <strong class="header header--sm"><%=rating.Source%></strong><p><%=rating.Value%></p>
-                <% }); %>
+            <div class="panel__column panel__column--right">
+                <div class="panel__section">
+                    <h3>Plot</h3>
+                    <p><%=data.Plot%></p>
+                </div>
+
+                <div class="panel__section">
+                    <h3>Critics</h3>
+                    <% data.Ratings.forEach(rating => { %>
+                        <strong><%=rating.Source%></strong><p><%=rating.Value%></p>
+                    <% }); %>
+                </div>
             </div>
-        </div>
-        </div>
     </div>
 </div>
 

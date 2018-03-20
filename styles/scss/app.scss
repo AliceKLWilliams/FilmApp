@@ -7,7 +7,9 @@
 @import "components/pagination";
 @import "components/navigation";
 @import "components/buttons";
-@import "components/films";
+@import "components/panel";
+@import "components/film";
 @import "components/search";
 
-@import "pages/home";
+@import "layouts/home";
+@import "layouts/search";
