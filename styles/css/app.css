@@ -60,6 +60,12 @@ a:visited {
   flex-wrap: wrap;
   flex-direction: row; }
 
+.text-right {
+  text-align: right; }
+
+.text-centre {
+  text-align: center; }
+
 .pagination {
   margin: 30px 0px; }
   .pagination__link {
@@ -111,57 +117,52 @@ a:visited {
   .btn--med {
     font-size: 20pt; }
 
-.film {
+.panel {
+  background: #E8F1F2;
+  border-radius: 10px;
+  width: 90%;
+  margin: 30px 0px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 6fr;
+  grid-gap: 10px 20px; }
+  .panel__title {
+    grid-column: 1 / span 3;
+    margin: auto; }
+  .panel__poster {
+    width: 80%;
+    min-width: 200px;
+    margin: auto; }
+  .panel__column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .panel__column--left {
+      text-align: right; }
+    .panel__column--right {
+      text-align: left; }
+  .panel__section {
+    margin: 40px 0px; }
+
+.card {
+  background: #E8F1F2;
   display: inline-block;
+  border-radius: 10px;
   margin: 20px;
   padding: 20px;
   width: 20%;
-  vertical-align: middle;
-  background: #E8F1F2;
-  border-radius: 10px; }
-  .film__poster {
+  vertical-align: middle; }
+  .card__poster {
     width: 100%; }
-  .film__content {
+  .card__content {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: 20px 0px; }
-  .film__title {
+  .card__title {
     width: 70%; }
-
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: no-wrap;
-  flex-direction: column;
-  border-radius: 10px;
-  margin: 30px 0px;
-  width: 90%;
-  padding: 30px;
-  background: white; }
-  .card__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: no-wrap;
-    flex-direction: row;
-    height: 100%; }
-  .card__poster {
-    width: 100%; }
-  .card__column {
-    margin: 0px 20px; }
-    .card__column--left {
-      text-align: right;
-      width: 35%; }
-    .card__column--right {
-      text-align: left;
-      width: 35%; }
-    .card__column--centre {
-      width: 30%; }
-  .card__section {
-    margin: 40px 0px; }
 
 .search {
   margin: 10px;

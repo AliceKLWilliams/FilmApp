@@ -9,14 +9,14 @@
 <% if(films) { %>
     <div class="full-width vh-centre">
     <% films.forEach(film => { %>
-        <div class="film">
+        <div class="card">
             <% if(film.Poster === "N/A") { %>
-                <img class="film__poster" src= "http://via.placeholder.com/350x450" />
+                <img class="card__poster" src= "http://via.placeholder.com/350x450" />
             <% } else {%>
-                <img class="film__poster" src= <%= film.Poster %> />
+                <img class="card__poster" src= <%= film.Poster %> />
             <% } %>
-            <div class="film__content">
-                <h4 class="film__title"><%= film.Title %></h4>
+            <div class="card__content">
+                <h4 class="card__title"><%= film.Title %></h4>
                 <p><%= film.Year %> </p>
             </div>
             <a class="btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i></a>

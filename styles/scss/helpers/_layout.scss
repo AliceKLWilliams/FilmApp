@@ -9,3 +9,11 @@
 .vh-centre{
     @include flex-container(center, center);
 }
+
+.text-right{
+    text-align: right;
+}
+
+.text-centre{
+    text-align: center;
+}
