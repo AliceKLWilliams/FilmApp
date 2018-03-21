@@ -34,14 +34,15 @@ html, body {
 * {
   padding: 0px;
   margin: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif; }
 
 a {
   text-decoration: none;
-  color: black; }
+  color: #222222; }
 
 a:visited {
-  color: black; }
+  color: #222222; }
 
 .full-width, .pagination, .msg {
   width: 100%; }
@@ -50,6 +51,13 @@ a:visited {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row; }
+
+.h-centre {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   flex-direction: row; }
 
@@ -65,6 +73,22 @@ a:visited {
 
 .text-centre {
   text-align: center; }
+
+.width-80 {
+  width: 80%;
+  margin: auto; }
+
+.form {
+  margin: 30px; }
+  .form__textarea {
+    resize: none;
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt; }
+  .form__btn {
+    font-size: 20pt; }
 
 .pagination {
   margin: 30px 0px; }
@@ -103,23 +127,27 @@ a:visited {
     .nav__link:hover::after {
       display: inline-block; }
 
-.btn {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  padding: 5px;
-  border-radius: 10px;
-  background: transparent;
+.btn, .form__btn, .search .search__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  background-color: white;
   border: none;
+  padding: 5px;
   cursor: pointer; }
-  .btn--large {
-    font-size: 40pt; }
+  .btn__icon {
+    font-size: 20pt;
+    margin: 4px 0px; }
   .btn--med {
     font-size: 20pt; }
 
 .panel {
   background: #E8F1F2;
-  border-radius: 10px;
   width: 90%;
   margin: 30px 0px;
   padding: 30px;
@@ -167,11 +195,12 @@ a:visited {
 .search {
   margin: 10px;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  border: 2px solid black;
+  border-right: none; }
   .search__bar {
     background: transparent;
     border: none;
-    border-bottom: 4px solid black;
     font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif; }
     .search__bar::placeholder {
       font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
@@ -181,21 +210,22 @@ a:visited {
       font-weight: 700; }
     .search__bar:focus {
       outline: none; }
-  .search__btn:hover {
-    position: relative;
-    left: 3px; }
+  .search .search__btn {
+    height: 100%; }
   .search--large {
-    height: 75px; }
+    height: 100px; }
     .search--large .search__bar {
       padding: 20px;
       margin: 20px;
       width: 600px;
       font-size: 40pt; }
-  .search--med .search__bar {
-    width: 300px;
-    padding: 5px;
-    font-size: 20pt;
-    border-width: 2px; }
+  .search--med {
+    height: 60px; }
+    .search--med .search__bar {
+      width: 300px;
+      padding: 5px;
+      font-size: 20pt;
+      border-width: 2px; }
 
 .home-container {
   display: flex;
@@ -208,5 +238,12 @@ a:visited {
 
 .msg {
   margin: 50px 0px; }
+
+.show-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column; }
 
 /*# sourceMappingURL=app.css.map */

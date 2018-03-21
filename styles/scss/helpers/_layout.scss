@@ -6,6 +6,10 @@
     @include flex-container(center, flex-start);
 }
 
+.h-centre{
+    @include flex-container(flex-start, center);
+}
+
 .vh-centre{
     @include flex-container(center, center);
 }
@@ -16,4 +20,9 @@
 
 .text-centre{
     text-align: center;
+}
+
+.width-80{
+    width:80%;
+    margin:auto;
 }

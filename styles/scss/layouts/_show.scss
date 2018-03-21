@@ -1,0 +1,3 @@
+.show-container{
+    @include flex-container(center, flex-start, wrap, column);
+}

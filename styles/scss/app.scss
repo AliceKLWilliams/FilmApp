@@ -4,6 +4,7 @@
 @import "helpers/mixins";
 @import "helpers/layout";
 
+@import "components/form";
 @import "components/pagination";
 @import "components/navigation";
 @import "components/buttons";
@@ -13,3 +14,4 @@
 
 @import "layouts/home";
 @import "layouts/search";
+@import "layouts/show";

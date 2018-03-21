@@ -63,12 +63,17 @@ app.get("/films/:id", function(req, res){
     .then(response => response.json())
     .then(data => {
         res.render("films/show", {
-            data:data
+            data:data,
+            filmID:filmID
         });
     }).catch(error => {
         res.redirect("/error");
     });
-}); 
+});
+
+app.get("/films/:filmID/reviews/new", function(req, res){
+    res.render("reviews/new");
+});
 
 app.get("/error", function(req, res){
     res.render("error");

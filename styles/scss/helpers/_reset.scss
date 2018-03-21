@@ -14,14 +14,15 @@ html, body{
     margin:0px;
 
     box-sizing:border-box;
+    font-family:$base-font-stack;
 }
 
 a{
     text-decoration: none;
-    color:black;
+    color:$txt-primary;
 }
 
 a:visited{
-    color:black;
+    color:$txt-primary;
 }
 

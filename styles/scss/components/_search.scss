@@ -4,11 +4,13 @@
     display:flex;
     align-items: center;
 
+    border:2px solid black;
+    border-right:none;
+
     &__bar{
         background:transparent;
 
         border:none;
-        border-bottom:4px solid black;
 
         font-family: $base-font-stack;
     
@@ -25,14 +27,14 @@
         }
     }
 
-    &__btn:hover{
-        position: relative;
-        left:3px;
+    .search__btn{
+        @extend .btn;
+        height:100%;
     }
 
 
     &--large{
-        height:75px;
+        height:100px;
 
         .search__bar{
             padding:20px;
@@ -45,6 +47,7 @@
     }
 
     &--med{
+        height:60px;
         .search__bar{
             width:300px;
             
