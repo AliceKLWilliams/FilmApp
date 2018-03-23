@@ -2,11 +2,24 @@ let express = require("express");
 let app = express();
 
 let fetch = require("node-fetch");
+let methodOverride = require("method-override");
+let mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost/FilmApp");
 
 require("dotenv").config();
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/styles"));
+app.use(methodOverride("_method"));
+
+let bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//Tables
+let Review = require("./models/Review");
+let Film = require("./models/Film");
 
 let apikey = process.env.APIKEY;
 
@@ -61,18 +74,36 @@ app.get("/films/:id", function(req, res){
     fetch("http://www.omdbapi.com/?apikey="+apikey+"&plot=full&i="+filmID)
     .then(handleResponseError)
     .then(response => response.json())
-    .then(data => {
-        res.render("films/show", {
-            data:data,
-            filmID:filmID
+    .then(APIData => {
+        Film.findOne({filmID:filmID}).populate("reviews").exec(function(err, foundFilm){
+            res.render("films/show", {
+                data:APIData,
+                modelData:foundFilm
+            });
         });
     }).catch(error => {
         res.redirect("/error");
     });
 });
 
+app.post("/films/:filmID/reviews", function(req, res){
+    Review.create({text:req.body.review}, function(err, newReview){
+        Film.findOne({filmID:req.params.filmID}, function(err, foundFilm){
+            if(foundFilm){
+                foundFilm.reviews.push(newReview._id);
+                foundFilm.save((err, film) => {if(err) console.log(err)});
+            } else{
+                Film.create({filmID: req.params.filmID, reviews:[newReview._id]}, (err, newFilm) => {
+                    if(err) console.log(err);
+                });
+            }
+            res.redirect("/films/"+req.params.filmID);
+        });
+    });
+});
+
 app.get("/films/:filmID/reviews/new", function(req, res){
-    res.render("reviews/new");
+    res.render("reviews/new", {filmID: req.params.filmID});
 });
 
 app.get("/error", function(req, res){

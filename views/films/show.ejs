@@ -39,11 +39,17 @@
     </div>
 
     <div class="buttons">
-        <a class="film-btn" href="/films/<%=filmID%>/reviews/new">
+        <a class="film-btn" href="/films/<%=data.imdbID%>/reviews/new">
             <i class="fa fa-star film-btn__icon"></i>
             <p>Add Review</p>
         </a>
     </div>
+
+    <% if(modelData) { %>
+        <% modelData.reviews.forEach(review => { %>
+            <p><%= review.text %></p>
+        <% }); %>
+    <% } %>
 </div>
 
 <% include ../partials/footer %>

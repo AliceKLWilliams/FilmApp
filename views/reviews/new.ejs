@@ -4,12 +4,10 @@
     <h2>Add Review</h2>
     <h3>Film Name</h3>
 
-    <form class="form">
+    <form class="form" method="POST" action="/films/<%=filmID %>/reviews">
         <textarea class="form__textarea" name="review" placeholder="Review..."></textarea>
         <input class="form__btn" type="submit">
     </form>
 <div>
-
-
 
 <% include ../partials/footer %>
