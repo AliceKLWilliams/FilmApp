@@ -1,27 +1,34 @@
 let express = require("express");
-let app = express();
-
-let fetch = require("node-fetch");
 let methodOverride = require("method-override");
 let mongoose = require("mongoose");
+let fetch = require("node-fetch");
+let bodyParser = require("body-parser");
+
+let app = express();
+
+app.set("view engine", "ejs");
+
+app.use(express.static(__dirname + "/styles"));
+app.use(methodOverride("_method"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 mongoose.connect("mongodb://localhost/FilmApp");
 
 require("dotenv").config();
-
-app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/styles"));
-app.use(methodOverride("_method"));
-
-let bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+let apikey = process.env.APIKEY;
 
 //Tables
 let Review = require("./models/Review");
 let Film = require("./models/Film");
 
-let apikey = process.env.APIKEY;
+// Routes
+let filmRoutes = require("./routes/films");
+let reviewRoutes = require("./routes/reviews");
+
+app.use("/films", filmRoutes);
+app.use("/films/:filmID/reviews", reviewRoutes);
 
 app.get("/search", function(req,res){
     let filmName = req.query.filmName;
@@ -68,81 +75,6 @@ app.get("/search", function(req,res){
     });
 });
 
-app.get("/films/:id", function(req, res){
-    let filmID = req.params.id;
-
-    fetch("http://www.omdbapi.com/?apikey="+apikey+"&plot=full&i="+filmID)
-    .then(handleResponseError)
-    .then(response => response.json())
-    .then(APIData => {
-        Film.findOne({filmID:filmID}).populate("reviews").exec(function(err, foundFilm){
-            res.render("films/show", {
-                data:APIData,
-                modelData:foundFilm
-            });
-        });
-    }).catch(error => {
-        res.redirect("/error");
-    });
-});
-
-app.put("/films/:filmID/reviews/:reviewID", function(req, res){
-    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review}, function(err, review){
-        if(err){
-            console.log(err);
-        } else{
-            res.redirect("/films/"+req.params.filmID);
-        }
-    });
-});
-
-app.get("/films/:filmID/reviews/new", function(req, res){
-    res.render("reviews/new", {filmID: req.params.filmID});
-});
-
-
-app.get("/films/:filmID/reviews/:reviewID", function(req, res){
-    Review.findById(req.params.reviewID, function(err, foundReview){
-        if(err){
-            console.log(err);
-        } else{
-            res.render("reviews/edit", {review:foundReview, filmID:req.params.filmID});
-        }
-    }); 
-}); 
-
-app.post("/films/:filmID/reviews", function(req, res){
-    Review.create({text:req.body.review}, function(err, newReview){
-        Film.findOne({filmID:req.params.filmID}, function(err, foundFilm){
-            if(foundFilm){
-                foundFilm.reviews.push(newReview._id);
-                foundFilm.save((err, film) => {if(err) console.log(err)});
-            } else{
-                Film.create({filmID: req.params.filmID, reviews:[newReview._id]}, (err, newFilm) => {
-                    if(err) console.log(err);
-                });
-            }
-            res.redirect("/films/"+req.params.filmID);
-        });
-    });
-});
-
-
-
-
-app.delete("/films/:filmID/reviews/:reviewID", function(req, res){
-    Film.update({filmID: req.params.filmID} , {$pull:{reviews:req.params.reviewID}}, function(err, numRemoved){
-        if(err){
-            console.log(err);
-        } else{
-            Review.findByIdAndRemove(req.params.reviewID, function(err, review){
-                if(err) console.log(err);
-            });
-        }
-    });
-    res.redirect("/films/"+req.params.filmID);
-});
-
 app.get("/error", function(req, res){
     res.render("error");
 }); 
@@ -155,6 +87,7 @@ app.listen(3000, function(){
     console.log("Film App is running");
 });
 
+
 function handleResponseError(response){
     if(!response.ok){
         console.log(response.statusText);
@@ -162,3 +95,5 @@ function handleResponseError(response){
     }
     return response;
 }
+
+
