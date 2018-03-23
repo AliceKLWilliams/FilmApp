@@ -1,3 +1,11 @@
 .show-container{
-    @include flex-container(center, flex-start, wrap, column);
+    width:80%;
+    margin:auto;
+}
+
+.review{
+    background:$txt-white;
+    width:100%;
+    padding:20px;
+    margin:10px 0px;
 }
