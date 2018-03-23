@@ -47,11 +47,14 @@
 
     <div class="reviews">
     <h2>Reviews</h2>
-    <% if(modelData) { console.log(modelData);%>
+    <% if(modelData) { %>
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
                 <p><%= review.text %></p>
             </div>
+            <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
+                <button>Delete</button>
+            </form>
         <% }); %>
     <% } %>
     </div>

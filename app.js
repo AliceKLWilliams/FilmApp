@@ -106,6 +106,19 @@ app.get("/films/:filmID/reviews/new", function(req, res){
     res.render("reviews/new", {filmID: req.params.filmID});
 });
 
+app.delete("/films/:filmID/reviews/:reviewID", function(req, res){
+    Film.update({filmID: req.params.filmID} , {$pull:{reviews:req.params.reviewID}}, function(err, numRemoved){
+        if(err){
+            console.log(err);
+        } else{
+            Review.findByIdAndRemove(req.params.reviewID, function(err, review){
+                if(err) console.log(err);
+            });
+        }
+    });
+    res.redirect("/films/"+req.params.filmID);
+});
+
 app.get("/error", function(req, res){
     res.render("error");
 }); 
