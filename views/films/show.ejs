@@ -55,6 +55,7 @@
             <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
                 <button>Delete</button>
             </form>
+            <a href="/films/<%=data.imdbID%>/reviews/<%=review._id%>">Edit</a>
         <% }); %>
     <% } %>
     </div>

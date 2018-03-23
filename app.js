@@ -86,6 +86,31 @@ app.get("/films/:id", function(req, res){
     });
 });
 
+app.put("/films/:filmID/reviews/:reviewID", function(req, res){
+    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review}, function(err, review){
+        if(err){
+            console.log(err);
+        } else{
+            res.redirect("/films/"+req.params.filmID);
+        }
+    });
+});
+
+app.get("/films/:filmID/reviews/new", function(req, res){
+    res.render("reviews/new", {filmID: req.params.filmID});
+});
+
+
+app.get("/films/:filmID/reviews/:reviewID", function(req, res){
+    Review.findById(req.params.reviewID, function(err, foundReview){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("reviews/edit", {review:foundReview, filmID:req.params.filmID});
+        }
+    }); 
+}); 
+
 app.post("/films/:filmID/reviews", function(req, res){
     Review.create({text:req.body.review}, function(err, newReview){
         Film.findOne({filmID:req.params.filmID}, function(err, foundFilm){
@@ -102,9 +127,8 @@ app.post("/films/:filmID/reviews", function(req, res){
     });
 });
 
-app.get("/films/:filmID/reviews/new", function(req, res){
-    res.render("reviews/new", {filmID: req.params.filmID});
-});
+
+
 
 app.delete("/films/:filmID/reviews/:reviewID", function(req, res){
     Film.update({filmID: req.params.filmID} , {$pull:{reviews:req.params.reviewID}}, function(err, numRemoved){
