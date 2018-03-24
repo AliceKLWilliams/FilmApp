@@ -31,4 +31,24 @@ module.exports = class FilmAPI{
             });
         });
     }
+
+    GetShortPlots(IDs){
+        let promises = []
+        for(let i = 0; i < IDs.length; i++){
+            promises.push(this.SearchID(IDs[i], "short"));
+        }
+        let plots = [];
+
+        return new Promise(function(resolve, reject){
+            Promise.all(promises).then(films =>{
+                films.forEach(film => {
+                    plots.push(film.Plot);
+                });
+                resolve(plots);
+            }).catch(error =>{
+                reject(error);
+            });
+        });
+        
+    }
 }

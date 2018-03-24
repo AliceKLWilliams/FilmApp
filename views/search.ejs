@@ -8,7 +8,8 @@
 
 <% if(films) { %>
     <div class="card-container">
-    <% films.forEach(film => { %>
+    <% for(let i = 0; i < films.length; i++) { %>
+        <% let film = films[i]; %>
         <div class="card">
             <div class="card__background"></div>
             <% if(film.Poster === "N/A") { %>
@@ -20,13 +21,14 @@
                 <div class="card__header">
                     <h4 class="card__title"><%= film.Title %></h4>
                     <h5><%= film.Year %> </h5>
+                    <p class="card__desc"><%= filmPlots[i] %></p>
                 </div>
                 <div class="card__btns">
                     <a class="btn btn--rise" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
                 </div>
             </div>
         </div>
-    <% }) %>
+    <% } %>
     </div>
 
 <% } else { %>
