@@ -10,14 +10,14 @@
 
     cursor:pointer;
 
+    font-size:24pt;
+
     &--rise:hover{
         position:relative;
         top:-3px;
     }
 
-    &__icon{
-        font-size:24pt;
-        margin: 4px 0px;
+    &--large{
+        font-size:30pt;
     }
-
 }

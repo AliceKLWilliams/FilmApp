@@ -126,12 +126,12 @@ a:visited {
       position: absolute;
       left: 0px;
       top: 30px;
-      border-bottom: 4px solid black;
+      border-bottom: 2px solid #222222;
       content: ""; }
     .nav__link:hover::after {
       display: inline-block; }
 
-.btn, .form__btn, .search .search__btn {
+.btn, .form__btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,13 +141,13 @@ a:visited {
   background-color: transparent;
   border: none;
   padding: 10px;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 24pt; }
   .btn--rise:hover {
     position: relative;
     top: -3px; }
-  .btn__icon {
-    font-size: 24pt;
-    margin: 4px 0px; }
+  .btn--large {
+    font-size: 30pt; }
 
 .panel {
   background: #E8F1F2;
@@ -211,8 +211,7 @@ a:visited {
   margin: 10px;
   display: flex;
   align-items: center;
-  border: 2px solid black;
-  border-right: none; }
+  border-bottom: 2px solid #222222; }
   .search__bar {
     background: transparent;
     border: none;
@@ -225,17 +224,16 @@ a:visited {
       font-weight: 700; }
     .search__bar:focus {
       outline: none; }
-  .search .search__btn {
-    height: 100%; }
   .search--large {
-    height: 100px; }
+    height: 100px;
+    padding: 20px; }
     .search--large .search__bar {
-      padding: 20px;
       margin: 20px;
       width: 600px;
       font-size: 40pt; }
   .search--med {
-    height: 60px; }
+    height: 60px;
+    padding: 10px; }
     .search--med .search__bar {
       width: 300px;
       padding: 5px;

@@ -4,8 +4,7 @@
     display:flex;
     align-items: center;
 
-    border:2px solid black;
-    border-right:none;
+    border-bottom:2px solid $txt-primary;
 
     &__bar{
         background:transparent;
@@ -27,18 +26,11 @@
         }
     }
 
-    .search__btn{
-        @extend .btn;
-        height:100%;
-    }
-
-
     &--large{
         height:100px;
+        padding:20px;
 
         .search__bar{
-            padding:20px;
-            
             margin:20px;
             width:600px;
 
@@ -48,6 +40,8 @@
 
     &--med{
         height:60px;
+        padding:10px;
+
         .search__bar{
             width:300px;
             
