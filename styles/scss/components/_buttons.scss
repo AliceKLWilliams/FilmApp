@@ -1,24 +1,23 @@
 .btn{
     @include flex-container(center, center, wrap, column);
-    height:100px;
-    width:100px;
 
     text-align: center;
 
-    background-color:white;
+    background-color:transparent;
     border:none;
 
-    padding: 5px;
+    padding: 10px;
 
     cursor:pointer;
 
+    &--rise:hover{
+        position:relative;
+        top:-3px;
+    }
+
     &__icon{
-        font-size:20pt;
+        font-size:24pt;
         margin: 4px 0px;
     }
 
-
-    &--med{
-        font-size:$txt-med;
-    }
 }

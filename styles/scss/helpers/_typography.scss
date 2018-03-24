@@ -4,6 +4,7 @@ $light: 300;
 $normal: 400;
 $bold: 700;
 
+$txt-p: 12pt;
 $txt-xs:14pt;
 $txt-sm:16pt;
 $txt-med:20pt;
@@ -37,6 +38,12 @@ h4{
     margin:2px 0px;
 }
 
-p{
+h5{
     font-size:$txt-xs;
+    margin:2px 0px;
+}
+
+p{
+    font-size:$txt-p;
+    line-height:20px;
 }
