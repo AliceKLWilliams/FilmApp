@@ -8,19 +8,25 @@ let apikey = process.env.APIKEY;
 
 let Film = require("../models/Film");
 
+let FilmAPI = require("../js/FilmAPI");
+
 router.get("/:id", function(req, res){
     let filmID = req.params.id;
-    fetch("http://www.omdbapi.com/?apikey="+apikey+"&plot=full&i="+filmID)
-    .then(handleResponseError)
-    .then(response => response.json())
-    .then(APIData => {
+    let API = new FilmAPI(apikey);
+
+    let FilmPromise = API.SearchID(filmID, "full");
+
+    FilmPromise.then(function(data){
         Film.findOne({filmID:filmID}).populate("reviews").exec(function(err, foundFilm){
             res.render("films/show", {
-                data:APIData,
+                data:data,
                 modelData:foundFilm
             });
         });
-    }).catch(error => {
+    }, function(err){
+        throw Error(err.statusText);
+    }).catch(function(err){
+        console.log(err);
         res.redirect("/error");
     });
 });
