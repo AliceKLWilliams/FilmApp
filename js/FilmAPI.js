@@ -49,6 +49,5 @@ module.exports = class FilmAPI{
                 reject(error);
             });
         });
-        
     }
 }

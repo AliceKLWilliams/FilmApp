@@ -6,10 +6,9 @@
 
 </div>
 
-<% if(films) { %>
+<% if(searchResults.Search) { %>
     <div class="card-container">
-    <% for(let i = 0; i < films.length; i++) { %>
-        <% let film = films[i]; %>
+    <% searchResults.Search.forEach(film => { %>
         <div class="card">
             <div class="card__background"></div>
             <% if(film.Poster === "N/A") { %>
@@ -21,14 +20,14 @@
                 <div class="card__header">
                     <h4 class="card__title"><%= film.Title %></h4>
                     <h5><%= film.Year %> </h5>
-                    <p class="card__desc"><%= filmPlots[i] %></p>
+                    <p class="card__desc"><%= film.Plot %></p>
                 </div>
                 <div class="card__btns">
                     <a class="btn btn--rise" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
                 </div>
             </div>
         </div>
-    <% } %>
+    <% }); %>
     </div>
 
 <% } else { %>
@@ -37,7 +36,7 @@
     </div>
 <% } %>
 
-<% let numberPages = Math.ceil(totalResults/10); %>
+<% let numberPages = Math.ceil(searchResults.totalResults/10); %>
 <div class="pagination">
     <% if(currentPage !== 1) { %>
         <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>

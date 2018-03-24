@@ -42,12 +42,12 @@ app.get("/search", function (req, res) {
 
     let filmResultsPromise = API.SearchFilm(filmName, page);
     
-    filmResultsPromise.then(function (filmResults) {
+    filmResultsPromise.then(function (searchResults) {
 
        let paginationRange = 2;
 
         let paginationStart = page - paginationRange;
-        let numberPages = Math.ceil(filmResults.totalResults / 10);
+        let numberPages = Math.ceil(searchResults.totalResults / 10);
         if (page === numberPages) {
             paginationStart = page - (paginationRange + 2);
         } else if (page === 1) {
@@ -69,19 +69,21 @@ app.get("/search", function (req, res) {
         }
 
         let IDs = [];
-        filmResults.Search.forEach(film => {
+        searchResults.Search.forEach(film => {
             IDs.push(film.imdbID);
         });
 
         let plotPromise = API.GetShortPlots(IDs);
         plotPromise.then(function(plots){
+            for(let i = 0; i < searchResults.Search.length; i++){
+                searchResults.Search[i].Plot = plots[i];
+            }
+
             res.render("search", {
-                films: filmResults.Search,
-                totalResults: filmResults.totalResults,
+                searchResults:searchResults,
                 searchQuery: filmName,
                 currentPage: page,
                 paginationData: paginationData,
-                filmPlots:plots
             });
         });
            
