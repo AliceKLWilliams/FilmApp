@@ -39,13 +39,15 @@ module.exports = class FilmAPI{
         }
         let plots = [];
 
-        return new Promise(function(resolve, reject){
-            Promise.all(promises).then(films =>{
+        return new Promise((resolve, reject) => {
+            Promise.all(promises)
+            .then(films => {
                 films.forEach(film => {
                     plots.push(film.Plot);
                 });
                 resolve(plots);
-            }).catch(error =>{
+            })
+            .catch(error =>{
                 reject(error);
             });
         });

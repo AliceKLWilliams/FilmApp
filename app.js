@@ -38,13 +38,15 @@ app.get("/search", function (req, res) {
     let filmName = req.query.filmName;
     let page = (req.query.page) ? parseInt(req.query.page) : 1;
 
+    let pageParams = {};
+    pageParams.currentPage = page;
+    pageParams.searchQuery = filmName;
+
     let API = new FilmAPI(apikey);
-
     let filmResultsPromise = API.SearchFilm(filmName, page);
-    
-    filmResultsPromise.then(function (searchResults) {
+    filmResultsPromise.then(searchResults => {
 
-       let paginationRange = 2;
+        let paginationRange = 2;
 
         let paginationStart = page - paginationRange;
         let numberPages = Math.ceil(searchResults.totalResults / 10);
@@ -68,29 +70,24 @@ app.get("/search", function (req, res) {
             }
         }
 
+        pageParams.paginationData = paginationData;
+        pageParams.searchResults = searchResults;
+
         let IDs = [];
         searchResults.Search.forEach(film => {
             IDs.push(film.imdbID);
         });
 
-        let plotPromise = API.GetShortPlots(IDs);
-        plotPromise.then(function(plots){
-            for(let i = 0; i < searchResults.Search.length; i++){
-                searchResults.Search[i].Plot = plots[i];
-            }
+        return API.GetShortPlots(IDs);
+    })
+    .then(plots => {
+        for(let i = 0; i < pageParams.searchResults.Search.length; i++){
+            pageParams.searchResults.Search[i].Plot = plots[i];
+        }
 
-            res.render("search", {
-                searchResults:searchResults,
-                searchQuery: filmName,
-                currentPage: page,
-                paginationData: paginationData,
-            });
-        });
-           
-
-    }, function (err) {
-        throw Error(err.statusText);
-    }).catch(error => {
+        res.render("search", pageParams);
+    })
+    .catch(error => {
         console.log(error);
         res.redirect("/error");
     });
