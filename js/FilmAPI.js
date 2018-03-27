@@ -11,10 +11,14 @@ module.exports = class FilmAPI{
             fetch(searchURL)
             .then(response => response.json())
             .then(data => {
-                resolve(data);
+                if(data.Response == 'True'){
+                    resolve(data);
+                } else{
+                    reject(data.Error);
+                }
             })
             .catch(error => {
-                reject(err);
+                reject(error);
             });
         });
     }

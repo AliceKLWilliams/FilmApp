@@ -88,8 +88,7 @@ app.get("/search", function (req, res) {
         res.render("search", pageParams);
     })
     .catch(error => {
-        console.log(error);
-        res.redirect("/error");
+        res.render("error", {msg: error});
     });
 });
 
