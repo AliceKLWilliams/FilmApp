@@ -51,6 +51,7 @@
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
                 <p><%= review.text %></p>
+                <p>Rating: <%=review.stars%></p>
             </div>
             <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
                 <button>Delete</button>

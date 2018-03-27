@@ -4,6 +4,17 @@
 <div class="text-centre width-80">
     <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
         <textarea class="form__textarea" name="review"><%=review.text%></textarea>
+        <label>Rating: 
+            <select name="stars">
+                <% for(let i = 1; i <=5; i++) { %>
+                    <% if (i === parseInt(review.stars)) { %>
+                        <option selected value="<%=i%>"><%=i%></option>
+                    <% } else { %>
+                        <option value="<%=i%>"><%=i%></option>
+                    <% } %>
+                <% } %>
+            </select>
+        </label>
         <input class="form__btn" type="submit">
     </form>
 </div>

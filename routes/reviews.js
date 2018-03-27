@@ -5,7 +5,7 @@ let Review = require("../models/Review");
 let Film = require("../models/Film");
 
 router.put("/:reviewID", function(req, res){
-    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review}, function(err, review){
+    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.stars}, function(err, review){
         if(err){
             console.log(err);
         } else{
@@ -30,7 +30,7 @@ router.get("/:reviewID", function(req, res){
 }); 
 
 router.post("/", function(req, res){
-    Review.create({text:req.body.review}, function(err, newReview){
+    Review.create({text:req.body.review, stars: req.body.stars}, function(err, newReview){
         Film.findOne({filmID:req.params.filmID}, function(err, foundFilm){
             if(foundFilm){
                 foundFilm.reviews.push(newReview._id);
