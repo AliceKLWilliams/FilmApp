@@ -1,7 +1,15 @@
+require("dotenv").config();
+let apikey = process.env.APIKEY;
+
 let express = require("express");
 let methodOverride = require("method-override");
 let mongoose = require("mongoose");
 let bodyParser = require("body-parser");
+
+// For Authentication
+let passport = require("passport");
+let passportLocal = require("passport-local");
+let expressSession = require("express-session");
 
 let app = express();
 
@@ -14,22 +22,34 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+// Authentication Setup
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(expressSession({
+    secret:process.env.SECRET,
+    resave:false,
+    saveUninitialized:false
+}));
 
 mongoose.connect("mongodb://localhost/FilmApp");
-
-require("dotenv").config();
-let apikey = process.env.APIKEY;
 
 //Tables
 let Review = require("./models/Review");
 let Film = require("./models/Film");
+let User = require("./models/User");
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Routes
 let filmRoutes = require("./routes/films");
 let reviewRoutes = require("./routes/reviews");
+let authRoutes = require("./routes/authentication");
 
 app.use("/films", filmRoutes);
 app.use("/films/:filmID/reviews", reviewRoutes);
+app.use(authRoutes);
 
 // External JS
 let FilmAPI = require("./js/FilmAPI");
