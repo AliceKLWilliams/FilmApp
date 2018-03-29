@@ -2,8 +2,11 @@ let express = require("express");
 let router = express.Router({mergeParams:true});
 
 let passport = require("passport");
+let LocalStrategy = require("passport-local");
 
 let User = require("../models/User");
+
+passport.use(new LocalStrategy(User.authenticate()));
 
 router.get("/register", (req, res) =>{
     res.render("authentication/register");
@@ -18,5 +21,12 @@ router.post("/register", (req, res) =>{
         });
     });
 }); 
+
+router.get("/login", (req, res) =>{
+    res.render("authentication/login");
+});
+
+router.post("/login", 
+    passport.authenticate("local" , {successRedirect:"/", failureRedirect:"/error"}));
 
 module.exports = router;
