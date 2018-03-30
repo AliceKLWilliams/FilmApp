@@ -17,3 +17,17 @@
             <a class="nav__link" href="/register">Sign Up</a>
         </div>
     </nav>
+
+    
+    <% if(error && error.length > 0) {  %>
+        <div class="error">
+            <h4><%=error%></h4>
+        </div>
+    <% } %>
+
+    <% if(success && success.length > 0) {  %>
+        <div class="success">
+            <h4><%=success%></h4>
+        </div>
+    <% } %>
+    

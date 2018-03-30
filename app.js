@@ -5,6 +5,7 @@ let express = require("express");
 let methodOverride = require("method-override");
 let mongoose = require("mongoose");
 let bodyParser = require("body-parser");
+let flash = require("connect-flash");
 
 // For Authentication
 let passport = require("passport");
@@ -31,6 +32,14 @@ app.use(expressSession({
     resave:false,
     saveUninitialized:false
 }));
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 mongoose.connect("mongodb://localhost/FilmApp");
 

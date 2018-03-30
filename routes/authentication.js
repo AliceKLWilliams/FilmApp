@@ -16,17 +16,23 @@ router.post("/register", (req, res) =>{
     // Register a new user
     User.register(new User({username:req.body.username}), req.body.password, (err,user) =>{
         // Then login with this user
-        passport.authenticate("local")(res, req, ()=>{
+        if(err){
+            req.flash("error", err.message);
             res.redirect("/");
-        });
+        } else{  
+            passport.authenticate("local")(req, res, ()=>{
+                req.flash("success", `You are registered as: ${req.body.username}!`);
+                res.redirect("/");
+            });
+        }
     });
 }); 
+
 
 router.get("/login", (req, res) =>{
     res.render("authentication/login");
 });
 
-router.post("/login", 
-    passport.authenticate("local" , {successRedirect:"/", failureRedirect:"/error"}));
+router.post("/login", passport.authenticate("local" , {successRedirect:"/", failureRedirect:"/login", failureFlash:true}));
 
 module.exports = router;

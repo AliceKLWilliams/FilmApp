@@ -236,6 +236,12 @@ a:visited {
       font-size: 20pt;
       border-width: 2px; }
 
+.error {
+  background: #f08080; }
+
+.success {
+  background: #90ee90; }
+
 .home-container {
   display: flex;
   justify-content: center;
