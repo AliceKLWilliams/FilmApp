@@ -6,7 +6,7 @@ let middleware = require("./middleware");
 let Review = require("../models/Review");
 let Film = require("../models/Film");
 
-router.put("/:reviewID", function(req, res){
+router.put("/:reviewID", middleware.isReviewOwner, function(req, res){
     Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.stars}, function(err, review){
         if(err){
             console.log(err);
@@ -21,7 +21,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 });
 
 
-router.get("/:reviewID", function(req, res){
+router.get("/:reviewID", middleware.isReviewOwner, function(req, res){
     Review.findById(req.params.reviewID, function(err, foundReview){
         if(err){
             console.log(err);
@@ -32,7 +32,7 @@ router.get("/:reviewID", function(req, res){
 }); 
 
 router.post("/", function(req, res){
-    Review.create({text:req.body.review, stars: req.body.stars}, function(err, newReview){
+    Review.create({text:req.body.review, stars: req.body.stars, author:req.user._id}, function(err, newReview){
         Film.findOne({filmID:req.params.filmID}, function(err, foundFilm){
             if(foundFilm){
                 foundFilm.reviews.push(newReview._id);
@@ -48,7 +48,7 @@ router.post("/", function(req, res){
 });
 
 
-router.delete("/:reviewID", function(req, res){
+router.delete("/:reviewID", middleware.isReviewOwner, function(req, res){
     Film.update({filmID: req.params.filmID} , {$pull:{reviews:req.params.reviewID}}, function(err, numRemoved){
         if(err){
             console.log(err);
