@@ -7,12 +7,14 @@ let mongoose = require("mongoose");
 let bodyParser = require("body-parser");
 let flash = require("connect-flash");
 
+
 // For Authentication
 let passport = require("passport");
 let passportLocal = require("passport-local");
 let expressSession = require("express-session");
 
 let app = express();
+
 
 app.set("view engine", "ejs");
 
@@ -24,24 +26,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Authentication Setup
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(expressSession({
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:false
 }));
 
-app.use(flash());
-
-app.use((req, res, next) => {
-    res.locals.error = req.flash("error");
-    res.locals.success = req.flash("success");
-    next();
-});
-
-mongoose.connect("mongodb://localhost/FilmApp");
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Tables
 let Review = require("./models/Review");
@@ -50,6 +42,18 @@ let User = require("./models/User");
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    res.locals.currentUser = req.user;
+    next();
+});
+
+mongoose.connect("mongodb://localhost/FilmApp");
 
 // Routes
 let filmRoutes = require("./routes/films");

@@ -37,13 +37,14 @@
             </div>
         </div>
     </div>
-
-    <div class="buttons">
-        <a class="btn btn--rise" href="/films/<%=data.imdbID%>/reviews/new">
-            <i class="fa fa-star btn__icon"></i>
-            <p>Add Review</p>
-        </a>
-    </div>
+    <% if(currentUser) { %>
+        <div class="buttons">
+            <a class="btn btn--rise" href="/films/<%=data.imdbID%>/reviews/new">
+                <i class="fa fa-star btn__icon"></i>
+                <p>Add Review</p>
+            </a>
+        </div>
+    <% } %>
 
     <div class="reviews">
     <h2>Reviews</h2>

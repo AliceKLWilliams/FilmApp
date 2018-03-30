@@ -1,6 +1,8 @@
 let express = require("express");
 let router = express.Router({mergeParams:true});
 
+let middleware = require("./middleware");
+
 let Review = require("../models/Review");
 let Film = require("../models/Film");
 
@@ -14,7 +16,7 @@ router.put("/:reviewID", function(req, res){
     });
 });
 
-router.get("/new", function(req, res){
+router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("reviews/new", {filmID: req.params.filmID});
 });
 
