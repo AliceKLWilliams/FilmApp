@@ -11,13 +11,14 @@
         <h3 class="nav__logo">FilmFinder</h3>
 
         <div>
-            <a class="nav__link" href="/">Home</a>
-            <a class="nav__link" href="#">Search</a>
+            <a class="nav__item nav__item--link" href="/">Home</a>
+            <a class="nav__item nav__item--link" href="#">Search</a>
             <% if(!currentUser) { %>
-                <a class="nav__link" href="/login">Login</a>
-                <a class="nav__link" href="/register">Sign Up</a>
+                <a class="nav__item nav__item--link" href="/login">Login</a>
+                <a class="nav__item nav__item--link" href="/register">Sign Up</a>
             <% } else { %>
-                <a class="nav__link" href="/logout">Logout</a>
+                <a class="nav__item nav__item--link" href="/logout">Logout</a>
+                <p class="nav__item">Hello <%= currentUser.username %>!</p>
             <% } %>
         </div>
     </nav>

@@ -116,20 +116,22 @@ a:visited {
   padding: 45px;
   display: flex;
   justify-content: space-between; }
-  .nav__link {
-    padding: 0px 20px;
-    font-size: 14pt;
-    position: relative; }
-    .nav__link::after {
-      display: none;
-      width: 100%;
-      position: absolute;
-      left: 0px;
-      top: 30px;
-      border-bottom: 2px solid #222222;
-      content: ""; }
-    .nav__link:hover::after {
-      display: inline-block; }
+  .nav__item {
+    position: relative;
+    display: inline-block; }
+    .nav__item--link {
+      padding: 0px 20px;
+      font-size: 14pt; }
+      .nav__item--link::after {
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 30px;
+        border-bottom: 2px solid #222222;
+        content: ""; }
+      .nav__item--link:hover::after {
+        display: inline-block; }
 
 .btn, .form__btn {
   display: inline-flex;
