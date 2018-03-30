@@ -13,9 +13,12 @@
         <div>
             <a class="nav__link" href="/">Home</a>
             <a class="nav__link" href="#">Search</a>
-            <a class="nav__link" href="/login">Login</a>
-            <a class="nav__link" href="/logout">Logout</a>
-            <a class="nav__link" href="/register">Sign Up</a>
+            <% if(!currentUser) { %>
+                <a class="nav__link" href="/login">Login</a>
+                <a class="nav__link" href="/register">Sign Up</a>
+            <% } else { %>
+                <a class="nav__link" href="/logout">Logout</a>
+            <% } %>
         </div>
     </nav>
 
