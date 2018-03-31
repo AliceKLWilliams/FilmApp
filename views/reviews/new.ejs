@@ -5,16 +5,16 @@
     <h3>Film Name</h3>
 
     <form class="form" method="POST" action="/films/<%=filmID %>/reviews">
-        <textarea class="form__textarea" name="review" placeholder="Review..."></textarea>
-        <label>Rating:
-            <select name="stars">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </label>
+        <label class="form__label" for="review-text">Review</label>
+        <textarea id="review-text" class="form__textarea" name="review"></textarea>
+        <label class="form__label" for="rating-select">Rating</label>
+        <select id="rating-select" class="form__select" name="stars">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         
         <input class="form__btn" type="submit">
     </form>

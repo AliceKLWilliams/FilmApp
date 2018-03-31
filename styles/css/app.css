@@ -83,16 +83,43 @@ a:visited {
   margin: auto; }
 
 .form {
-  margin: 30px; }
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #d3d3d3;
+  min-width: 340px;
+  width: 60%;
+  margin: 30px auto;
+  text-align: center; }
   .form__textarea {
     resize: none;
     width: 100%;
     min-height: 200px;
     padding: 10px;
+    margin: 10px auto;
     font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16pt; }
+  .form__text {
+    padding: 10px;
+    font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+    display: block;
+    margin: 10px auto;
+    min-width: 300px;
+    width: 50%; }
+  .form__select {
+    display: block;
+    margin: 10px auto;
+    font-size: 16pt;
+    padding: 5px; }
+  .form__label {
+    font-size: 16pt;
+    display: block;
+    margin: 20px 0px; }
+  .form__label:first-of-type {
+    margin: 0px 0px 20px 0px; }
   .form__btn {
-    font-size: 20pt; }
+    font-size: 20pt;
+    margin: 10px 0px; }
 
 .pagination {
   margin: 30px 0px; }

@@ -1,5 +1,13 @@
 .form{
-    margin:30px;
+    padding:20px;
+    border-radius:10px;
+    border:2px solid #d3d3d3;
+
+    min-width:340px;
+    width:60%;
+    margin:30px auto;
+
+    text-align: center;
 
     &__textarea{
         resize:none;
@@ -8,13 +16,45 @@
         min-height:200px;
 
         padding:10px;
+        margin:10px auto;
 
         font-family:$base-font-stack;
         font-size:$txt-sm;
     }
 
+    &__text{
+        padding:10px;
+        font-family:$base-font-stack;
+        font-size:$txt-sm;
+
+        display:block;
+
+        margin:10px auto;
+
+        min-width:300px;
+        width:50%;
+    }
+
+    &__select{
+        display:block;
+        margin:10px auto;
+        font-size:$txt-sm;
+        padding:5px;
+    }
+
+    &__label{
+        font-size:$txt-sm;
+        display:block;
+        margin:20px 0px;
+    }
+
+    &__label:first-of-type{
+        margin:0px 0px 20px 0px;
+    }
+
     &__btn{
         @extend .btn;
         font-size:$txt-med;
+        margin:10px 0px;
     }
 }
