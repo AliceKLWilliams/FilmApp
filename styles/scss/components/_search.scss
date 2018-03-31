@@ -41,10 +41,10 @@
     &--med{
         height:60px;
         padding:10px;
+        width:300px;
+        margin:0 auto;
 
         .search__bar{
-            width:300px;
-            
             padding:5px;
 
             font-size: $txt-med;

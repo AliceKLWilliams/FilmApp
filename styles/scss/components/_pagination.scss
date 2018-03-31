@@ -1,7 +1,6 @@
 .pagination{
-    @extend .full-width;
-    @extend .vh-centre;
-
+    width:100%;
+    text-align:center;
     margin:30px 0px;
 
     &__link{

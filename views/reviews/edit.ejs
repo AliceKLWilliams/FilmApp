@@ -1,7 +1,6 @@
 <% include ../partials/header %>
 
 <h1>Edit Review</h1>
-<div class="text-centre width-80">
     <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
         <textarea class="form__textarea" name="review"><%=review.text%></textarea>
         <label>Rating: 
@@ -17,6 +16,5 @@
         </label>
         <input class="form__btn" type="submit">
     </form>
-</div>
 
 <% include ../partials/footer %>

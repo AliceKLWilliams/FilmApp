@@ -1,28 +1,8 @@
-.full-width{
-    width:100%;
-}
-
-.h-left{
-    @include flex-container(center, flex-start);
-}
-
-.h-centre{
-    @include flex-container(flex-start, center);
-}
-
-.vh-centre{
-    @include flex-container(center, center);
-}
-
-.text-right{
-    text-align: right;
-}
-
-.text-centre{
-    text-align: center;
-}
-
-.width-80{
+.container{
     width:80%;
     margin:auto;
+
+    &--centre{
+        text-align:center;
+    }
 }
