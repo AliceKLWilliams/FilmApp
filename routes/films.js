@@ -7,6 +7,9 @@ require("dotenv").config();
 let apikey = process.env.APIKEY;
 
 let Film = require("../models/Film");
+let User = require("../models/User");
+
+let middleware = require("./middleware");
 
 let FilmAPI = require("../js/FilmAPI");
 
@@ -29,6 +32,39 @@ router.get("/:id", function(req, res){
         console.log(err);
         res.redirect("/error");
     });
+});
+
+router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
+    User.findOne({_id:req.user._id}, (err, foundUser) => {
+        if(err){
+            console.log(err);
+            return res.redirect("/error");
+        }
+
+        if(!foundUser.watched.includes(req.params.id)){
+            foundUser.watched.push(req.params.id);
+            foundUser.save((err, user) => {
+                if(err){
+                    console.log(err);
+                    return res.redirect("/error");
+                }
+
+                req.flash("success", "Added to watch list!");
+                res.redirect("/films/"+req.params.id);
+            });
+        } else{
+            foundUser.watched.pull(req.params.id);
+            foundUser.save((err, user) => {
+                if(err){
+                    console.log(err);
+                    return res.redirect("/error");
+                }
+
+                req.flash("success", "Removed from watch list!");
+                res.redirect("/films/"+req.params.id);
+            });
+        }
+    }); 
 });
 
 function handleResponseError(response){

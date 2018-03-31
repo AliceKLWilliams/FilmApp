@@ -148,6 +148,8 @@ a:visited {
     top: -3px; }
   .btn--large {
     font-size: 30pt; }
+  .btn--form {
+    display: inline-block; }
 
 .panel {
   border-radius: 10px;

@@ -43,6 +43,16 @@
                 <i class="fa fa-star btn__icon"></i>
                 <p>Add Review</p>
             </a>
+            <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                <button class="btn btn--rise">
+                    <% if (!currentUser.watched.includes(data.imdbID)) { %>
+                        <i class="fa fa-plus btn__icon"></i>
+                    <% } else { %>
+                        <i class="fa fa-minus btn__icon"></i>
+                    <% } %>
+                    <p>Watched?</p>
+                </button>
+            </form>
         </div>
     <% } %>
 
