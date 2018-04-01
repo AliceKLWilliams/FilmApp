@@ -5,9 +5,10 @@
         <h3><%=user.username%></h3>
     </div>
     <div class="watched">
+        <h2>Watched Films</h2>
         <% watched.forEach(film => { %>
             <h4><%= film.title %></h4>
-            <h5><%= film.year %></h5>
+            <h6><%= film.year %></h6>
         <% }) %>
     </div>
 </div>
