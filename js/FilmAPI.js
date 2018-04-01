@@ -62,18 +62,20 @@ module.exports = class FilmAPI{
         for(let i = 0; i < IDs.length; i++){
             promises.push(this.SearchID(IDs[i], "short"));
         }
-        let films = [];
+        let basicData = [];
 
         return new Promise((resolve, reject) =>{
             Promise.all(promises)
             .then(films => {
                 films.forEach(film =>{
-                    films.push({
+                    basicData.push({
+                        imdbID:film.imdbID,
                         title:film.Title,
-                        year:film.Year
+                        year:film.Year,
+                        poster: film.Poster
                     });
                 });
-                resolve(films);
+                resolve(basicData);
             })
             .catch(error =>{
                 reject(error);

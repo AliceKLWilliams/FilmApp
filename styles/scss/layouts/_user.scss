@@ -13,3 +13,11 @@
     display:inline-block;
     padding:20px;
 }
+
+.watched-films{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-gap:20px;
+    
+    width:100%;
+}

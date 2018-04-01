@@ -16,7 +16,6 @@ router.get("/user/:id", (req, res) =>{
 
         let Search = new FilmAPI(apikey);
         let FilmPromise = Search.GetBasicInfo(user.watched);
-
         FilmPromise.then(data =>{
             res.render("user/show",{
                 user:user,

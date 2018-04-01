@@ -151,6 +151,8 @@ a:visited {
     top: -3px; }
   .btn--large {
     font-size: 30pt; }
+  .btn--small {
+    font-size: 18pt; }
   .btn--form {
     display: inline-block; }
 
@@ -183,16 +185,8 @@ a:visited {
   display: flex;
   flex-direction: row;
   position: relative;
-  padding: 20px;
   width: 100%;
   height: 100%; }
-  .card__background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; }
   .card__content {
     display: flex;
     flex-direction: column;
@@ -208,6 +202,18 @@ a:visited {
     display: flex;
     flex-direction: row;
     width: 100%; }
+  .card--basic {
+    flex-direction: column; }
+    .card--basic__poster {
+      width: 100%;
+      object-fit: contain;
+      align-self: center;
+      margin-bottom: 10px; }
+    .card--basic__content {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between; }
 
 .search {
   margin: 10px;
@@ -294,5 +300,11 @@ a:visited {
   margin: 0px 10px;
   display: inline-block;
   padding: 20px; }
+
+.watched-films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 20px;
+  width: 100%; }
 
 /*# sourceMappingURL=app.css.map */
