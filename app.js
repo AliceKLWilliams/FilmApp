@@ -59,10 +59,12 @@ mongoose.connect("mongodb://localhost/FilmApp");
 let filmRoutes = require("./routes/films");
 let reviewRoutes = require("./routes/reviews");
 let authRoutes = require("./routes/authentication");
+let userRoutes = require("./routes/user");
 
 app.use("/films", filmRoutes);
 app.use("/films/:filmID/reviews", reviewRoutes);
 app.use(authRoutes);
+app.use(userRoutes);
 
 // External JS
 let FilmAPI = require("./js/FilmAPI");

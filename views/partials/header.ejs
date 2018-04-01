@@ -18,7 +18,7 @@
                 <a class="nav__item nav__item--link" href="/register">Sign Up</a>
             <% } else { %>
                 <a class="nav__item nav__item--link" href="/logout">Logout</a>
-                <p class="nav__item">Hello <%= currentUser.username %>!</p>
+                <a class="nav__item nav__item--link" href="/user/<%=currentUser._id%>">Hello <%= currentUser.username %>!</a>
             <% } %>
         </div>
     </nav>
