@@ -56,4 +56,28 @@ module.exports = class FilmAPI{
             });
         });
     }
+
+    GetBasicInfo(IDs){
+        let promises = []
+        for(let i = 0; i < IDs.length; i++){
+            promises.push(this.SearchID(IDs[i], "short"));
+        }
+        let films = [];
+
+        return new Promise((resolve, reject) =>{
+            Promise.all(promises)
+            .then(films => {
+                films.forEach(film =>{
+                    films.push({
+                        title:film.Title,
+                        year:film.Year
+                    });
+                });
+                resolve(films);
+            })
+            .catch(error =>{
+                reject(error);
+            });
+        });
+    }
 }

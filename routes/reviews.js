@@ -45,7 +45,10 @@ router.post("/", function(req, res){
                     }
                 });
             } else {
-                Film.create({filmID: req.params.filmID, reviews:[newReview._id]}, (err, newFilm) => {
+                Film.create({
+                    filmID: req.params.filmID, 
+                    reviews:[newReview._id]
+                }, (err, newFilm) => {
                     if(err) {
                         console.log(err);  
                         return res.redirect("/error");
