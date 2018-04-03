@@ -15,11 +15,14 @@ router.get("/user/:id", (req, res) =>{
         }
 
         let Search = new FilmAPI(apikey);
-        let FilmPromise = Search.GetBasicInfo(user.watched);
-        FilmPromise.then(data =>{
-            res.render("user/show",{
+        let watchedPromise = Search.GetBasicInfo(user.watched);
+        let wantPromise = Search.GetBasicInfo(user.want);
+
+        Promise.all([watchedPromise, wantPromise]).then((films) =>{
+            res.render("user/show", {
                 user:user,
-                watched:data
+                watched:films[0],
+                want:films[1]
             });
         })
         .catch(err =>{

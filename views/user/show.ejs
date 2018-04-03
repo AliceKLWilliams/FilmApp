@@ -4,9 +4,9 @@
     <div class="user">
         <h3><%=user.username%></h3>
     </div>
-    <div class="watched">
+    <div class="user-container">
         <h2>Watched Films</h2>
-        <div class="watched-films">
+        <div class="films-list">
             <% watched.forEach(film => { %>
                 <div class="card card--basic">
                     <img class="card--basic__poster" src="<%=film.poster%>"/>
@@ -20,7 +20,25 @@
                 </div>
             <% }) %>
         </div>
+
+        <h2>Want-To-See</h2>
+        <div class="films-list">
+            <% want.forEach(film => { %>
+                <div class="card card--basic">
+                    <img class="card--basic__poster" src="<%=film.poster%>"/>
+                    <div class="card--basic__content">
+                        <div>
+                            <h4><%= film.title %></h4>
+                            <h6><%= film.year %></h6>
+                        </div>
+                        <a class="btn btn--small" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
     </div>
+
+    
 </div>
 
 <% include ../partials/footer %>

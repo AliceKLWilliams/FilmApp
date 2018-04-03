@@ -295,16 +295,17 @@ a:visited {
   padding: 20px;
   vertical-align: top; }
 
-.watched {
+.user-container {
   width: 65%;
   margin: 0px 10px;
   display: inline-block;
   padding: 20px; }
 
-.watched-films {
+.films-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 20px;
-  width: 100%; }
+  width: 100%;
+  margin: 0px 0px 75px 0px; }
 
 /*# sourceMappingURL=app.css.map */
