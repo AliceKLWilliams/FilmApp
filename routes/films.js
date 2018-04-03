@@ -67,6 +67,40 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
     }); 
 });
 
+
+router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
+    User.findOne({_id:req.user._id}, (err, foundUser) => {
+        if(err){
+            console.log(err);
+            return res.redirect("/error");
+        }
+
+        if(!foundUser.want.includes(req.params.id)){
+            foundUser.want.push(req.params.id);
+            foundUser.save((err, user) => {
+                if(err){
+                    console.log(err);
+                    return res.redirect("/error");
+                }
+
+                req.flash("success", "Added to wanted list!");
+                res.redirect("/films/"+req.params.id);
+            });
+        } else{
+            foundUser.want.pull(req.params.id);
+            foundUser.save((err, user) => {
+                if(err){
+                    console.log(err);
+                    return res.redirect("/error");
+                }
+
+                req.flash("success", "Removed from wanted list!");
+                res.redirect("/films/"+req.params.id);
+            });
+        }
+    }); 
+});
+
 function handleResponseError(response){
     if(!response.ok){
         console.log(response.statusText);

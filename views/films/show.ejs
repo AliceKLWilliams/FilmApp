@@ -53,6 +53,16 @@
                     <p>Watched?</p>
                 </button>
             </form>
+            <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                <button class="btn btn--rise">
+                    <% if (!currentUser.want.includes(data.imdbID)) { %>
+                        <i class="fa fa-plus btn__icon"></i>
+                    <% } else { %>
+                        <i class="fa fa-minus btn__icon"></i>
+                    <% } %>
+                    <p>Want?</p>
+                </button>
+            </form>
         </div>
     <% } %>
 

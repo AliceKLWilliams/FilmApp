@@ -7,6 +7,9 @@ let userSchema = new mongoose.Schema({
     password:String,
     watched: [{
         type:String
+    }],
+    want: [{
+        type:String
     }]
 });
 
