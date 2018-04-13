@@ -34,29 +34,34 @@ router.get("/:id", function(req, res){
 });
 
 router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
-    User.findOne({_id:req.user._id})
-    .then( (foundUser) => {
+    let findUser = User.findOne({_id:req.user._id});
+    let findFilm = Film.FindFilm(req.params.id);
+    Promise.all([findUser, findFilm])
+    .then( (data) => {
+        let foundUser = data[0];
+        let foundFilm = data[1];
+
         if(!foundUser.watched.includes(req.params.id)){
             foundUser.watched.push(req.params.id);
-            foundUser.save((err, user) => {
-                if(err){
-                    console.log(err);
-                    return res.redirect("/error");
-                }
+            let filmPromise = foundFilm.AddToWatched(1);
 
+            Promise.all([filmPromise, foundUser.save()])
+            .then(() => {
                 req.flash("success", "Added to watch list!");
                 res.redirect("/films/"+req.params.id);
-            });
+            }).catch((err) => {throw err;});
+
         } else{
             foundUser.watched.pull(req.params.id);
-            foundUser.save((err, user) => {
-                if(err){
-                    console.log(err);
-                    return res.redirect("/error");
-                }
 
+            Promise.all([foundUser.save(), foundFilm.AddToWatched(-1)])
+            .then(() => {
                 req.flash("success", "Removed from watch list!");
                 res.redirect("/films/"+req.params.id);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.redirect("/error");
             });
         }
     })

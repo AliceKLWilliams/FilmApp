@@ -66,6 +66,10 @@
         </div>
     <% } %>
 
+    <% if(modelData) {%>
+        <h3>Watched: <%= modelData.watched %></h3>
+    <% } %>    
+
     <div class="reviews">
     <h2>Reviews</h2>
     <% if(modelData) { %>
