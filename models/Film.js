@@ -39,4 +39,9 @@ filmSchema.methods.AddToWatched = function(num){
     return this.save();
 };
 
+filmSchema.methods.AddToWanted = function(num){
+    this.want += num;
+    return this.save();
+}
+
 module.exports = mongoose.model("Film", filmSchema)

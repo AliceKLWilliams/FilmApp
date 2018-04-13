@@ -59,10 +59,7 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
                 req.flash("success", "Removed from watch list!");
                 res.redirect("/films/"+req.params.id);
             })
-            .catch((err) => {
-                console.log(err);
-                res.redirect("/error");
-            });
+            .catch((err) => {throw err;});
         }
     })
     .catch((err) => {
@@ -74,30 +71,33 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
 
 
 router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
-    User.findOne({_id:req.user._id})
-    .then((foundUser) => {
+    let findUser = User.findOne({_id:req.user._id});
+    let findFilm = Film.FindFilm(req.params.id);
+
+    Promise.all([findUser, findFilm])
+    .then((data) => {
+        let foundUser = data[0];
+        let foundFilm = data[1];
+
         if(!foundUser.want.includes(req.params.id)){
             foundUser.want.push(req.params.id);
-            foundUser.save((err, user) => {
-                if(err){
-                    console.log(err);
-                    return res.redirect("/error");
-                }
+            let filmPromise = foundFilm.AddToWanted(1);
 
+            Promise.all([filmPromise, foundUser.save()])
+            .then(() => {
                 req.flash("success", "Added to wanted list!");
                 res.redirect("/films/"+req.params.id);
-            });
+            }).catch((err) => {throw err;});
+
         } else{
             foundUser.want.pull(req.params.id);
-            foundUser.save((err, user) => {
-                if(err){
-                    console.log(err);
-                    return res.redirect("/error");
-                }
 
+            Promise.all([foundUser.save(), foundFilm.AddToWanted(-1)])
+            .then(() => {
                 req.flash("success", "Removed from wanted list!");
                 res.redirect("/films/"+req.params.id);
-            });
+            })
+            .catch((err) => {throw err;});
         }
     })
     .catch((err) => {
