@@ -35,32 +35,20 @@ router.get("/:reviewID", middleware.isReviewOwner, (req, res) => {
 
 router.post("/", function(req, res){
     var createReview = Review.create({text:req.body.review, stars: req.body.stars, author:req.user._id});
-    var findFilm = Film.findOne({filmID:req.params.filmID});
+    var findFilm = Film.FindFilm(req.params.filmID);
 
     Promise.all([createReview, findFilm])
     .then((data) =>{
         let newReview = data[0];
         let foundFilm = data[1];
-
-        if (foundFilm) {
-            foundFilm.reviews.push(newReview._id);
-            foundFilm.save((err, film) => {
-                if (err) {
-                    console.log(err);
-                    return res.redirect("/error");
-                }
-            });
-        } else {
-            Film.create({
-                filmID: req.params.filmID, 
-                reviews:[newReview._id]
-            }, (err, newFilm) => {
-                if(err) {
-                    console.log(err);  
-                    return res.redirect("/error");
-                }
-            });
-        }
+        
+        foundFilm.reviews.push(newReview._id);
+        foundFilm.save((err, film) => {
+            if (err) {
+                console.log(err);
+                return res.redirect("/error");
+            }
+        });
         res.redirect("/films/"+req.params.filmID);
     }).catch((err) =>{
         console.log(err);
