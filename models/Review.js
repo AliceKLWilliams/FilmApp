@@ -1,5 +1,7 @@
 let mongoose = require("mongoose");
 
+mongoose.promise = Promise;
+
 let reviewSchema = new mongoose.Schema({
     text:String,
     stars:Number,

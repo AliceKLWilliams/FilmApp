@@ -18,29 +18,24 @@ router.get("/:id", function(req, res){
     let API = new FilmAPI(apikey);
 
     let FilmPromise = API.SearchID(filmID, "full");
+    let FindFilm = Film.findOne({filmID:filmID}).populate("reviews").exec();
 
-    FilmPromise.then(function(data){
-        Film.findOne({filmID:filmID}).populate("reviews").exec(function(err, foundFilm){
-            res.render("films/show", {
-                data:data,
-                modelData:foundFilm
-            });
+    Promise.all([FilmPromise, FindFilm])
+    .then((data) => {
+        res.render("films/show", {
+            data:data[0],
+            modelData:data[1] 
         });
-    }, function(err){
-        throw Error(err.statusText);
-    }).catch(function(err){
+    })
+    .catch((err) => {
         console.log(err);
         res.redirect("/error");
     });
 });
 
 router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
-    User.findOne({_id:req.user._id}, (err, foundUser) => {
-        if(err){
-            console.log(err);
-            return res.redirect("/error");
-        }
-
+    User.findOne({_id:req.user._id})
+    .then( (foundUser) => {
         if(!foundUser.watched.includes(req.params.id)){
             foundUser.watched.push(req.params.id);
             foundUser.save((err, user) => {
@@ -64,17 +59,18 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
                 res.redirect("/films/"+req.params.id);
             });
         }
-    }); 
+    })
+    .catch((err) => {
+        console.log(err);
+        res.redirect("/error");
+    });
+
 });
 
 
 router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
-    User.findOne({_id:req.user._id}, (err, foundUser) => {
-        if(err){
-            console.log(err);
-            return res.redirect("/error");
-        }
-
+    User.findOne({_id:req.user._id})
+    .then((foundUser) => {
         if(!foundUser.want.includes(req.params.id)){
             foundUser.want.push(req.params.id);
             foundUser.save((err, user) => {
@@ -98,7 +94,11 @@ router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
                 res.redirect("/films/"+req.params.id);
             });
         }
-    }); 
+    })
+    .catch((err) => {
+        console.log(err);
+        res.redirect("/error");
+    });
 });
 
 function handleResponseError(response){

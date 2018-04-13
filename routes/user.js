@@ -8,16 +8,12 @@ require("dotenv").config();
 let apikey = process.env.APIKEY;
 
 router.get("/user/:id", (req, res) =>{
-    User.findById(req.params.id, (err, user) =>{
-        if(err){
-            console.log(err);
-            res.render("/error");
-        }
-
+    User.findById(req.params.id)
+    .then((user) =>{
         let Search = new FilmAPI(apikey);
         let watchedPromise = Search.GetBasicInfo(user.watched);
         let wantPromise = Search.GetBasicInfo(user.want);
-
+        
         Promise.all([watchedPromise, wantPromise]).then((films) =>{
             res.render("user/show", {
                 user:user,
@@ -29,7 +25,11 @@ router.get("/user/:id", (req, res) =>{
             req.flash("error", err);
             res.render("/error");
         });
-    }); 
+    })
+    .catch((err) =>{
+        req.flash("error", err);
+        res.render("/error");
+    });
 });
 
 module.exports = router;
