@@ -3,16 +3,48 @@
 <h1>Edit Review</h1>
     <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
         <textarea class="form__textarea" name="review"><%=review.text%></textarea>
-        <label>Rating: 
-            <select name="stars">
-                <% for(let i = 1; i <=5; i++) { %>
-                    <% if (i === parseInt(review.stars)) { %>
-                        <option selected value="<%=i%>"><%=i%></option>
+        <label class="form__label">Rating: 
+            <div class="form__review">
+                <% for(let i = 5; i > 0; i--) { %>
+                    <% if ((i) == parseInt(review.stars)) { %>
+                        <input type="radio" name="overall" value="<%=i%>" id="review<%= i%>" checked>
+                        <label for="review<%=i%>"> 
+                            <i class="fa fa-star form__star"></i>
+                        </label>
                     <% } else { %>
-                        <option value="<%=i%>"><%=i%></option>
+                        <input type="radio" name="overall" value="<%=i%>" id="review<%= i%>">
+                        <label for="review<%=i%>"> 
+                            <i class="fa fa-star form__star"></i>
+                        </label>
                     <% } %>
                 <% } %>
-            </select>
+
+                <!-- <input type="radio" name="overall" value="5" id="review5">
+                <label for="review5"> 
+                    <i class="fa fa-star form__star"></i>
+                </label>
+                
+                <input type="radio" name="overall" value="4" id="review4">
+                <label for="review4"> 
+                    <i class="fa fa-star form__star"></i>
+                </label>
+
+                <input type="radio" name="overall" value="3" id="review3">
+                <label for="review3"> 
+                    <i class="fa fa-star form__star"></i>
+                </label>
+
+                <input type="radio" name="overall" value="2" id="review2">
+                <label for="review2"> 
+                    <i class="fa fa-star form__star"></i>
+                </label>
+
+                <input type="radio" name="overall" value="1" id="review1">
+                <label for="review1"> 
+                    <i class="fa fa-star form__star"></i>
+                </label> -->
+		    </div>
+
         </label>
         <input class="form__btn" type="submit">
     </form>

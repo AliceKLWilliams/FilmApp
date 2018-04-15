@@ -33,13 +33,6 @@
         width:50%;
     }
 
-    &__select{
-        display:block;
-        margin:10px auto;
-        font-size:$txt-sm;
-        padding:5px;
-    }
-
     &__label{
         font-size:$txt-sm;
         display:block;
@@ -54,5 +47,26 @@
         @extend .btn;
         font-size:$txt-med;
         margin:10px 0px;
+    }
+
+    &__review{
+        display:inline-flex;
+        flex-direction: row-reverse;
+
+        input[type=radio]{
+            display:none;
+        }
+        
+        input[type=radio]:checked ~ label .form__star{
+            color:#FFFF99;
+        }
+
+    }
+
+    &__star{
+        font-size:30pt;
+        color:#cccccc;
+        display:inline-block;
+        margin:10px;
     }
 }

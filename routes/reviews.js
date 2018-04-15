@@ -7,7 +7,7 @@ let Review = require("../models/Review");
 let Film = require("../models/Film");
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
-    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.stars})
+    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.overall})
     .then((review) => {
         res.redirect("/films/"+req.params.filmID);
     })
@@ -34,7 +34,7 @@ router.get("/:reviewID", middleware.isReviewOwner, (req, res) => {
 }); 
 
 router.post("/", function(req, res){
-    var createReview = Review.create({text:req.body.review, stars: req.body.stars, author:req.user._id});
+    var createReview = Review.create({text:req.body.review, stars:req.body.overall, author:req.user._id});
     var findFilm = Film.FindFilm(req.params.filmID);
 
     Promise.all([createReview, findFilm])

@@ -79,11 +79,6 @@ a:visited {
     margin: 10px auto;
     min-width: 300px;
     width: 50%; }
-  .form__select {
-    display: block;
-    margin: 10px auto;
-    font-size: 16pt;
-    padding: 5px; }
   .form__label {
     font-size: 16pt;
     display: block;
@@ -93,6 +88,18 @@ a:visited {
   .form__btn {
     font-size: 20pt;
     margin: 10px 0px; }
+  .form__review {
+    display: inline-flex;
+    flex-direction: row-reverse; }
+    .form__review input[type=radio] {
+      display: none; }
+    .form__review input[type=radio]:checked ~ label .form__star {
+      color: #FFFF99; }
+  .form__star {
+    font-size: 30pt;
+    color: #cccccc;
+    display: inline-block;
+    margin: 10px; }
 
 .pagination {
   width: 100%;
