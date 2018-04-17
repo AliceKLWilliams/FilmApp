@@ -6,6 +6,10 @@ let middleware = require("./middleware");
 let Review = require("../models/Review");
 let Film = require("../models/Film");
 
+let FilmAPI = require("../public/js/FilmAPI");
+
+let apikey = process.env.APIKEY;
+
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
     Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.overall})
     .then((review) => {
@@ -18,7 +22,15 @@ router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
 });
 
 router.get("/new", middleware.isLoggedIn, (req, res) => {
-    res.render("reviews/new", {filmID: req.params.filmID});
+    let API = new FilmAPI(apikey);
+    API.SearchID(req.params.filmID, "short")
+    .then((film) => {
+        res.render("reviews/new", {filmID: req.params.filmID, filmData:film});
+    })
+    .catch((err) =>{
+        console.log(err);
+        res.redirect("/error");
+    });
 });
 
 

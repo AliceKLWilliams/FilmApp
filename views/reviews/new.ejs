@@ -2,7 +2,7 @@
 
 <div class="container container--centre">
     <h2>Add Review</h2>
-    <h3>Film Name</h3>
+    <h3><%=filmData.Title%></h3>
 
     <form class="form" method="POST" action="/films/<%=filmID %>/reviews">
         <label class="form__label">
@@ -28,9 +28,6 @@
                 <input type="radio" name="overall" value="1" id="overall1">
                 <label for="overall1"><i class="fa fa-star form__star"></i></label>
 		    </div>
-
-		
-        
         <input class="form__btn" type="submit">
     </form>
 </div>
