@@ -1,6 +1,7 @@
 <% include ../partials/header %>
 
 <h1>Edit Review</h1>
+<h3><%=filmData.Title%></h3>
     <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
         <textarea class="form__textarea" name="review"><%=review.text%></textarea>
         <label class="form__label">Rating: 

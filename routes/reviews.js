@@ -6,9 +6,11 @@ let middleware = require("./middleware");
 let Review = require("../models/Review");
 let Film = require("../models/Film");
 
-let FilmAPI = require("../public/js/FilmAPI");
-
+require("dotenv").config();
 let apikey = process.env.APIKEY;
+let APIRequire = require("../public/js/FilmAPI");
+let FilmAPI = new APIRequire(apikey);
+
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
     Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, stars:req.body.overall})
@@ -22,8 +24,7 @@ router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
 });
 
 router.get("/new", middleware.isLoggedIn, (req, res) => {
-    let API = new FilmAPI(apikey);
-    API.SearchID(req.params.filmID, "short")
+    FilmAPI.SearchID(req.params.filmID, "short")
     .then((film) => {
         res.render("reviews/new", {filmID: req.params.filmID, filmData:film});
     })
@@ -35,9 +36,9 @@ router.get("/new", middleware.isLoggedIn, (req, res) => {
 
 
 router.get("/:reviewID", middleware.isReviewOwner, (req, res) => {
-    Review.findById(req.params.reviewID)
-    .then((foundReview) =>{
-        res.render("reviews/edit", {review:foundReview, filmID:req.params.filmID});
+    let promises = Promise.all([Review.findById(req.params.reviewID), FilmAPI.SearchID(req.params.filmID, "short")]);
+    promises.then(([review, film]) => {
+        res.render("reviews/edit", {review:review, filmID:req.params.filmID, filmData:film});
     })
     .catch((err) => {
         console.log(err);
