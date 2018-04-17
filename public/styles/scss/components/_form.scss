@@ -50,15 +50,22 @@
     }
 
     &__review{
-        display:inline-flex;
+
+        display:flex;
         flex-direction: row-reverse;
+
 
         input[type=radio]{
             display:none;
         }
+
         
         input[type=radio]:checked ~ label .form__star{
             color:#FFFF99;
+        }
+
+        input[type=radio]:hover ~ label .form__star{
+            color: #FFFF99;
         }
 
     }
@@ -68,5 +75,9 @@
         color:#cccccc;
         display:inline-block;
         margin:10px;
+    }
+
+    &__star.active{
+        color:#ffff99;
     }
 }

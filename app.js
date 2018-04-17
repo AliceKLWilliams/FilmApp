@@ -18,7 +18,7 @@ let app = express();
 
 app.set("view engine", "ejs");
 
-app.use(express.static(__dirname + "/styles"));
+app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -67,7 +67,7 @@ app.use(authRoutes);
 app.use(userRoutes);
 
 // External JS
-let FilmAPI = require("./js/FilmAPI");
+let FilmAPI = require("./public/js/FilmAPI");
 
 app.get("/search", function (req, res) {
     let filmName = req.query.filmName;

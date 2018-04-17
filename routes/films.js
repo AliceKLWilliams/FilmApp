@@ -11,7 +11,7 @@ let User = require("../models/User");
 
 let middleware = require("./middleware");
 
-let FilmAPI = require("../js/FilmAPI");
+let FilmAPI = require("../public/js/FilmAPI");
 
 router.get("/:id", function(req, res){
     let filmID = req.params.id;

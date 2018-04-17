@@ -1,0 +1,53 @@
+$base-font-stack: 'Josefin Sans', Tahoma, Geneva, Verdana, sans-serif;
+
+$light: 300;
+$normal: 400;
+$bold: 700;
+
+$txt-p: 12pt;
+$txt-xs:14pt;
+$txt-sm:16pt;
+$txt-med:20pt;
+$txt-large: 30pt;
+$txt-xl: 50pt;
+
+h1, h2, h3, h4, h5, h6{
+    text-transform: uppercase;
+}
+
+h1{
+    font-size:$txt-xl;
+    letter-spacing: 5px;
+    margin:30px 0px;
+}
+
+h2{
+    font-size:$txt-large;
+    letter-spacing: 5px;
+    margin:20px 0px;
+}
+
+h3{
+    font-size:$txt-med;
+    letter-spacing: 3px;
+    margin:5px 0px;
+}
+
+h4{
+    font-size: $txt-sm;
+    margin:4px 0px;
+}
+
+h5{
+    font-size:$txt-xs;
+    margin:2px 0px;
+}
+
+h6{
+    font-size:$txt-p;
+}
+
+p{
+    font-size:$txt-p;
+    line-height:20px;
+}

@@ -2,7 +2,7 @@ let express = require("express");
 let router = express.Router({mergeParams:true});
 
 let User = require("../models/User");
-let FilmAPI = require("../js/FilmAPI");
+let FilmAPI = require("../public/js/FilmAPI");
 
 require("dotenv").config();
 let apikey = process.env.APIKEY;
