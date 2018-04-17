@@ -79,15 +79,21 @@
     <% if(modelData) { %>
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
-                <p><%= review.text %></p>
-                <p>Rating: <%=review.stars%></p>
+                <p class="review__text"><%= review.text %></p>
+                <div class="review__stars">
+                    <%for(let i = 0; i < parseInt(review.stars); i++) { %>
+                        <i class= "fa fa-star star star--small"></i>
+                    <% } %>
+                </div>
+                <% if(currentUser && review.author.equals(currentUser._id)) { %>
+                    <div class="review__bttns">
+                        <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
+                            <button class="btn btn--small">Delete</button>
+                        </form>
+                        <a class="btn btn--small" href="/films/<%=data.imdbID%>/reviews/<%=review._id%>">Edit</a>
+                    </div>
+                <% } %>
             </div>
-            <% if(currentUser && review.author.equals(currentUser._id)) { %>
-                <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
-                    <button>Delete</button>
-                </form>
-                <a href="/films/<%=data.imdbID%>/reviews/<%=review._id%>">Edit</a>
-            <% } %>
         <% }); %>
     <% } %>
     </div>

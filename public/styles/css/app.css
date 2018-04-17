@@ -90,7 +90,8 @@ a:visited {
     margin: 10px 0px; }
   .form__review {
     display: flex;
-    flex-direction: row-reverse; }
+    flex-direction: row-reverse;
+    justify-content: center; }
     .form__review input[type=radio] {
       display: none; }
     .form__review input[type=radio]:checked ~ label .form__star {
@@ -266,6 +267,24 @@ a:visited {
 .success {
   background: #90ee90; }
 
+.review {
+  width: 100%;
+  padding: 10px;
+  margin: 40px 0px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 10px; }
+  .review__bttns {
+    display: flex;
+    align-items: center; }
+  .review__text {
+    font-size: 18pt; }
+
+.star {
+  color: #FFCC33; }
+  .star--small {
+    font-size: 16pt; }
+
 .home-container {
   display: flex;
   justify-content: center;
@@ -292,12 +311,6 @@ a:visited {
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid #DCDCDC; }
-
-.review {
-  background: #E8F1F2;
-  width: 100%;
-  padding: 20px;
-  margin: 10px 0px; }
 
 .user {
   width: 30%;

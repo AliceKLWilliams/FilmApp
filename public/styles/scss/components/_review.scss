@@ -1,0 +1,26 @@
+.review{
+	width:100%;
+	padding:10px;
+	margin:40px 0px;
+
+	display:grid;
+	grid-template-rows: 1fr;
+	grid-gap:10px;
+
+	&__bttns{
+		display:flex;
+		align-items: center;
+	}
+
+	&__text{
+		font-size:18pt;
+	}
+}
+
+.star{
+	color:#FFCC33;
+
+	&--small{
+		font-size:$txt-sm;
+	}
+}
