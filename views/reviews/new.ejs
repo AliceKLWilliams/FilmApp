@@ -9,25 +9,17 @@
             Review
             <textarea class="form__textarea" name="review"></textarea>
         </label>
-        
-        <label class="form__label" for="overall">Overall</label>
-        <div class="form__review" id="overall">  
 
-            <input type="radio" name="overall" value="5" id="overall5">
-            <label for="overall5"><i class="fa fa-star form__star"></i></label>             
-               
-            <input type="radio" name="overall" value="4" id="overall4">
-            <label for="overall4"><i class="fa fa-star form__star"></i></label>
+        <% categories.forEach((category) => { %>
+            <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
+            <div class="form__review" id="<%=category%>"> 
+                <% for(let i = 5; i >= 1; i--){ %>
+                    <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>">
+                    <label for="<%=category+i%>"><i class="fa fa-star form__star"></i></label>    
+                <% } %>
+            </div>
 
-            <input type="radio" name="overall" value="3" id="overall3">
-            <label for="overall3"><i class="fa fa-star form__star"></i></label>
-                 
-            <input type="radio" name="overall" value="2" id="overall2">
-            <label for="overall2"><i class="fa fa-star form__star"></i></label>
-
-            <input type="radio" name="overall" value="1" id="overall1">
-            <label for="overall1"><i class="fa fa-star form__star"></i></label>
-		</div>
+        <% }); %>
         <input class="form__btn" type="submit">
     </form>
 </div>
