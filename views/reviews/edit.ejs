@@ -8,22 +8,20 @@
         <label class="form__label"> Review
             <textarea class="form__textarea" name="review"><%=review.text%></textarea>
         </label>
-        <label class="form__label" for="overall">Overall</label>
-        <div id="overall" class="form__review">
-            <% for(let i = 5; i > 0; i--) { %>
-                <% if ((i) == parseInt(review.stars)) { %>
-                    <input type="radio" name="overall" value="<%=i%>" id="review<%= i%>" checked>
-                    <label for="review<%=i%>"> 
-                        <i class="fa fa-star form__star"></i>
-                    </label>
-                <% } else { %>
-                    <input type="radio" name="overall" value="<%=i%>" id="review<%= i%>">
-                    <label for="review<%=i%>"> 
-                        <i class="fa fa-star form__star"></i>
-                    </label>
+        <% for(let category in ratings){ %>
+            <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
+            <div class="form__review" id="<%=category%>"> 
+                <% for(let i = 5; i >= 1; i--){ %>
+                    <% if(ratings[category] === i) { %>
+                        <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>" checked>
+                        <label for="<%=category+i%>"><i class="fa fa-star form__star"></i></label> 
+                    <% } else { %>
+                        <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>">
+                        <label for="<%=category+i%>"><i class="fa fa-star form__star"></i></label> 
+                    <% } %>   
                 <% } %>
-            <% } %>
-		</div>
+            </div>
+        <% } %>
         <input class="form__btn" type="submit">
     </form>
 </div>

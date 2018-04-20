@@ -15,7 +15,15 @@ let filmCategories = ["overall", "story", "writing", "cinematography", "music", 
 
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
-    Review.findByIdAndUpdate(req.params.reviewID, {text:req.body.review, overall:req.body.overall})
+    Review.findByIdAndUpdate(req.params.reviewID, {
+        text:req.body.review, 
+        overall:req.body.overall, 
+        story:req.body.story,
+        writing:req.body.writing,
+        cinematography:req.body.cinematography,
+        music:req.body.music,
+        acting:req.body.acting
+    })
     .then((review) => {
         res.redirect("/films/"+req.params.filmID);
     })
@@ -37,10 +45,21 @@ router.get("/new", middleware.isLoggedIn, (req, res) => {
 });
 
 
-router.get("/:reviewID", middleware.isReviewOwner, (req, res) => {
+router.get("/:reviewID/edit", middleware.isReviewOwner, (req, res) => {
     let promises = Promise.all([Review.findById(req.params.reviewID), FilmAPI.SearchID(req.params.filmID, "short")]);
     promises.then(([review, film]) => {
-        res.render("reviews/edit", {review:review, filmID:req.params.filmID, filmData:film});
+
+        let ratings = {};
+        filmCategories.forEach((category) => {
+            ratings[category] = review[category];
+        });
+
+        res.render("reviews/edit", {
+            review:review, 
+            ratings:ratings,
+            filmID:req.params.filmID, 
+            filmData:film
+        });
     })
     .catch((err) => {
         console.log(err);
