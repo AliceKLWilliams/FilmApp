@@ -81,7 +81,7 @@
             <div class="review">
                 <p class="review__text"><%= review.text %></p>
                 <div class="review__stars">
-                    <%for(let i = 0; i < parseInt(review.stars); i++) { %>
+                    <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
                         <i class= "fa fa-star star star--small"></i>
                     <% } %>
                 </div>
