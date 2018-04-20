@@ -8,11 +8,11 @@
         <label class="form__label"> Review
             <textarea class="form__textarea" name="review"><%=review.text%></textarea>
         </label>
-        <% for(let category in ratings){ %>
+        <% for(let category in review.ratings.toObject()){ %>
             <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
             <div class="form__review" id="<%=category%>"> 
                 <% for(let i = 5; i >= 1; i--){ %>
-                    <% if(ratings[category] === i) { %>
+                    <% if(review.ratings[category] === i) { %>
                         <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>" checked>
                         <label for="<%=category+i%>"><i class="fa fa-star form__star"></i></label> 
                     <% } else { %>

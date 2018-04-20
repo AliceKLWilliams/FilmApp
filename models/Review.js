@@ -4,12 +4,14 @@ mongoose.promise = Promise;
 
 let reviewSchema = new mongoose.Schema({
     text:String,
-    overall:Number,
-    story:Number,
-    writing:Number,
-    cinematography:Number,
-    music:Number,
-    acting:Number,
+    ratings:{
+        overall:Number,
+        story:Number,
+        writing:Number,
+        cinematography:Number,
+        music:Number,
+        acting:Number
+    },
     author:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"

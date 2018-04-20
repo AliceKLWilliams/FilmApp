@@ -11,18 +11,18 @@ let apikey = process.env.APIKEY;
 let APIRequire = require("../public/js/FilmAPI");
 let FilmAPI = new APIRequire(apikey);
 
-let filmCategories = ["overall", "story", "writing", "cinematography", "music", "acting"];
-
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
     Review.findByIdAndUpdate(req.params.reviewID, {
         text:req.body.review, 
-        overall:req.body.overall, 
-        story:req.body.story,
-        writing:req.body.writing,
-        cinematography:req.body.cinematography,
-        music:req.body.music,
-        acting:req.body.acting
+        ratings: {
+            overall:req.body.overall, 
+            story:req.body.story,
+            writing:req.body.writing,
+            cinematography:req.body.cinematography,
+            music:req.body.music,
+            acting:req.body.acting
+        }
     })
     .then((review) => {
         res.redirect("/films/"+req.params.filmID);
@@ -36,6 +36,13 @@ router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
 router.get("/new", middleware.isLoggedIn, (req, res) => {
     FilmAPI.SearchID(req.params.filmID, "short")
     .then((film) => {
+        let filmCategories = [];
+        let attributes = Object.keys(Review.schema.paths);
+        attributes.forEach((attr) => {
+            if(attr.startsWith("rating")){
+                filmCategories.push(attr.slice(8));
+            }
+        });
         res.render("reviews/new", {filmID: req.params.filmID, filmData:film, categories:filmCategories});
     })
     .catch((err) =>{
@@ -48,15 +55,8 @@ router.get("/new", middleware.isLoggedIn, (req, res) => {
 router.get("/:reviewID/edit", middleware.isReviewOwner, (req, res) => {
     let promises = Promise.all([Review.findById(req.params.reviewID), FilmAPI.SearchID(req.params.filmID, "short")]);
     promises.then(([review, film]) => {
-
-        let ratings = {};
-        filmCategories.forEach((category) => {
-            ratings[category] = review[category];
-        });
-
         res.render("reviews/edit", {
             review:review, 
-            ratings:ratings,
             filmID:req.params.filmID, 
             filmData:film
         });
@@ -71,12 +71,14 @@ router.post("/", function(req, res){
     var createReview = Review.create({
         text:req.body.review, 
         author:req.user._id,
-        overall:req.body.overall, 
-        story:req.body.story,
-        writing:req.body.writing,
-        cinematography:req.body.cinematography,
-        music:req.body.music,
-        acting:req.body.acting
+        ratings:{
+            overall:req.body.overall, 
+            story:req.body.story,
+            writing:req.body.writing,
+            cinematography:req.body.cinematography,
+            music:req.body.music,
+            acting:req.body.acting
+        }
     });
     var findFilm = Film.FindFilm(req.params.filmID);
 
