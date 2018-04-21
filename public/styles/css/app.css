@@ -273,12 +273,21 @@ a:visited {
   margin: 40px 0px;
   display: grid;
   grid-template-rows: 1fr;
-  grid-gap: 10px; }
+  grid-gap: 20px; }
+  .review__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
   .review__bttns {
     display: flex;
     align-items: center; }
-  .review__text {
-    font-size: 18pt; }
+  .review__stars {
+    display: block; }
+  .review__extra {
+    height: 0px;
+    overflow: hidden; }
+  .review__more {
+    display: inline-block; }
 
 .star {
   color: #FFCC33; }

@@ -5,15 +5,30 @@
 
 	display:grid;
 	grid-template-rows: 1fr;
-	grid-gap:10px;
+	grid-gap:20px;
+
+	&__header{
+		display:flex;
+		justify-content: space-between;
+		align-items:center;
+	}
 
 	&__bttns{
 		display:flex;
 		align-items: center;
 	}
+	
+	&__stars{
+		display:block;
+	}
 
-	&__text{
-		font-size:18pt;
+	&__extra{
+		height:0px;
+		overflow: hidden;
+	}
+
+	&__more{
+		display:inline-block;
 	}
 }
 

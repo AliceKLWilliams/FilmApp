@@ -79,20 +79,36 @@
     <% if(modelData) { %>
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
-                <p class="review__text"><%= review.text %></p>
-                <div class="review__stars">
-                    <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
-                        <i class= "fa fa-star star star--small"></i>
-                    <% } %>
-                </div>
-                <% if(currentUser && review.author.equals(currentUser._id)) { %>
+                <div class="review__header">
+                    <p class="review__username">Name</p>
+                    <% if(currentUser && review.author.equals(currentUser._id)) { %>
                     <div class="review__bttns">
                         <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
                             <button class="btn btn--small">Delete</button>
                         </form>
                         <a class="btn btn--small" href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit">Edit</a>
                     </div>
-                <% } %>
+                    <% } %>
+                </div>
+                <div class="review__stars">
+                    <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
+                        <i class= "fa fa-star star star--small"></i>
+                    <% } %>
+                </div>
+                <p class="review__text"><%= review.text %></p>
+                <div class="review__extra">
+                    <% for(let rating in review.ratings.toObject()) { %>
+                        <% if(rating !== "overall"){ %>
+                            <p><%=rating.charAt(0).toUpperCase() + rating.slice(1)%></p>
+                            <div class="rating__stars">
+                                <%for(let i = 0; i < parseInt(review.ratings[rating]); i++) { %>
+                                    <i class= "fa fa-star star star--small"></i>
+                                <% } %>
+                            </div>
+                        <% } %>
+                    <% } %>
+                </div>
+                <button class="btn btn--small review__more">More</button>
             </div>
         <% }); %>
     <% } %>
