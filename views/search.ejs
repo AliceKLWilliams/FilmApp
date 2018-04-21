@@ -10,7 +10,6 @@
     <div class="card-container">
     <% searchResults.Search.forEach(film => { %>
         <div class="card">
-            <div class="card__background"></div>
             <% if(film.Poster === "N/A") { %>
                 <img class="card__poster" src= "http://via.placeholder.com/350x450" />
             <% } else {%>

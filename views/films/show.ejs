@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="panel">
-        <h2 class="panel__title"><%=data.Title%></h2>
+        <h1 class="panel__title"><%=data.Title%></h1>
         <div class="panel__column panel__column--left">
             <div class="panel__section">
                 <h3>Information</h3>
@@ -77,6 +77,9 @@
     <div class="reviews">
     <h2>Reviews</h2>
     <% if(modelData) { %>
+        <% if(modelData.reviews.length == 0){ %>
+            <p>No Reviews</p>
+        <% } %>
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
                 <div class="review__header">

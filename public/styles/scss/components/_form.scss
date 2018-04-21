@@ -17,13 +17,11 @@
         margin:10px auto;
 
         font-family:$base-font-stack;
-        font-size:$txt-sm;
     }
 
     &__text{
         padding:10px;
         font-family:$base-font-stack;
-        font-size:$txt-sm;
 
         display:block;
 
@@ -34,7 +32,6 @@
     }
 
     &__label{
-        font-size:$txt-sm;
         display:block;
         margin:20px 0px;
     }
@@ -45,7 +42,6 @@
 
     &__btn{
         @extend .btn;
-        font-size:$txt-med;
         margin:10px 0px;
     }
 

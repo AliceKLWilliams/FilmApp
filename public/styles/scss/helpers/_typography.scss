@@ -4,50 +4,43 @@ $light: 300;
 $normal: 400;
 $bold: 700;
 
-$txt-p: 12pt;
-$txt-xs:14pt;
-$txt-sm:16pt;
-$txt-med:20pt;
-$txt-large: 30pt;
-$txt-xl: 50pt;
+$txt-smaller:1.25em;
+$txt-small:1.5em;
+$txt-med:2em;
+$txt-large:2.5em;
+$txt-larger:3.5em;
+$txt-largest:4em;
 
 h1, h2, h3, h4, h5, h6{
     text-transform: uppercase;
+    color:$txt-primary;
 }
 
 h1{
-    font-size:$txt-xl;
-    letter-spacing: 5px;
-    margin:30px 0px;
+    font-size:$txt-largest;
 }
 
 h2{
-    font-size:$txt-large;
-    letter-spacing: 5px;
-    margin:20px 0px;
+    font-size:$txt-larger;
 }
 
 h3{
-    font-size:$txt-med;
-    letter-spacing: 3px;
-    margin:5px 0px;
+    font-size:$txt-large;
 }
 
 h4{
-    font-size: $txt-sm;
-    margin:4px 0px;
+    font-size:$txt-med;
 }
 
 h5{
-    font-size:$txt-xs;
-    margin:2px 0px;
+    font-size:$txt-small;
 }
 
 h6{
-    font-size:$txt-p;
+    font-size:$txt-smaller;
 }
 
 p{
-    font-size:$txt-p;
-    line-height:20px;
+    font-size:1em;
+    line-height: 1.5em;
 }

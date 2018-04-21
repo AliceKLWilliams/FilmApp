@@ -1,24 +1,28 @@
 .card {
-    
-    display:flex;
-    flex-direction:row;
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+
+    padding:20px;
 
     width:100%;
     height:100%;
 
+    background-color: #ffffff;
+    box-shadow:4px 6px 10px #f0f0f0;
+
+    text-overflow: ellipsis;
+
     &__content{
         display:flex;
         flex-direction: column;
-        justify-content: space-between;
 
         height:100%;
     }
 
     &__poster {
-        width:40%;
+        max-width:50%;
         padding-right:20px;
-
         align-self:center;
     }
 
@@ -37,10 +41,8 @@
         flex-direction: column;
 
         &__poster{
-            width:100%;
             object-fit: contain;
             align-self:center;
-            margin-bottom:10px;
         }
 
         &__content{

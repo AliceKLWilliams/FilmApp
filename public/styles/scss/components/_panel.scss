@@ -9,6 +9,11 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap:10px 20px;
 
+    background-color: #ffffff;
+    box-shadow:4px 6px 10px #f0f0f0;
+
+    margin-bottom:50px;
+
     &__title{
         grid-column:1 / span 3;
         margin: 10px auto;
