@@ -3,55 +3,56 @@
     flex-direction: row;
     align-content: center;
 
-    padding:20px;
-
-    width:100%;
-    height:100%;
-
-    background-color: #ffffff;
-    box-shadow:4px 6px 10px #f0f0f0;
+    max-width:40%;
+    margin:3%;
 
     text-overflow: ellipsis;
+    
+    &:hover &__bttns{
+        left:0px;
+    }
 
     &__content{
         display:flex;
-        flex-direction: column;
+        flex-direction: row;
 
-        height:100%;
+        padding:20px;
+
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        
+        z-index:2;
     }
 
     &__poster {
-        max-width:50%;
-        padding-right:20px;
+        width:40%;
         align-self:center;
     }
 
-    &__desc{
-        margin:20px 0px;
+    &__text{
+        margin:20px;
     }
 
-    &__btns{
+    &__header{
+        margin-bottom: 10px;
+    }
+    
+    &__bttns{
         display:flex;
-        flex-direction: row;
-
-        width:100%;
-    }
-
-    &--basic{
         flex-direction: column;
 
-        &__poster{
-            object-fit: contain;
-            align-self:center;
-        }
+        padding:10px;
 
-        &__content{
-            display:flex;
-            flex-direction:row;
-            width:100%;
-            justify-content: space-between;
-        }
+        position: relative;
+        left:-70px;
+        z-index:1;
 
+        transition: left 0.5s;
+
+        background-color:#4169E1;
     }
 
+    &__bttn i{
+        color:white;
+    }
 }

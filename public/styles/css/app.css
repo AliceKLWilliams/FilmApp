@@ -122,8 +122,9 @@ a:visited {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0px 6px 5px #f0f0f0; }
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  z-index: 1; }
   .nav__item {
     position: relative;
     display: inline-block; }
@@ -131,14 +132,16 @@ a:visited {
       padding: 0px 20px;
       font-size: 1.25em;
       text-transform: uppercase;
-      font-weight: 700; }
+      font-weight: 700;
+      z-index: 2; }
       .nav__item--link::after {
         display: none;
         width: 100%;
         position: absolute;
         left: 0px;
-        top: 30px;
-        border-bottom: 3px solid black;
+        top: 10px;
+        border-bottom: 13px solid #C2D3FF;
+        z-index: -1;
         content: ""; }
       .nav__item--link:hover::after {
         display: inline-block; }
@@ -197,36 +200,36 @@ a:visited {
   display: flex;
   flex-direction: row;
   align-content: center;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: 4px 6px 10px #f0f0f0;
+  max-width: 40%;
+  margin: 3%;
   text-overflow: ellipsis; }
+  .card:hover .card__bttns {
+    left: 0px; }
   .card__content {
     display: flex;
-    flex-direction: column;
-    height: 100%; }
-  .card__poster {
-    max-width: 50%;
-    padding-right: 20px;
-    align-self: center; }
-  .card__desc {
-    margin: 20px 0px; }
-  .card__btns {
-    display: flex;
     flex-direction: row;
-    width: 100%; }
-  .card--basic {
-    flex-direction: column; }
-    .card--basic__poster {
-      object-fit: contain;
-      align-self: center; }
-    .card--basic__content {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      justify-content: space-between; }
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    z-index: 2; }
+  .card__poster {
+    width: 40%;
+    align-self: center; }
+  .card__text {
+    margin: 20px; }
+  .card__header {
+    margin-bottom: 10px; }
+  .card__bttns {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    left: -70px;
+    z-index: 1;
+    transition: left 0.5s;
+    background-color: #4169E1; }
+  .card__bttn i {
+    color: white; }
 
 .search {
   margin: 10px;
@@ -304,11 +307,12 @@ a:visited {
   margin: 50px 0px; }
 
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
-  grid-gap: 30px;
   width: 80%;
-  margin: 40px auto; }
+  margin: 40px auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center; }
 
 .buttons {
   display: inline-block;
