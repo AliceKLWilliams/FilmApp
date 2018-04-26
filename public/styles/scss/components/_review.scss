@@ -1,25 +1,17 @@
 .review{
-	width:100%;
 	padding:10px;
 	margin:40px 0px;
+	width:100%;
 
 	display:grid;
-	grid-template-rows: 1fr;
-	grid-gap:20px;
+	grid-template-columns: max-content 1fr;
 
-	&__header{
-		display:flex;
-		justify-content: space-between;
-		align-items:center;
-	}
+	&__content{
+		background-color: #ffffff;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		padding:20px;
 
-	&__bttns{
-		display:flex;
-		align-items: center;
-	}
-	
-	&__stars{
-		display:block;
+		z-index:2;
 	}
 
 	&__extra{
@@ -32,9 +24,23 @@
 	}
 }
 
+.review__bttn{
+    background-color:#4169E1;
+    padding:15px 15px;
+
+    transition: all 0.5s;
+	position: relative;
+	left:85%;
+
+	width:100%;
+
+	z-index:1;
+
+	&:hover{
+		left:0%;
+	}
+}
+
 .star{
 	color:#FFCC33;
-
-	&--small{
-	}
 }
