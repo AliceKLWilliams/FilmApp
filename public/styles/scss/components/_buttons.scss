@@ -5,32 +5,19 @@
     flex-direction: column;
 
     text-align: center;
-
-    background-color:transparent;
+    
     border:none;
 
-    padding: 10px;
-
+    background-color: transparent;
     cursor:pointer;
 
-    font-size:24pt;
+    font-size:18pt;
 
-    color:$txt-primary;
-
-    &--rise:hover{
-        position:relative;
-        top:-3px;
-    }
-
-    &--large{
-        font-size:30pt;
-    }
-
-    &--small{
-        font-size:18pt;
-    }
+    color:$txt-white;
+    text-decoration: none;
 
     &--form{
         display:inline-block;
+        text-align: center;
     }
 }

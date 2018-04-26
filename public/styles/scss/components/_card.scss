@@ -36,23 +36,17 @@
     &__header{
         margin-bottom: 10px;
     }
-    
-    &__bttns{
-        display:flex;
-        flex-direction: column;
 
-        padding:10px;
+}
 
-        position: relative;
-        left:-70px;
-        z-index:1;
+.card__btn{
+    background-color:#4169E1;
+    padding:15px 15px;
 
-        transition: left 0.5s;
+    transform: translateX(85%);
+    transition: all 0.5s;
 
-        background-color:#4169E1;
-    }
-
-    &__bttn i{
-        color:white;
+    &:hover{
+        transform: translateX(0%);
     }
 }

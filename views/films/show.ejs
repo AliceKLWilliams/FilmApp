@@ -39,12 +39,12 @@
     </div>
     <% if(currentUser) { %>
         <div class="buttons">
-            <a class="btn btn--rise" href="/films/<%=data.imdbID%>/reviews/new">
+            <a class="btn panel__btn panel__btn--review" href="/films/<%=data.imdbID%>/reviews/new">
                 <i class="fa fa-star btn__icon"></i>
                 <p>Add Review</p>
             </a>
             <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
-                <button class="btn btn--rise">
+                <button class="btn panel__btn">
                     <% if (!currentUser.watched.includes(data.imdbID)) { %>
                         <i class="fa fa-plus btn__icon"></i>
                     <% } else { %>
@@ -54,7 +54,7 @@
                 </button>
             </form>
             <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
-                <button class="btn btn--rise">
+                <button class="btn panel__btn">
                     <% if (!currentUser.want.includes(data.imdbID)) { %>
                         <i class="fa fa-plus btn__icon"></i>
                     <% } else { %>
@@ -66,13 +66,27 @@
         </div>
     <% } %>
 
-    <% if(modelData) {%>
-        <h3>Watched: <%= modelData.watched %></h3>
-        <h3>Want-To-Watch: <%= modelData.want %></h3>
-    <% } else { %>
-        <h3>Watched: 0</h3>
-        <h3>Want-To-Watch: 0</h3>
-    <% } %>   
+    <div class="stats">
+        <% if(modelData) {%>
+            <div class="stats__item">
+                <span class="stats__num"><%= modelData.watched %></span>
+                <h3>Watched</h3>
+            </div>
+            <div class="stats__item">
+                <span class="stats__num"><%= modelData.want %></span>
+                <h3>Want-To-Watch</h3>
+            </div>
+        <% } else { %>
+            <div class="stats__item">
+                <span class="stats__num">0</span>
+                <h3>Watched</h3>
+            </div>
+            <div class="stats__item">
+                <span class="stats__num">0</span>
+                <h3>Want-To-Watch</h3>
+            </div>
+        <% } %>   
+    </div>
 
     <div class="reviews">
     <h2>Reviews</h2>
