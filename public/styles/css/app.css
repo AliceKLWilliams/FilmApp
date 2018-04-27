@@ -112,7 +112,11 @@ html, body {
   .pagination__link {
     padding: 5px;
     position: relative;
-    margin: 0px 10px; }
+    margin: 0px 10px;
+    text-decoration: none;
+    color: black; }
+    .pagination__link:visited {
+      color: black; }
     .pagination__link::after {
       width: 100%;
       position: absolute;
