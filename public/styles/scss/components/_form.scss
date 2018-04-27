@@ -1,9 +1,12 @@
 .form{
-    padding:20px;
+    padding:20px 30px;
 
     min-width:340px;
     width:60%;
     margin:30px auto;
+
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     text-align: center;
 
@@ -16,33 +19,47 @@
         padding:10px;
         margin:10px auto;
 
+        font-size:18pt;
+
         font-family:$base-font-stack;
     }
 
     &__text{
         padding:10px;
         font-family:$base-font-stack;
+        font-size:20pt;
 
-        display:block;
-
-        margin:10px auto;
+        margin:20px 0px;
 
         min-width:300px;
         width:50%;
+
+        background-color: transparent;
+        border:none;
+        border-bottom: 3px solid #4169E1;
     }
 
     &__label{
-        display:block;
         margin:20px 0px;
+        font-size:24pt;
     }
 
     &__label:first-of-type{
         margin:0px 0px 20px 0px;
     }
 
+    &__group{
+        margin:30px 0px;
+    }
+
     &__btn{
-        @extend .btn;
         margin:10px 0px;
+        background-color:#4169e1;
+        border:none;
+        color:$txt-white;
+        padding:20px;
+        font-size:18pt;
+        text-transform: uppercase;
     }
 
     &__review{
@@ -50,7 +67,6 @@
         display:flex;
         flex-direction: row-reverse;
         justify-content: center;
-
 
         input[type=radio]{
             display:none;
