@@ -40,25 +40,25 @@
     <% if(currentUser) { %>
         <div class="buttons">
             <a class="btn panel__btn panel__btn--review" href="/films/<%=data.imdbID%>/reviews/new">
-                <i class="fa fa-star btn__icon"></i>
-                <p>Add Review</p>
+                <i class="fa fa-comment" aria-hidden="true"></i>
+                <p>New Review</p>
             </a>
             <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
                 <button class="btn panel__btn">
                     <% if (!currentUser.watched.includes(data.imdbID)) { %>
-                        <i class="fa fa-plus btn__icon"></i>
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                     <% } else { %>
-                        <i class="fa fa-minus btn__icon"></i>
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <% } %>
-                    <p>Watched?</p>
+                    <p>Seen?</p>
                 </button>
             </form>
             <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
                 <button class="btn panel__btn">
                     <% if (!currentUser.want.includes(data.imdbID)) { %>
-                        <i class="fa fa-plus btn__icon"></i>
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                     <% } else { %>
-                        <i class="fa fa-minus btn__icon"></i>
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
                     <% } %>
                     <p>Want?</p>
                 </button>
@@ -96,27 +96,30 @@
         <% } %>
         <% modelData.reviews.forEach(review => { %>
             <div class="review">
-                <% if(currentUser && review.author.equals(currentUser._id)) { %>
-                    <div class="review__bttns">
+                <div class="review__bttns">
+                    <% if(currentUser && review.author.equals(currentUser._id)) { %>
                         <form method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
-                            <button class="btn review__bttn">Delete</button>
+                            <button class="btn review__bttn">
+                                <i class="fa fa-trash btn__icon" aria-hidden="true"></i>
+                            </button>
                         </form>
-                        <a class="btn review__bttn" href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit">Edit</a>
-                    </div>
-                <% } %>
+                        <a class="btn review__bttn" href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    <% } %>
+                </div>
                 <div class="review__content">
-                    <p class="review__username">Name</p>
                     <div class="review__stars">
                         <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
-                            <i class= "fa fa-star star star--small"></i>
+                            <i class= "fa fa-star star"></i>
                         <% } %>
                     </div>
                     <p class="review__text"><%= review.text %></p>
                     <div class="review__extra">
                         <% for(let rating in review.ratings.toObject()) { %>
                             <% if(rating !== "overall"){ %>
-                                <p><%=rating.charAt(0).toUpperCase() + rating.slice(1)%></p>
-                                <div class="rating__stars">
+                                <div class="review__stars">
+                                    <p><%=rating.charAt(0).toUpperCase() + rating.slice(1)%></p>
                                     <%for(let i = 0; i < parseInt(review.ratings[rating]); i++) { %>
                                         <i class= "fa fa-star star star--small"></i>
                                     <% } %>
@@ -124,7 +127,7 @@
                             <% } %>
                         <% } %>
                     </div>
-                    <button class="btn btn--small review__more">More</button>
+                    <button class="btn review__more">Show More</button>
                 </div>
             </div>
         <% }); %>

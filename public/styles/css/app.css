@@ -269,11 +269,24 @@ html, body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     padding: 20px;
     z-index: 2; }
+  .review__text {
+    font-size: 16pt;
+    margin: 10px 0px; }
   .review__extra {
     height: 0px;
     overflow: hidden; }
+  .review__extra--open {
+    margin: 20px 0px; }
   .review__more {
-    display: inline-block; }
+    display: inline-block;
+    color: #4169E1;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 12pt; }
+  .review__stars {
+    display: inline-block;
+    text-align: center;
+    margin: 10px; }
 
 .review__bttn {
   background-color: #4169E1;
@@ -281,13 +294,15 @@ html, body {
   transition: all 0.5s;
   position: relative;
   left: 85%;
+  margin-bottom: 10px;
   width: 100%;
   z-index: 1; }
   .review__bttn:hover {
     left: 0%; }
 
 .star {
-  color: #FFCC33; }
+  color: #FFCC33;
+  font-size: 20pt; }
 
 .search-container {
   display: flex;

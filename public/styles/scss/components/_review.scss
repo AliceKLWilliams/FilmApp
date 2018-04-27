@@ -14,13 +14,32 @@
 		z-index:2;
 	}
 
+	&__text{
+		font-size:16pt;
+		margin:10px 0px;
+	}
+
 	&__extra{
 		height:0px;
 		overflow: hidden;
 	}
 
+	&__extra--open{
+		margin:20px 0px;
+	}
+
 	&__more{
 		display:inline-block;
+		color:#4169E1;
+		padding:10px;
+		text-transform: uppercase;
+		font-size:12pt;
+	}
+
+	&__stars{
+		display:inline-block;
+		text-align: center;
+		margin:10px;
 	}
 }
 
@@ -31,6 +50,8 @@
     transition: all 0.5s;
 	position: relative;
 	left:85%;
+
+	margin-bottom: 10px;
 
 	width:100%;
 
@@ -43,4 +64,5 @@
 
 .star{
 	color:#FFCC33;
+	font-size:20pt;
 }
