@@ -1,0 +1,47 @@
+<% include partials/header.ejs %>
+
+
+<% if(searchResults.Search) { %>
+    <div class="card-container">
+    <% searchResults.Search.forEach(film => { %>
+        <div class="card">
+            <div class="card__bttns">
+                <a class="btn card__btn card__btn--more" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
+            </div>
+            <div class="card__content">
+                <% if(film.Poster === "N/A") { %>
+                    <img class="card__poster" src= "http://via.placeholder.com/350x450" />
+                <% } else {%>
+                    <img class="card__poster" src= <%= film.Poster %> />
+                <% } %>
+                <div class="card__text">
+                    <div class="card__header"><h4 class="card__year"><%= film.Title %></h4><span class="card__year"><%= film.Year %> </span></div>
+                    <p class="card__desc"><%= film.Plot %></p>
+                </div>
+            </div>
+        </div>
+        
+    <% }); %>
+    </div>
+
+<% } else { %>
+    <div class="msg">
+        <h3 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h3>
+    </div>
+<% } %>
+
+<% let numberPages = Math.ceil(searchResults.totalResults/10); %>
+<div class="pagination">
+    <% if(currentPage !== 1) { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>
+    <% } %>
+    <% paginationData.forEach((pageNum) => { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum%></a>
+    <% }); %>
+    <% if(currentPage !== numberPages) { %>
+        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link"><i class="fa fa-arrow-right"></i></a>
+    <% } %>
+</div>
+
+
+<% include partials/footer.ejs %>

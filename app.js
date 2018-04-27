@@ -120,7 +120,7 @@ app.get("/search", function (req, res) {
             pageParams.searchResults.Search[i].Plot = plots[i];
         }
 
-        res.render("search", pageParams);
+        res.render("results", pageParams);
     })
     .catch(error => {
         res.render("error", {msg: error});

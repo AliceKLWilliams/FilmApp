@@ -1,5 +1,6 @@
 .search-container{
     @include flex-container(center, center, column);
-    margin-top:23vh;
     width:100%;
+    height:100%;
+    background-color:#4169E1;
 }

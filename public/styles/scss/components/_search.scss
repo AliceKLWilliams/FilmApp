@@ -1,15 +1,28 @@
 .search{
-    margin:10px;
+    margin:50px 0px;
 
     display:flex;
     align-items: center;
 
-    border-bottom:3px solid $txt-primary;
+    &--white{
+        border-bottom:3px solid $txt-white;
+        
+        .search__bar{
+            color:$txt-white;
+        }
+
+        .search__bar::placeholder{
+            color:$txt-white;
+        }
+    }
 
     &__bar{
         background:transparent;
 
         border:none;
+
+        min-width:500px;
+        padding: 30px;
 
         font-family: $base-font-stack;
         font-size:$txt-med;
@@ -23,27 +36,5 @@
             font-weight:$bold;
         }
 
-    }
-
-    &--large{
-        height:100px;
-        padding:20px;
-
-        .search__bar{
-            margin:20px;
-            width:600px;
-        }
-    }
-
-    &--med{
-        height:60px;
-        padding:10px;
-        width:300px;
-        margin:0 auto;
-
-        .search__bar{
-            padding:5px;
-            border-width:2px;
-        }
     }
 }
