@@ -188,6 +188,10 @@ a:visited {
     transition: all 0.5s; }
     .btn--slide:hover {
       left: 0%; }
+    @media screen and (max-width: 640px) {
+      .btn--slide {
+        left: 0%;
+        transition: none; } }
 
 .panel {
   width: 100%;
@@ -249,6 +253,12 @@ a:visited {
     margin: 1.5em 1.25em; }
   .card__header {
     margin-bottom: 1em; }
+  @media screen and (max-width: 1042px) {
+    .card {
+      max-width: 95%; } }
+  @media screen and (max-width: 640px) {
+    .card {
+      flex-direction: column-reverse; } }
 
 .search {
   font-size: 1.5rem;

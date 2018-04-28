@@ -31,4 +31,12 @@
     &__header{
         margin-bottom: 1em;
     }
+
+    @include breakpoint($desktop){
+        max-width:95%;
+    }
+
+    @include breakpoint($smartphone){
+        flex-direction: column-reverse;
+    }
 }

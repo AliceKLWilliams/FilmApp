@@ -34,5 +34,12 @@
         &:hover{
             left:0%;
         }
+
+        @include breakpoint($smartphone){
+            left:0%;
+            transition: none;
+        }
     }
+
+    
 }
