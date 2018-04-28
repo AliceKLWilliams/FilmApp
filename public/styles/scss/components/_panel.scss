@@ -7,8 +7,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap:10px 20px;
 
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color:$card-colour;
+    box-shadow: $box-shadow;
 
     &__title{
         grid-column:1 / span 3;
@@ -23,14 +23,16 @@
     }
 
     &__column{
-        @include flex-container(column, center, flex-start);
+        @include flex-container(column, center);
 
         &--left{
-           text-align:right;
+           align-items:flex-end;
+           text-align:right
         }
 
         &--right{
-            text-align:left;
+            align-items:flex-start;
+            text-align: left;
         }
     }
 

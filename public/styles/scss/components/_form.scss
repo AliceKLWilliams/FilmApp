@@ -1,14 +1,18 @@
 .form{
     padding:20px 30px;
 
-    min-width:340px;
     width:60%;
-    margin:30px auto;
 
-    background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color: $card-colour;
+    box-shadow: $box-shadow;
 
     text-align: center;
+
+    margin:0 auto;
+
+    *{
+        margin:30px 0px;
+    }
 
     &__textarea{
         resize:none;
@@ -17,19 +21,16 @@
         min-height:200px;
 
         padding:10px;
-        margin:10px auto;
 
         font-size:18pt;
-
         font-family:$base-font-stack;
     }
 
     &__text{
         padding:10px;
+
         font-family:$base-font-stack;
         font-size:20pt;
-
-        margin:20px 0px;
 
         min-width:300px;
         width:50%;
@@ -40,16 +41,7 @@
     }
 
     &__label{
-        margin:20px 0px;
         font-size:24pt;
-    }
-
-    &__label:first-of-type{
-        margin:0px 0px 20px 0px;
-    }
-
-    &__group{
-        margin:30px 0px;
     }
 
     &__review{
@@ -59,24 +51,13 @@
             display:none;
         }
         
-        input[type=radio]:checked ~ label .form__star{
-            color:#FFFF99;
+        input[type=radio]:checked ~ label .star{
+            color:$star-colour;
         }
 
-        input[type=radio]:hover ~ label .form__star{
-            color: #FFFF99;
+        input[type=radio]:hover ~ label .star{
+            color: $star-colour;
         }
 
-    }
-
-    &__star{
-        font-size:30pt;
-        color:#cccccc;
-        display:inline-block;
-        margin:10px;
-    }
-
-    &__star.active{
-        color:#ffff99;
     }
 }

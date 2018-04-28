@@ -1,0 +1,11 @@
+.star{
+	font-size:30pt;
+    color:#cccccc;
+
+    display:inline-block;
+    margin:10px;
+
+	&--active{
+		color:$star-colour;
+	}
+}

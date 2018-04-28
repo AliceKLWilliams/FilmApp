@@ -6,6 +6,6 @@
     width:80%;
     margin:40px auto;
 
-    justify-content: center;
-    align-items:center;
+    @include flex-container(column, center, center);
+    flex-wrap:wrap;
 }
