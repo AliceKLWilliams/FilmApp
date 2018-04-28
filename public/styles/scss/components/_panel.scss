@@ -1,23 +1,24 @@
 .panel{
     width:100%;
+    font-size:1rem;
 
-    padding:40px;
+    padding:2.5em;
 
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap:10px 20px;
+    grid-gap:0.6em 1.25em;
 
     background-color:$card-colour;
     box-shadow: $box-shadow;
 
     &__title{
         grid-column:1 / span 3;
-        margin: 10px auto;
+        margin: 0 auto 0.3em auto;
     }
 
     &__poster{
         width:80%;
-        min-width:200px;
+        min-width:14em;
 
         margin:auto;
     }
@@ -37,12 +38,12 @@
     }
 
     &__section{
-        margin:40px 0px;
+        margin:2em 0px;
     }
 }
 
 .panel__btn{
-    padding:20px 0px;
+    padding:1.25em 0px;
 
     background-color: $primary-colour;
     width:100%;

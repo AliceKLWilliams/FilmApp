@@ -1,9 +1,10 @@
-
 .nav{
-    width:100%;
-    padding:20px;
-
     @include flex-container(row, space-between, center);
+
+    width:100%;
+    padding:1.25rem;
+
+    font-size:1rem;
 
     z-index:1;
 
@@ -11,17 +12,16 @@
         position:relative;
         display:inline-block;
 
+        font-size:1.15em;
+
         &--link{
-            padding:0px 20px;
+            padding:0px 1.25em;
     
-            font-size:$txt-smaller;
             text-transform: uppercase;
             font-weight: $bold;
+            color:$txt-dark;
 
             z-index:2;
-
-            color:$txt-dark;
-            text-decoration: none;
 
             &:visited{
                 color:$txt-dark;
@@ -34,8 +34,8 @@
     
                 position: absolute;
                 left:0px;
-                top:10px;
-                border-bottom:13px solid #C2D3FF;
+                top:0.5em;
+                border-bottom:0.8em solid #C2D3FF;
 
                 z-index:-1;
     

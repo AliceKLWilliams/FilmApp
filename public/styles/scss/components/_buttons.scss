@@ -1,6 +1,8 @@
 .btn{
     @include flex-container(column, center, center);
     text-align: center;
+
+    font-size:1.5rem;
     
     border:none;
     background-color: transparent;
@@ -8,7 +10,7 @@
 
     text-decoration: none;
 
-    padding:15px;
+    padding:0.8em;
 
     &--form{
         display:inline-block;

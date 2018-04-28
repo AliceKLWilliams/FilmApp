@@ -1,11 +1,8 @@
-.msg{
-    margin:50px 0px;
-}
 
 .card-container{
     width:80%;
     margin:40px auto;
 
-    @include flex-container(column, center, center);
+    @include flex-container(row, center, center);
     flex-wrap:wrap;
 }

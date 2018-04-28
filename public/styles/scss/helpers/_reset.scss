@@ -5,6 +5,7 @@ html, body{
     font-family:$base-font-stack;
     font-weight:$normal;
     color:$txt-dark;
+    font-size:16px;
 }
 
 *{
@@ -15,3 +16,10 @@ html, body{
     font-family:$base-font-stack;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}

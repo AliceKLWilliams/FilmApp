@@ -1,10 +1,11 @@
 .search{
-    margin:50px 0px;
+    font-size:1.5rem;
+    margin:3rem 0px;
 
     @include flex-container(row, flex-start, center);
 
     &--white{
-        border-bottom:3px solid $txt-light;
+        border-bottom:0.175em solid $txt-light;
         
         .search__bar{
             color:$txt-light;
@@ -13,27 +14,30 @@
         .search__bar::placeholder{
             color:$txt-light;
         }
+        
+        .search__btn{
+            font-size:1.2em;
+            color:$txt-light;
+        }
     }
 
     &__bar{
         background:transparent;
-
         border:none;
 
-        min-width:500px;
-        padding: 30px;
-
         font-family: $base-font-stack;
-        font-size:$txt-med;
         color:$txt-dark;
+        font-size:1.75em;
+
+        padding:0.75em;
     
         &::placeholder{
             font-family: $base-font-stack;
             color:$txt-dark;
             text-transform: uppercase;
+
             letter-spacing: 2px;
             font-weight:$bold;
         }
-
     }
 }

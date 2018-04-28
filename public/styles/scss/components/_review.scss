@@ -1,6 +1,8 @@
 .review{
-	padding:10px;
-	margin:40px 0px;
+	font-size:1rem;
+	padding:0.8em;
+
+	margin:3em 0px;
 	width:100%;
 
 	display:grid;
@@ -9,14 +11,13 @@
 	&__content{
 		background-color:$card-colour;
 		box-shadow: $box-shadow;
-		padding:20px;
+		padding:1em;
 
 		z-index:2;
 	}
 
 	&__text{
-		font-size:16pt;
-		margin:10px 0px;
+		margin:0.6em 0px;
 	}
 
 	&__extra{
@@ -25,12 +26,12 @@
 	}
 
 	&__extra--open{
-		margin:20px 0px;
+		margin:1.25em 0px;
 	}
 
 	&__stars{
 		display:inline-block;
 		text-align: center;
-		margin:10px;
+		margin:0.7em;
 	}
 }

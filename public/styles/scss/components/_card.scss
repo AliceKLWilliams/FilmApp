@@ -1,19 +1,17 @@
 .card {
     @include flex-container(row, center, flex-start);
 
-    max-width:40%;
-    margin:3%;
+    max-width:45%;
+    margin:2%;
 
     text-overflow: ellipsis;
-    
-    &:hover &__bttns{
-        left:0px;
-    }
+
+    font-size:1rem;
 
     &__content{
         @include flex-container(row, center, center);
 
-        padding:20px;
+        padding:1.25em;
 
         background-color: $card-colour;
         box-shadow: $box-shadow;
@@ -27,11 +25,10 @@
     }
 
     &__text{
-        margin:20px;
+        margin:1.5em 1.25em;
     }
 
     &__header{
-        margin-bottom: 10px;
+        margin-bottom: 1em;
     }
-
 }

@@ -15,7 +15,10 @@
                     <img class="card__poster" src= <%= film.Poster %> />
                 <% } %>
                 <div class="card__text">
-                    <div class="card__header"><h4 class="card__year"><%= film.Title %></h4><span class="card__year"><%= film.Year %> </span></div>
+                    <div class="card__header">
+                        <h3 class="card__year"><%= film.Title %></h3>
+                        <h5 class="card__year"><%= film.Year %> </h5>
+                    </div>
                     <p class="card__desc"><%= film.Plot %></p>
                 </div>
             </div>
