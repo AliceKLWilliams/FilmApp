@@ -47,4 +47,17 @@
             }
         }
     }
+
+    
+    @include breakpoint($smartphone){
+
+        flex-direction: column;
+        font-size:1.2rem;
+
+        &__item{
+            display:block;
+            margin:1em;
+        }
+    }
+    
 }

@@ -4,3 +4,14 @@
     justify-content: $h-align;
     align-items: $v-align;
 }
+
+$mobile: 480px;
+$smartphone: 640px;
+$tablet:768px;
+$desktop:1042px;
+
+@mixin breakpoint($size){
+    @media screen and (max-width:$size){
+        @content
+    }
+}

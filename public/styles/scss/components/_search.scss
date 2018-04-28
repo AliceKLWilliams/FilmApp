@@ -40,4 +40,12 @@
             font-weight:$bold;
         }
     }
+
+    @include breakpoint($smartphone){
+        font-size:1rem;
+    }
+
+    @include breakpoint($smartphone){
+        font-size:0.8rem;
+    }
 }

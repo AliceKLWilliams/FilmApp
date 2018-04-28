@@ -6,8 +6,9 @@
 }
 
 .centre-screen{
+    @include flex-container(column, center, center);
     width:100%;
     height:100%;
-    @include flex-container(column, center, center);
+    min-height:1200px;
     background:$primary-colour;
 }
