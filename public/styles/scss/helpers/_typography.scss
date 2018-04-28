@@ -12,38 +12,5 @@ $txt-larger:3.5em;
 $txt-largest:4em;
 
 h1, h2, h3, h4, h5, h6{
-    color:$txt-primary;
-}
-
-h1{
-    font-size:$txt-largest;
-}
-
-h2{
-    font-size:$txt-larger;
-}
-
-h3{
-    font-size:$txt-large;
-}
-
-h4{
-    font-size:$txt-med;
-}
-
-h5{
-    font-size:$txt-small;
-}
-
-h6{
-    font-size:$txt-smaller;
-}
-
-p{
-    font-size:1em;
-    line-height: 1.5em;
-}
-
-.txt-white{
-    color:$txt-white;
+    color:$txt-dark;
 }

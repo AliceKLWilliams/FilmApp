@@ -1,7 +1,5 @@
 .card {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
+    @include flex-container(row, center, flex-start);
 
     max-width:40%;
     margin:3%;
@@ -13,8 +11,7 @@
     }
 
     &__content{
-        display:flex;
-        flex-direction: row;
+        @include flex-container(row, center, center);
 
         padding:20px;
 
@@ -37,16 +34,4 @@
         margin-bottom: 10px;
     }
 
-}
-
-.card__btn{
-    background-color:#4169E1;
-    padding:15px 15px;
-
-    transform: translateX(85%);
-    transition: all 0.5s;
-
-    &:hover{
-        transform: translateX(0%);
-    }
 }

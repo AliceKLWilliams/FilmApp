@@ -3,10 +3,7 @@
     width:100%;
     padding:20px;
 
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-
+    @include flex-container(row, space-between, center);
 
     z-index:1;
 
@@ -23,11 +20,11 @@
 
             z-index:2;
 
-            color:$txt-primary;
+            color:$txt-dark;
             text-decoration: none;
 
             &:visited{
-                color:$txt-primary;
+                color:$txt-dark;
             }
     
             &::after{

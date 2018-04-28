@@ -14,8 +14,7 @@
 .stats{
     margin: 100px 0px;
 
-    display:flex;
-    justify-content: space-around;
+    @include flex-container(row, space-around, center);
 
     &__item{
         display:inline-block;

@@ -1,38 +1,12 @@
 h1, h2, h3, h4, h5, h6 {
   color: black; }
 
-h1 {
-  font-size: 4em; }
-
-h2 {
-  font-size: 3.5em; }
-
-h3 {
-  font-size: 2.5em; }
-
-h4 {
-  font-size: 2em; }
-
-h5 {
-  font-size: 1.5em; }
-
-h6 {
-  font-size: 1.25em; }
-
-p {
-  font-size: 1em;
-  line-height: 1.5em; }
-
-.txt-white {
-  color: #E8F1F2; }
-
 html, body {
   widows: 100%;
   height: 100%;
   font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
-  color: black;
-  background-color: #f8f8f8; }
+  color: black; }
 
 * {
   padding: 0px;
@@ -79,18 +53,10 @@ html, body {
     margin: 0px 0px 20px 0px; }
   .form__group {
     margin: 30px 0px; }
-  .form__btn {
-    margin: 10px 0px;
-    background-color: #4169e1;
-    border: none;
-    color: #E8F1F2;
-    padding: 20px;
-    font-size: 18pt;
-    text-transform: uppercase; }
   .form__review {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center; }
+    justify-content: center;
+    align-items: center; }
     .form__review input[type=radio] {
       display: none; }
     .form__review input[type=radio]:checked ~ label .form__star {
@@ -161,20 +127,29 @@ html, body {
         display: inline-block; }
 
 .btn {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   text-align: center;
   border: none;
   background-color: transparent;
   cursor: pointer;
-  font-size: 18pt;
-  color: #E8F1F2;
-  text-decoration: none; }
+  text-decoration: none;
+  padding: 15px; }
   .btn--form {
-    display: inline-block;
-    text-align: center; }
+    display: inline-block; }
+  .btn--primary {
+    background-color: #4169E1;
+    color: #E8F1F2; }
+  .btn--secondary {
+    color: #4169E1;
+    text-transform: uppercase; }
+  .btn--slide {
+    position: relative;
+    left: 85%;
+    transition: all 0.5s; }
+    .btn--slide:hover {
+      left: 0%; }
 
 .panel {
   width: 100%;
@@ -194,7 +169,7 @@ html, body {
   .panel__column {
     display: flex;
     justify-content: center;
-    flex-direction: column; }
+    align-items: flex-start; }
     .panel__column--left {
       text-align: right; }
     .panel__column--right {
@@ -209,8 +184,8 @@ html, body {
 
 .card {
   display: flex;
-  flex-direction: row;
-  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
   max-width: 40%;
   margin: 3%;
   text-overflow: ellipsis; }
@@ -218,7 +193,8 @@ html, body {
     left: 0px; }
   .card__content {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -231,17 +207,10 @@ html, body {
   .card__header {
     margin-bottom: 10px; }
 
-.card__btn {
-  background-color: #4169E1;
-  padding: 15px 15px;
-  transform: translateX(85%);
-  transition: all 0.5s; }
-  .card__btn:hover {
-    transform: translateX(0%); }
-
 .search {
   margin: 50px 0px;
   display: flex;
+  justify-content: flex-start;
   align-items: center; }
   .search--white {
     border-bottom: 3px solid #E8F1F2; }
@@ -289,39 +258,16 @@ html, body {
     overflow: hidden; }
   .review__extra--open {
     margin: 20px 0px; }
-  .review__more {
-    display: inline-block;
-    color: #4169E1;
-    padding: 10px;
-    text-transform: uppercase;
-    font-size: 12pt; }
   .review__stars {
     display: inline-block;
     text-align: center;
     margin: 10px; }
-
-.review__bttn {
-  background-color: #4169E1;
-  padding: 15px 15px;
-  transition: all 0.5s;
-  position: relative;
-  left: 85%;
-  margin-bottom: 10px;
-  width: 100%;
-  z-index: 1; }
-  .review__bttn:hover {
-    left: 0%; }
 
 .star {
   color: #FFCC33;
   font-size: 20pt; }
 
 .search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
   width: 100%;
   height: 100%;
   background-color: #4169E1; }
@@ -332,8 +278,6 @@ html, body {
 .card-container {
   width: 80%;
   margin: 40px auto;
-  display: flex;
-  flex-flow: row wrap;
   justify-content: center;
   align-items: center; }
 
@@ -349,7 +293,8 @@ html, body {
 .stats {
   margin: 100px 0px;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  align-items: center; }
   .stats__item {
     display: inline-block;
     text-align: center; }

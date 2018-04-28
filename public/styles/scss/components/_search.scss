@@ -1,18 +1,17 @@
 .search{
     margin:50px 0px;
 
-    display:flex;
-    align-items: center;
+    @include flex-container(row, flex-start, center);
 
     &--white{
-        border-bottom:3px solid $txt-white;
+        border-bottom:3px solid $txt-light;
         
         .search__bar{
-            color:$txt-white;
+            color:$txt-light;
         }
 
         .search__bar::placeholder{
-            color:$txt-white;
+            color:$txt-light;
         }
     }
 
@@ -26,11 +25,11 @@
 
         font-family: $base-font-stack;
         font-size:$txt-med;
-        color:$txt-primary;
+        color:$txt-dark;
     
         &::placeholder{
             font-family: $base-font-stack;
-            color:$txt-primary;
+            color:$txt-dark;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight:$bold;

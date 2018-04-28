@@ -23,9 +23,7 @@
     }
 
     &__column{
-        display:flex;
-        justify-content: center;
-        flex-direction: column;
+        @include flex-container(column, center, flex-start);
 
         &--left{
            text-align:right;
@@ -44,6 +42,6 @@
 .panel__btn{
     padding:20px 0px;
 
-    background-color: #4169E1;
+    background-color: $primary-colour;
     width:100%;
 }
