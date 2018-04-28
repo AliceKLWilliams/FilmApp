@@ -1,11 +1,13 @@
 <% include partials/header.ejs %>
 
-<div class="search-container">
-    <h1 class="txt-white">Find and review all your favourite movies.</h1>
-    <form class="search search--white" method="GET" action="/search">
-        <input class="search__bar" type="text" name="filmName" placeholder="Film Name..." autocomplete="off">
-        <button class="btn search__btn"><i class="fa fa-arrow-right"></i></button>
-    </form>
+<div class="centre-screen">
+    <div class="search-container">
+        <h1 class="txt-white">Find and review all your favourite movies.</h1>
+        <form class="search search--white" method="GET" action="/search">
+            <input class="search__bar" type="text" name="filmName" placeholder="Film Name..." autocomplete="off">
+            <button class="btn search__btn"><i class="fa fa-arrow-right"></i></button>
+        </form>
+    </div>
 </div>
 
 <% include partials/footer.ejs %>

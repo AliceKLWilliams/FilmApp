@@ -1,5 +1,6 @@
-h1, h2, h3, h4, h5, h6 {
-  color: black; }
+h1, h2, h3, h4, h5, h6, p {
+  color: black;
+  line-height: 1.4; }
 
 h1 {
   font-size: 5.063rem; }
@@ -21,6 +22,9 @@ h6 {
 
 p {
   font-size: 1.1rem; }
+
+.txt-white {
+  color: #E8F1F2; }
 
 html, body {
   widows: 100%;
@@ -304,9 +308,18 @@ a:visited {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 80%;
+  height: 100%;
+  margin: auto; }
+
+.centre-screen {
   width: 100%;
   height: 100%;
-  background-color: #4169E1; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #4169E1; }
 
 .card-container {
   width: 80%;

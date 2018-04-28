@@ -1,6 +1,13 @@
 .search-container{
     @include flex-container(column, center, center);
+    width:80%;
+    height:100%;
+    margin:auto;
+}
+
+.centre-screen{
     width:100%;
     height:100%;
-    background-color:$primary-colour;
+    @include flex-container(column, center, center);
+    background:$primary-colour;
 }

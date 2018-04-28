@@ -4,8 +4,9 @@ $light: 300;
 $normal: 400;
 $bold: 700;
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, p{
     color:$txt-dark;
+    line-height: 1.4;
 }
 
 h1{
@@ -34,4 +35,8 @@ h6{
 
 p{
     font-size:1.1rem;
+}
+
+.txt-white{
+    color:$txt-light;
 }
