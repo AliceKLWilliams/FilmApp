@@ -3,48 +3,51 @@
 <div class="container">
     <div class="panel">
         <h1 class="panel__title"><%=data.Title%></h1>
-        <div class="panel__column panel__column--left">
-            <div class="panel__section">
-                <h3>Information</h3>
-                <p><%=data.Released%></p>
-                <p><%=data.Runtime%></p>
-                <p><%=data.Genre%></p>
+        <div class="panel__content">
+            <div class="panel__column panel__column--left">
+                <div class="panel__section">
+                    <h3>Information</h3>
+                    <p><%=data.Released%></p>
+                    <p><%=data.Runtime%></p>
+                    <p><%=data.Genre%></p>
+                </div>
+
+                <div class="panel__section">
+                    <h3>Cast and Crew</h3>
+                    <p>Director: <%=data.Director%></p>
+                    <p>Writer(s): <%=data.Writer%></p>
+                    <p>Actors: <%=data.Actors%></p>
+                </div>
+            </div>
+            
+            <div class="panel__column panel__column--centre">
+            <img class="panel__poster" src="<%=data.Poster%>"/>
             </div>
 
-            <div class="panel__section">
-                <h3>Cast and Crew</h3>
-                <p>Director: <%=data.Director%></p>
-                <p>Writer(s): <%=data.Writer%></p>
-                <p>Actors: <%=data.Actors%></p>
-            </div>
-        </div>
-        
-        <div class="panel__column panel__column--centre">
-           <img class="panel__poster" src="<%=data.Poster%>"/>
-        </div>
+            <div class="panel__column panel__column--right">
+                <div class="panel__section">
+                    <h3>Plot</h3>
+                    <p><%=data.Plot%></p>
+                </div>
 
-        <div class="panel__column panel__column--right">
-            <div class="panel__section">
-                <h3>Plot</h3>
-                <p><%=data.Plot%></p>
-            </div>
-
-            <div class="panel__section">
-                <h3>Critics</h3>
-                <% data.Ratings.forEach(rating => { %>
-                    <h5><%=rating.Source%></h5><p><%=rating.Value%></p>
-                <% }); %>
+                <div class="panel__section">
+                    <h3>Critics</h3>
+                    <% data.Ratings.forEach(rating => { %>
+                        <h5><%=rating.Source%></h5><p><%=rating.Value%></p>
+                    <% }); %>
+                </div>
             </div>
         </div>
     </div>
-    <% if(currentUser) { %>
+
+            <% if(currentUser) { %>
         <div class="buttons">
-            <a class="btn panel__btn panel__btn--review" href="/films/<%=data.imdbID%>/reviews/new">
+            <a class="btn btn--primary panel__btn" href="/films/<%=data.imdbID%>/reviews/new">
                 <i class="fa fa-comment" aria-hidden="true"></i>
-                <p>New Review</p>
+                <p>Review</p>
             </a>
-            <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
-                <button class="btn panel__btn">
+            <form class="btn--form btn--primary panel__btn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                <button class="btn">
                     <% if (!currentUser.watched.includes(data.imdbID)) { %>
                         <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                     <% } else { %>
@@ -53,8 +56,8 @@
                     <p>Seen?</p>
                 </button>
             </form>
-            <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
-                <button class="btn panel__btn">
+            <form class="btn--form btn--primary panel__btn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                <button class="btn">
                     <% if (!currentUser.want.includes(data.imdbID)) { %>
                         <i class="fa fa-bookmark-o" aria-hidden="true"></i>
                     <% } else { %>

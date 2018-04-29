@@ -176,9 +176,12 @@ a:visited {
   padding: 0.8em; }
   .btn--form {
     display: inline-block; }
+    .btn--form button {
+      width: 100%; }
   .btn--primary {
-    background-color: #4169E1;
-    color: #E8F1F2; }
+    background-color: #4169E1; }
+    .btn--primary * {
+      color: #E8F1F2; }
   .btn--secondary {
     color: #4169E1;
     text-transform: uppercase; }
@@ -197,36 +200,60 @@ a:visited {
   width: 100%;
   font-size: 1rem;
   padding: 2.5em;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 0.6em 1.25em;
   background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  text-align: center; }
   .panel__title {
-    grid-column: 1 / span 3;
     margin: 0 auto 0.3em auto; }
   .panel__poster {
-    width: 80%;
-    min-width: 14em;
+    width: 70%;
     margin: auto; }
+  .panel__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+    @media screen and (max-width: 1042px) {
+      .panel__content {
+        flex-direction: column; } }
   .panel__column {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    width: 32.5%; }
     .panel__column--left {
       align-items: flex-end;
-      text-align: right; }
+      text-align: right;
+      margin-right: 2%; }
+      @media screen and (max-width: 1042px) {
+        .panel__column--left {
+          order: 2; } }
     .panel__column--right {
       align-items: flex-start;
-      text-align: left; }
+      text-align: left;
+      margin-left: 2%; }
+      @media screen and (max-width: 1042px) {
+        .panel__column--right {
+          order: 3; } }
+    @media screen and (max-width: 1042px) {
+      .panel__column--centre {
+        order: 1; } }
+    @media screen and (max-width: 1042px) {
+      .panel__column {
+        width: 100%;
+        text-align: left;
+        align-items: flex-start;
+        margin: 0; } }
   .panel__section {
     margin: 2em 0px; }
-
-.panel__btn {
-  padding: 1.25em 0px;
-  background-color: #4169E1;
-  width: 100%; }
+  .panel__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%; }
 
 .card {
   display: flex;
@@ -355,7 +382,7 @@ a:visited {
   flex-wrap: wrap; }
 
 .stats {
-  margin: 9rem 0px;
+  margin: 6rem 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -366,6 +393,18 @@ a:visited {
   .stats__num {
     font-size: 7em;
     line-height: 1.25em; }
+  @media screen and (max-width: 640px) {
+    .stats {
+      flex-direction: column; }
+      .stats__item {
+        margin-bottom: 2em; } }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; }
 
 .user {
   width: 30%;

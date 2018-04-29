@@ -14,11 +14,18 @@
 
     &--form{
         display:inline-block;
+
+        button{
+            width:100%;
+        }
     }
 
     &--primary{
         background-color:$primary-colour;
-        color:$txt-light;
+
+        *{
+            color:$txt-light;
+        }
     }
 
     &--secondary{
@@ -39,7 +46,5 @@
             left:0%;
             transition: none;
         }
-    }
-
-    
+    }    
 }

@@ -4,47 +4,75 @@
 
     padding:2.5em;
 
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap:0.6em 1.25em;
-
     background-color:$card-colour;
     box-shadow: $box-shadow;
 
+    text-align: center;
+
     &__title{
-        grid-column:1 / span 3;
         margin: 0 auto 0.3em auto;
     }
 
     &__poster{
-        width:80%;
-        min-width:14em;
-
+        width:70%;
         margin:auto;
+    }
+
+    &__content{
+        @include flex-container(row, center, center);
+        width:100%;
+
+        @include breakpoint($desktop){
+            flex-direction: column;
+        }
     }
 
     &__column{
         @include flex-container(column, center);
+        width:32.5%;
 
         &--left{
            align-items:flex-end;
-           text-align:right
+           text-align:right;
+           margin-right:2%;
+
+           @include breakpoint($desktop){
+               order:2;
+           }
         }
 
         &--right{
             align-items:flex-start;
             text-align: left;
+            margin-left:2%;
+
+            @include breakpoint($desktop){
+                order:3;
+            }
         }
+
+        &--centre{
+            @include breakpoint($desktop){
+                order:1;
+            }
+        }
+
+        @include breakpoint($desktop){
+            width:100%;
+            text-align: left;
+            align-items:flex-start;
+
+            margin:0;
+        }
+
     }
 
     &__section{
         margin:2em 0px;
     }
-}
 
-.panel__btn{
-    padding:1.25em 0px;
-
-    background-color: $primary-colour;
-    width:100%;
+    &__btn{
+        @include flex-container(column, center, center);
+        width:33%;
+    }
 }
