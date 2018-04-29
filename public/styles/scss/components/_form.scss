@@ -1,5 +1,8 @@
 .form{
-    padding:20px 30px;
+    @include flex-container(column, center, center);
+    font-size:1rem;
+
+    padding:1.25em 2em;
 
     width:60%;
 
@@ -8,40 +11,41 @@
 
     text-align: center;
 
-    margin:0 auto;
+    margin:7em auto;
 
-    & > div {
-        margin:30px 0px;
+    &__group{
+        margin:1.5em 0em;
     }
+
 
     &__textarea{
         resize:none;
 
         width:100%;
-        min-height:200px;
+        min-height:14em;
 
-        padding:10px;
+        padding:0.7em;
 
-        font-size:18pt;
+        font-size:1.4em;
         font-family:$base-font-stack;
     }
 
     &__text{
-        padding:10px;
+        padding:0.7em;
 
         font-family:$base-font-stack;
-        font-size:20pt;
+        font-size:1.4em;
 
-        min-width:300px;
+        min-width:19em;
         width:50%;
 
         background-color: transparent;
         border:none;
-        border-bottom: 3px solid $primary-colour;
+        border-bottom: 0.2em solid $primary-colour;
     }
 
     &__label{
-        font-size:24pt;
+        font-size:1.5em;
     }
 
     &__review{
