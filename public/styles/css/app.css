@@ -56,9 +56,9 @@ a:visited {
   font-size: 1.8rem;
   color: #cccccc;
   display: inline-block;
-  margin: 0.3em; }
+  margin-right: 0.3em; }
   .star--active {
-    color: #FFFF99; }
+    color: #FFFF4d; }
 
 .form {
   padding: 20px 30px;
@@ -95,9 +95,9 @@ a:visited {
     .form__review input[type=radio] {
       display: none; }
     .form__review input[type=radio]:checked ~ label .star {
-      color: #FFFF99; }
+      color: #FFFF4d; }
     .form__review input[type=radio]:hover ~ label .star {
-      color: #FFFF99; }
+      color: #FFFF4d; }
 
 .pagination {
   width: 100%;
@@ -342,7 +342,7 @@ a:visited {
     padding: 1em;
     z-index: 2; }
   .review__text {
-    margin: 0.6em 0px; }
+    margin: 0.6em 0.7em; }
   .review__extra {
     height: 0px;
     overflow: hidden; }

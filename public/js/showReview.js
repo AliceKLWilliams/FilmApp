@@ -9,10 +9,13 @@ reviewButtons.forEach(button => {
 			ele.style.height = height + "px";
 			ele.classList.add("review__extra--open");
 			ele.style.height = "auto";
+
+			button.textContent = "Show Less";
 		} else {
 			ele.style.height = height;
 			ele.style.height = "0px";
 			ele.classList.remove("review__extra--open");
+			button.textContent = "Show More";
 		}
 	});
 });
