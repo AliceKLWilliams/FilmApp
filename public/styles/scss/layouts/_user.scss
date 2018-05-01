@@ -1,17 +1,13 @@
-.user{
-    width:30%;
-    margin:0px 10px;
-    display:inline-block;
-
+.list-container{
+    width:69%;
+    position: relative;
     padding:20px;
-    vertical-align: top;
-}
+    display: inline-block;
 
-.user-container{
-    width:65%;
-    margin:0px 10px;
-    display:inline-block;
-    padding:20px;
+    &--full{
+        width:100%;
+        left:0;
+    }
 }
 
 .films-list{

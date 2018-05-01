@@ -1,0 +1,12 @@
+.user{
+    display:inline-block;
+	position: fixed;
+
+    padding:20px;
+    vertical-align: top;
+
+    &--full{
+        width:100%;
+        position: relative;
+    }
+}
