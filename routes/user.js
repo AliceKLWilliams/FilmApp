@@ -32,4 +32,8 @@ router.get("/user/:id", (req, res) =>{
     });
 });
 
+router.post("/user/:id/photo", (req, res) => {
+    
+});
+
 module.exports = router;
