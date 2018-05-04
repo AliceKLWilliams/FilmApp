@@ -12,7 +12,11 @@ let userSchema = new mongoose.Schema({
     }],
     want: [{
         type:String
-    }]
+    }],
+    profilePic:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"userimage"
+    }
 });
 
 // Add useful authentication methods

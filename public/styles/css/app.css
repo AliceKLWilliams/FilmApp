@@ -362,17 +362,24 @@ a:visited {
 .user {
   display: inline-block;
   position: fixed;
+  text-align: center;
   padding: 20px;
   vertical-align: top; }
   .user--full {
     width: 100%;
     position: relative; }
+  .user__name {
+    margin: 10px 0px; }
   .user__image-container {
     width: 300px;
     height: 300px;
-    clip-path: circle(50%); }
+    border-radius: 50%;
+    border: 5px solid #4169E1;
+    overflow: hidden;
+    margin: 30px auto; }
   .user__image {
     width: 100%;
+    height: 100%;
     object-fit: cover; }
   .user__upload {
     opacity: 0;

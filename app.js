@@ -7,15 +7,12 @@ let mongoose = require("mongoose");
 let bodyParser = require("body-parser");
 let flash = require("connect-flash");
 
-
 // For Authentication
 let passport = require("passport");
 let passportLocal = require("passport-local");
 let expressSession = require("express-session");
 
 let app = express();
-
-
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + "/public"));
@@ -66,8 +63,10 @@ app.use("/films/:filmID/reviews", reviewRoutes);
 app.use(authRoutes);
 app.use(userRoutes);
 
+global.__basedir = __dirname;
+
 // External JS
-let FilmAPI = require("./public/js/FilmAPI");
+let FilmAPI = require("./modules/FilmAPI");
 
 app.get("/search", function (req, res) {
     let filmName = req.query.filmName;

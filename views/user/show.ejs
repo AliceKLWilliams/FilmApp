@@ -3,11 +3,15 @@
 <div class="container">
     <div class="user">
         <div class="user__image-container">
-            <img src="https://imgplaceholder.com/400x400/ff7f7f/333333/fa-image" class="user__image"/>
+            <% if (user.profilePic) { %> 
+                <img src="/user/<%=user._id%>/photo/<%=user.profilePic%>" class="user__image"/>
+            <% } else { %>
+                <img src="/pics/placeholder.jpg" class="user__image"/>
+            <% } %>
         </div>
-        <h3><%=user.username%></h3>
-        <form action="/user/<%=user._id%>/photo" method="POST">
-            <input id="user-photo" class="user__upload" type="file" onchange="form.submit()"/>
+        <h3 class="user__name"><%=user.username%></h3>
+        <form action="/user/<%=user._id%>/photo" method="POST" enctype="multipart/form-data">
+            <input name="photo" id="user-photo" class="user__upload" type="file" onchange="form.submit()"/>
             <label for="user-photo" class="btn btn--primary">Choose Photo</label>
         </form>
     </div>

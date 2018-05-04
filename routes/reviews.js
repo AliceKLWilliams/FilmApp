@@ -8,7 +8,7 @@ let Film = require("../models/Film");
 
 require("dotenv").config();
 let apikey = process.env.APIKEY;
-let APIRequire = require("../public/js/FilmAPI");
+let APIRequire = require("../modules/FilmAPI");
 let FilmAPI = new APIRequire(apikey);
 
 
