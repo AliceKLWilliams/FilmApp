@@ -29,13 +29,11 @@ router.get("/user/:id", (req, res) =>{
             });
         })
         .catch(err =>{
-            req.flash("error", err);
             res.render("/error");
         });
     })
     .catch((err) =>{
-        req.flash("error", err);
-        res.render("/error");
+        res.redirect("/error");
     });
 });
 
@@ -45,40 +43,27 @@ router.post("/user/:id/photo", multiparty, (req, res) => {
     let gfs = new GridStream(db, mongoDriver);
     gfs.collection("userimages");
 
-    let writeStream = gfs.createWriteStream({
-        filename: req.files.photo.name,
-        mode: "w",
-        content_type: req.files.photo.mimetype,
-        metadata:req.body,
-        root: "userimages"
-    });
 
-    fs.createReadStream(req.files.photo.path).pipe(writeStream);
-
-    writeStream.on("close", (file) => {
-        User.findById(req.params.id)
-        .then((user) => {
-            user.profilePic = file._id;
-            user.save((err, user) => {
-                if(err){
-                    req.flash("error", err);
-                    return res.render("/error");
-                }
-            });
-        }).catch((err) => {
-            req.flash("error", err);
-            res.render("/error");
+    User.findById(req.user._id)
+    .then((user) => {
+        gfs.exist({
+            _id:user.profilePic,
+            root:"userimages"
+        }, (err, found) => {
+            if(found) {
+                if(err) return handleError(err, res);
+                gfs.remove({
+                    _id:user.profilePic,
+                    root:"userimages"
+                }, (err, gridStore) => {
+                        if(err) return handleError(err, res);
+                        writeProfilePic(req, res, user, req.files.photo);
+                    });
+            } else {
+                writeProfilePic(req, res, user, req.files.photo);
+            }
         });
     });
-
-    fs.unlink(req.files.photo.path, (err) => {
-        if(err){
-            req.flash("error", err);
-            res.render("/error");
-        }
-    });
-
-    res.redirect("/user/"+req.params.id);
 });
 
 router.get("/user/:id/photo/:photoId", (req, res) => {
@@ -101,5 +86,41 @@ router.get("/user/:id/photo/:photoId", (req, res) => {
         }
     });
 });
+
+function handleError(err, res){
+    console.log(err);
+    return res.render("/error");
+}
+
+function writeProfilePic(req, res, user, fileObj) {
+    let db = mongoose.connection.db;
+    let mongoDriver = mongoose.mongo;
+    let gfs = new GridStream(db, mongoDriver);
+    gfs.collection("userimages");
+
+
+    let options = {
+        filename: fileObj.name,
+        mode: "w",
+        content_type: fileObj.mimetype,
+        metadata:req.body,
+        root: "userimages"
+    }
+
+    let writeStream = gfs.createWriteStream(options);
+    fs.createReadStream(fileObj.path).pipe(writeStream);
+
+    writeStream.on("close", (file) => {
+        user.profilePic = file._id;
+        user.save((err, user) => {
+            if(err) return handleError(err, res);
+
+            fs.unlink(fileObj.path, (err) => {
+                if(err) return handleError(err, res);
+                return res.redirect("/user/"+req.params.id);
+            });
+        });
+    });
+}
 
 module.exports = router;
