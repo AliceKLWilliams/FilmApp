@@ -10,7 +10,7 @@
             <% } %>
         </div>
         <h3 class="user__name"><%=user.username%></h3>
-        <% if(currentUser._id.equals(user._id)) { %>
+        <% if(currentUser && currentUser._id.equals(user._id)) { %>
             <form action="/user/<%=user._id%>/photo" method="POST" enctype="multipart/form-data">
                 <input name="photo" id="user-photo" class="user__upload" type="file" onchange="form.submit()"/>
                 <label for="user-photo" class="btn btn--primary">Choose Photo</label>
