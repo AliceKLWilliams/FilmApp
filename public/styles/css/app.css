@@ -73,7 +73,10 @@ a:visited {
   text-align: center;
   margin: 7em auto; }
   .form__group {
-    margin: 1.5em 0em; }
+    margin: 1.5em 0em;
+    width: 100%; }
+  .form__button {
+    margin: 0 auto; }
   .form__textarea {
     resize: none;
     width: 100%;
@@ -85,8 +88,7 @@ a:visited {
     padding: 0.7em;
     font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4em;
-    min-width: 19em;
-    width: 50%;
+    width: 80%;
     background-color: transparent;
     border: none;
     border-bottom: 0.2em solid #4169E1; }
