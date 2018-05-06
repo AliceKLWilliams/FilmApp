@@ -18,7 +18,14 @@ router.get("/:id", function(req, res){
     let API = new FilmAPI(apikey);
 
     let FilmPromise = API.SearchID(filmID, "full");
-    let FindFilm = Film.findOne({filmID:filmID}).populate("reviews").exec();
+    let FindFilm = Film.findOne({filmID:filmID}).populate({
+        path:"reviews",
+        model:"Review",
+        populate: {
+            path:"author",
+            model:"User"
+        }
+    }).exec();
 
     Promise.all([FilmPromise, FindFilm])
     .then((data) => {
