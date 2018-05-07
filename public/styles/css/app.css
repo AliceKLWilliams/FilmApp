@@ -49,9 +49,8 @@ a {
 a:visited {
   text-decoration: none; }
 
-button {
+button, input[type=submit] {
   border: none;
-  background-color: transparent;
   cursor: pointer;
   text-decoration: none; }
 
@@ -196,6 +195,7 @@ button {
       color: #E8F1F2; }
   .btn--secondary {
     color: #4169E1;
+    background-color: transparent;
     text-transform: uppercase;
     padding: 0.8em 0em; }
   .btn--want {
