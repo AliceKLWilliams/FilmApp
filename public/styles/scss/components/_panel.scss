@@ -73,6 +73,10 @@
 
     &__btn{
         @include flex-container(column, center, center);
-        width:33%;
+        width:30%;
+
+        button{
+            width:100%;
+        }
     }
 }

@@ -46,24 +46,24 @@
                 <i class="fa fa-comment" aria-hidden="true"></i>
                 <p>Review</p>
             </a>
-            <form class="btn--form btn--primary panel__btn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
-                <button class="btn">
-                    <% if (!currentUser.watched.includes(data.imdbID)) { %>
-                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                    <% } else { %>
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    <% } %>
-                    <p>Seen?</p>
-                </button>
-            </form>
-            <form class="btn--form btn--primary panel__btn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
-                <button class="btn">
+            <form class="panel__btn btn--form " method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                <button class="btn btn--form btn--want">
                     <% if (!currentUser.want.includes(data.imdbID)) { %>
-                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
                     <% } else { %>
-                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
                     <% } %>
                     <p>Want?</p>
+                </button>
+            </form>
+            <form class="panel__btn btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                <button class="btn btn--watched">
+                    <% if (!currentUser.watched.includes(data.imdbID)) { %>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                    <% } else { %>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    <% } %>
+                    <p>Seen?</p>
                 </button>
             </form>
         </div>

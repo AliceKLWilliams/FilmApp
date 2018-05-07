@@ -55,7 +55,7 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
             Promise.all([filmPromise, foundUser.save()])
             .then(() => {
                 req.flash("success", "Added to watch list!");
-                res.redirect("/films/"+req.params.id);
+                res.redirect("back");
             }).catch((err) => {throw err;});
 
         } else{
@@ -64,7 +64,7 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
             Promise.all([foundUser.save(), foundFilm.AddToWatched(-1)])
             .then(() => {
                 req.flash("success", "Removed from watch list!");
-                res.redirect("/films/"+req.params.id);
+                res.redirect("back");
             })
             .catch((err) => {throw err;});
         }
@@ -93,7 +93,7 @@ router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
             Promise.all([filmPromise, foundUser.save()])
             .then(() => {
                 req.flash("success", "Added to wanted list!");
-                res.redirect("/films/"+req.params.id);
+                res.redirect("back");
             }).catch((err) => {throw err;});
 
         } else{
@@ -102,7 +102,7 @@ router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
             Promise.all([foundUser.save(), foundFilm.AddToWanted(-1)])
             .then(() => {
                 req.flash("success", "Removed from wanted list!");
-                res.redirect("/films/"+req.params.id);
+                res.redirect("back");
             })
             .catch((err) => {throw err;});
         }

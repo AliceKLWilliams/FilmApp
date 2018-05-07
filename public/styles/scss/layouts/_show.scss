@@ -23,6 +23,10 @@
 }
 
 .buttons{
-    @include flex-container(row, space-between, center);
+    @include flex-container(row, space-between, flex-start);
     width:100%;
+}
+
+.reviews{
+    margin-bottom:50px;
 }

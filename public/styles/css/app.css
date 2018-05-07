@@ -49,6 +49,12 @@ a {
 a:visited {
   text-decoration: none; }
 
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none; }
+
 .container {
   width: 80%;
   margin: auto; }
@@ -182,15 +188,7 @@ a:visited {
   align-items: center;
   text-align: center;
   font-size: 1.5rem;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  text-decoration: none;
   padding: 0.8em; }
-  .btn--form {
-    display: inline-block; }
-    .btn--form button {
-      width: 100%; }
   .btn--primary {
     background-color: #4169E1;
     color: #E8F1F2; }
@@ -200,12 +198,23 @@ a:visited {
     color: #4169E1;
     text-transform: uppercase;
     padding: 0.8em 0em; }
+  .btn--want {
+    background-color: #e1ae41;
+    color: #E8F1F2; }
+    .btn--want * {
+      color: #E8F1F2; }
+  .btn--watched {
+    background-color: #cc41e1;
+    color: #E8F1F2; }
+    .btn--watched * {
+      color: #E8F1F2; }
   .btn--slide {
     position: relative;
     left: 85%;
     transition: all 0.5s;
     height: 50px;
-    width: 50px; }
+    width: 50px;
+    margin-bottom: 0.2em; }
     @media screen and (max-width: 640px) {
       .btn--slide {
         left: 0%;
@@ -268,7 +277,9 @@ a:visited {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 33%; }
+    width: 30%; }
+    .panel__btn button {
+      width: 100%; }
 
 .card {
   display: flex;
@@ -468,8 +479,11 @@ a:visited {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: 100%; }
+
+.reviews {
+  margin-bottom: 50px; }
 
 .list-container {
   width: 74%;

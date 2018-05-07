@@ -3,22 +3,8 @@
     text-align: center;
 
     font-size:1.5rem;
-    
-    border:none;
-    background-color: transparent;
-    cursor:pointer;
-
-    text-decoration: none;
 
     padding:0.8em;
-
-    &--form{
-        display:inline-block;
-
-        button{
-            width:100%;
-        }
-    }
 
     &--primary{
         background-color:$primary-colour;
@@ -36,6 +22,24 @@
         padding:0.8em 0em;
     }
 
+    &--want{
+        background-color:$want-colour;
+        color:$txt-light;
+
+        *{
+            color:$txt-light;
+        }
+    }
+
+    &--watched{
+        background-color:$watched-colour;
+        color:$txt-light;
+
+        *{
+            color:$txt-light;
+        }
+    }
+
     &--slide{
        position: relative;
        left:85%;
@@ -43,6 +47,8 @@
 
        height: 50px;
        width: 50px;
+
+       margin-bottom: 0.2em;
     
         @include breakpoint($smartphone){
             left:0%;

@@ -7,7 +7,28 @@
         <div class="card">
             <div class="card__bttns">
                 <a class="btn btn--primary btn--slide" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
+                <% if(currentUser) { %>
+                    <form method="POST" action="/films/<%=film.imdbID%>/want?_method=PUT">
+                        <button class="btn btn--want btn--slide">
+                            <% if (!currentUser.want.includes(film.imdbID)) { %>
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <% } else { %>
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            <% } %>
+                        </button>
+                    </form>
+                    <form method="POST" action="/films/<%=film.imdbID%>/watched?_method=PUT">
+                        <button class="btn btn--watched btn--slide">
+                            <% if (!currentUser.watched.includes(film.imdbID)) { %>
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            <% } else { %>
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            <% } %>
+                        </button>
+                    </form>
+                <% } %>
             </div>
+            
             <div class="card__content">
                 <% if(film.Poster === "N/A") { %>
                     <img class="card__poster" src= "http://via.placeholder.com/350x450" />
