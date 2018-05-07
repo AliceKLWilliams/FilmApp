@@ -92,8 +92,8 @@
     </div>
 
     <div class="reviews">
-    <h2>Reviews</h2>
     <% if(modelData) { %>
+        <h2>Reviews</h2>
         <% if(modelData.reviews.length == 0){ %>
             <p>No Reviews</p>
         <% } %>
@@ -112,11 +112,16 @@
                     <% } %>
                 </div>
                 <div class="review__content">
-                    <h5><%= review.author.username %></h5>
-                    <div class="review__stars">
+                    <div class="review__header">
+                        <div class="review__stars">
                         <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
                             <i class= "fa fa-star star star--active"></i>
                         <% } %>
+                        <% for(let i = 0; i < 5 - parseInt(review.ratings.overall); i++) { %>
+                            <i class="fa fa-star star"></i>
+                        <% } %>
+                    </div>
+                    <p class="text--secondary">Written By: <a class="text--secondary review__user" href="/user/<%=review.author._id%>"><%= review.author.username %></a></p>
                     </div>
                     <p class="review__text"><%= review.text %></p>
                     <div class="review__extra">
@@ -126,6 +131,9 @@
                                     <p><%=rating.charAt(0).toUpperCase() + rating.slice(1)%></p>
                                     <%for(let i = 0; i < parseInt(review.ratings[rating]); i++) { %>
                                         <i class= "fa fa-star star star--active"></i>
+                                    <% } %>
+                                    <% for(let i = 0; i < 5 - parseInt(review.ratings[rating]); i++) { %>
+                                        <i class="fa fa-star star"></i>
                                     <% } %>
                                 </div>
                             <% } %>

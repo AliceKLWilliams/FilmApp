@@ -1,12 +1,23 @@
 .review{
 	font-size:1rem;
-	padding:0.8em;
 
 	margin:3em 0px;
 	width:100%;
 
 	display:grid;
 	grid-template-columns: max-content 1fr;
+
+	&__header{
+		@include flex-container(row, space-between, center);
+	}
+
+	&__bttns{
+		text-align: right;
+	}
+
+	&__user:hover{
+		text-decoration: underline;
+	}
 
 	&__content{
 		background-color:$card-colour;
@@ -17,7 +28,7 @@
 	}
 
 	&__text{
-		margin:0.6em 0.7em;
+		margin:0.6em 0em;
 	}
 
 	&__extra{
@@ -32,6 +43,12 @@
 	&__stars{
 		display:inline-block;
 		text-align: center;
-		margin:0.7em;
+		margin:0.7em 2em 0.7em 0em;
+	}
+
+	&:hover{
+		.btn--slide{
+			left:0%;
+		}
 	}
 }

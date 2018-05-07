@@ -5,9 +5,8 @@
     <h3><%=filmData.Title%></h3>
 
     <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
-        <label class="form__label"> Review
-            <textarea class="form__textarea" name="review"><%=review.text%></textarea>
-        </label>
+        <label class="form__label" for="review__text"> Review </label>
+        <textarea class="form__textarea" name="review" id="review__text"><%=review.text%></textarea>
         <% for(let category in review.ratings.toObject()){ %>
             <div class="form__group">
                 <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
@@ -24,7 +23,9 @@
                 </div>
             </div>
         <% } %>
-        <input class="btn btn--primary" type="submit">
+        <div class="form__group">
+            <input class="btn btn--primary form__button" type="submit">
+        </div>
     </form>
 </div>
 

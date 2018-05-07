@@ -11,7 +11,7 @@
 
     text-align: center;
 
-    margin:7em auto;
+    margin:3em auto;
 
     &__group{
         margin:1.5em 0em;
@@ -27,7 +27,7 @@
         resize:none;
 
         width:100%;
-        min-height:14em;
+        min-height:6em;
 
         padding:0.7em;
 
@@ -50,6 +50,8 @@
 
     &__label{
         font-size:1.5em;
+        margin-bottom:0.5em;
+        display: inline-block;
     }
 
     &__review{

@@ -32,6 +32,8 @@
     &--secondary{
         color: $primary-colour;
         text-transform: uppercase;
+
+        padding:0.8em 0em;
     }
 
     &--slide{
@@ -39,13 +41,13 @@
        left:85%;
        transition: all 0.5s;
 
-        &:hover{
-            left:0%;
-        }
-
+       height: 50px;
+       width: 50px;
+    
         @include breakpoint($smartphone){
             left:0%;
             transition: none;
         }
+       
     }    
 }
