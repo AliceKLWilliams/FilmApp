@@ -4,4 +4,8 @@
 
     @include flex-container(row, center, center);
     flex-wrap:wrap;
+
+    &__header{
+        width:100%;
+    }
 }

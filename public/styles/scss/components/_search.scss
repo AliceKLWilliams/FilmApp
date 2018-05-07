@@ -2,7 +2,9 @@
     font-size:1.5rem;
     margin:3rem 0px;
 
-    @include flex-container(row, flex-start, center);
+    @include inline-flex-container(row, flex-start, center);
+
+    border-bottom:0.175em solid $txt-dark;
 
     &--white{
         border-bottom:0.175em solid $txt-light;
@@ -47,5 +49,9 @@
 
     @include breakpoint($smartphone){
         font-size:0.8rem;
+    }
+
+    &--med{
+        font-size:1rem;
     }
 }

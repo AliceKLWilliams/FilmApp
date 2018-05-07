@@ -1,10 +1,15 @@
 <% include partials/header.ejs %>
 
+<div class="container container--centre">
+    <form class="search search--med" method="GET" action="/search">
+        <input class="search__bar" type="text" name="filmName" placeholder="Film Name..." autocomplete="off">
+        <button class="btn search__btn"><i class="fa fa-arrow-right"></i></button>
+    </form>
+</div>
+
 <% if(searchResults.Search) { %>
-    <div class="container">
-        <h4>Search Results for <%=searchQuery%></h4>
-    </div>
     <div class="card-container">
+    <h4 class="card-container__header">Search Results for <%=searchQuery%></h4>
     <% searchResults.Search.forEach(film => { %>
         <div class="card">
             <div class="card__bttns">
@@ -66,7 +71,7 @@
 <% } else { %>
     <div class="container">
         <div class="msg">
-            <h3 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h3>
+            <h4 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h4>
         </div>
     </div>
 <% } %>

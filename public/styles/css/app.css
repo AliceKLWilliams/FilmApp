@@ -57,7 +57,7 @@ button {
 
 .container {
   width: 80%;
-  margin: 75px auto 20px auto; }
+  margin: 20px auto 10px auto; }
   .container--centre {
     text-align: center; }
 
@@ -327,10 +327,11 @@ button {
 .search {
   font-size: 1.5rem;
   margin: 3rem 0px;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center; }
+  align-items: center;
+  border-bottom: 0.175em solid black; }
   .search--white {
     border-bottom: 0.175em solid #E8F1F2; }
     .search--white .search__bar {
@@ -359,6 +360,8 @@ button {
   @media screen and (max-width: 640px) {
     .search {
       font-size: 0.8rem; } }
+  .search--med {
+    font-size: 1rem; }
 
 .error {
   background: #f08080; }
@@ -463,6 +466,8 @@ button {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; }
+  .card-container__header {
+    width: 100%; }
 
 .stats {
   margin: 6rem 0px;

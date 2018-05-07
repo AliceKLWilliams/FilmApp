@@ -5,6 +5,13 @@
     align-items: $v-align;
 }
 
+@mixin inline-flex-container($direction, $h-align, $v-align:center){
+    display:inline-flex;
+    flex-direction: $direction;
+    justify-content: $h-align;
+    align-items: $v-align;
+}
+
 $mobile: 480px;
 $smartphone: 640px;
 $tablet:768px;
