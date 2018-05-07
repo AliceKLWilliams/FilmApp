@@ -187,7 +187,8 @@ button, input[type=submit] {
   align-items: center;
   text-align: center;
   font-size: 1.5rem;
-  padding: 0.8em; }
+  padding: 0.8em;
+  background-color: transparent; }
   .btn--primary {
     background-color: #4169E1;
     color: #E8F1F2; }
@@ -195,7 +196,6 @@ button, input[type=submit] {
       color: #E8F1F2; }
   .btn--secondary {
     color: #4169E1;
-    background-color: transparent;
     text-transform: uppercase;
     padding: 0.8em 0em; }
   .btn--want {
@@ -364,10 +364,14 @@ button, input[type=submit] {
     font-size: 1rem; }
 
 .error {
-  background: #f08080; }
+  background: #f08080;
+  width: 100%;
+  padding: 1rem; }
 
 .success {
-  background: #90ee90; }
+  background: #90ee90;
+  width: 100%;
+  padding: 1rem; }
 
 .review {
   font-size: 1rem;
@@ -455,7 +459,7 @@ button, input[type=submit] {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80%;
+  min-height: 625px;
   background: #4169E1; }
 
 .card-container {

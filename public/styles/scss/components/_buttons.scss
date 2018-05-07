@@ -6,6 +6,8 @@
 
     padding:0.8em;
 
+    background-color: transparent;
+
     &--primary{
         background-color:$primary-colour;
         color:$txt-light;
@@ -17,7 +19,6 @@
 
     &--secondary{
         color: $primary-colour;
-        background-color: transparent;
         text-transform: uppercase;
 
         padding:0.8em 0em;
