@@ -315,13 +315,14 @@ button {
   @media screen and (max-width: 640px) {
     .card {
       flex-direction: column-reverse; } }
-  .card--basic {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start; }
-  .card--basic__poster {
-    width: 100%; }
+
+.basic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; }
+  .basic-card__poster {
+    max-width: 100%; }
 
 .search {
   font-size: 1.5rem;
@@ -496,9 +497,9 @@ button {
 
 .films-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 400px);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-gap: 40px;
   width: 100%;
-  margin: 0px 0px 75px 0px; }
+  margin: 50px 0px 75px 0px; }
 
 /*# sourceMappingURL=app.css.map */

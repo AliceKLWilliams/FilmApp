@@ -47,12 +47,12 @@
     @include breakpoint($smartphone){
         flex-direction: column-reverse;
     }
+}
 
-    &--basic{
-        @include flex-container(column, flex-start, flex-start);
-    }
+.basic-card{
+    @include flex-container(column, flex-start, flex-start);
 
-    &--basic__poster{
-        width:100%;
+    &__poster{
+        max-width: 100%;
     }
 }

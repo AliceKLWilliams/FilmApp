@@ -68,6 +68,9 @@ module.exports = class FilmAPI{
             Promise.all(promises)
             .then(films => {
                 films.forEach(film =>{
+                    if(film.poster == "N/A"){
+                        film.poster = "http://via.placeholder.com/350x450";
+                    }
                     basicData.push({
                         imdbID:film.imdbID,
                         title:film.Title,

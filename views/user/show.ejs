@@ -21,9 +21,9 @@
         <h2>Watched Films</h2>
         <div class="films-list">
             <% watched.forEach(film => { %>
-                <div class="card card--basic">
-                    <img class="card--basic__poster" src="<%=film.poster%>"/>
-                    <div class="card--basic__content">
+                <div class="basic-card">
+                    <img class="basic-card__poster" src="<%=film.poster%>"/>
+                    <div>
                         <div>
                             <h3><%= film.title %></h3>
                             <p class="text--secondary"><%= film.year %></p>
@@ -36,14 +36,13 @@
         <h2>Want-To-See</h2>
         <div class="films-list">
             <% want.forEach(film => { %>
-                <div class="card card--basic">
-                    <img class="card--basic__poster" src="<%=film.poster%>"/>
-                    <div class="card--basic__content">
+                <div class="basic-card">
+                    <img class="basic-card__poster" src="<%=film.poster%>"/>
+                    <div>
                         <div>
-                            <h4><%= film.title %></h4>
-                            <h6><%= film.year %></h6>
+                            <h3><%= film.title %></h3>
+                            <p class="text--secondary"><%= film.year %></p>
                         </div>
-                        <a class="btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
                     </div>
                 </div>
             <% }) %>
