@@ -1,7 +1,6 @@
-
 .card-container{
     width:80%;
-    margin:40px auto;
+    margin:20px auto;
 
     @include flex-container(row, center, center);
     flex-wrap:wrap;

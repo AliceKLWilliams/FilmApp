@@ -1,7 +1,9 @@
 <% include partials/header.ejs %>
 
-
 <% if(searchResults.Search) { %>
+    <div class="container">
+        <h4>Search Results for <%=searchQuery%></h4>
+    </div>
     <div class="card-container">
     <% searchResults.Search.forEach(film => { %>
         <div class="card">
@@ -48,24 +50,26 @@
     <% }); %>
     </div>
 
+    <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
+    <div class="pagination">
+        <% if(currentPage !== 1) { %>
+            <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>
+        <% } %>
+        <% paginationData.forEach((pageNum) => { %>
+            <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum%></a>
+        <% }); %>
+        <% if(currentPage !== numberPages) { %>
+            <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link"><i class="fa fa-arrow-right"></i></a>
+        <% } %>
+    </div>
+
 <% } else { %>
-    <div class="msg">
-        <h3 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h3>
+    <div class="container">
+        <div class="msg">
+            <h3 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h3>
+        </div>
     </div>
 <% } %>
-
-<% let numberPages = Math.ceil(searchResults.totalResults/10); %>
-<div class="pagination">
-    <% if(currentPage !== 1) { %>
-        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>
-    <% } %>
-    <% paginationData.forEach((pageNum) => { %>
-        <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum%></a>
-    <% }); %>
-    <% if(currentPage !== numberPages) { %>
-        <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link"><i class="fa fa-arrow-right"></i></a>
-    <% } %>
-</div>
 
 
 <% include partials/footer.ejs %>

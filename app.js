@@ -79,7 +79,6 @@ app.get("/search", function (req, res) {
     let API = new FilmAPI(apikey);
     let filmResultsPromise = API.SearchFilm(filmName, page);
     filmResultsPromise.then(searchResults => {
-
         let paginationRange = 2;
 
         let paginationStart = page - paginationRange;
@@ -122,7 +121,11 @@ app.get("/search", function (req, res) {
         res.render("results", pageParams);
     })
     .catch(error => {
-        res.render("error", {msg: error});
+        if(error === "Movie not found!"){
+            res.render("results", {searchResults: {}, searchQuery:filmName});
+        } else {
+            res.render("error");
+        }
     });
 });
 
