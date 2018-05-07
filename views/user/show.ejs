@@ -25,10 +25,9 @@
                     <img class="card--basic__poster" src="<%=film.poster%>"/>
                     <div class="card--basic__content">
                         <div>
-                            <h4><%= film.title %></h4>
-                            <h6><%= film.year %></h6>
+                            <h3><%= film.title %></h3>
+                            <p class="text--secondary"><%= film.year %></p>
                         </div>
-                        <a class="btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
                     </div>
                 </div>
             <% }) %>

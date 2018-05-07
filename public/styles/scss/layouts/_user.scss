@@ -1,5 +1,5 @@
 .list-container{
-    width:69%;
+    width:74%;
     position: relative;
     padding:20px;
     display: inline-block;
@@ -12,7 +12,7 @@
 
 .films-list{
     display:grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, 400px);
     grid-gap:20px;
     width:100%;
 

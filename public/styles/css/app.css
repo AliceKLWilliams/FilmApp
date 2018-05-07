@@ -304,6 +304,13 @@ a:visited {
   @media screen and (max-width: 640px) {
     .card {
       flex-direction: column-reverse; } }
+  .card--basic {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; }
+  .card--basic__poster {
+    width: 100%; }
 
 .search {
   font-size: 1.5rem;
@@ -393,8 +400,7 @@ a:visited {
   .user__name {
     margin: 10px 0px; }
   .user__image-container {
-    width: 300px;
-    height: 300px;
+    max-width: 100%;
     border-radius: 50%;
     border: 5px solid #4169E1;
     overflow: hidden;
@@ -466,7 +472,7 @@ a:visited {
   width: 100%; }
 
 .list-container {
-  width: 69%;
+  width: 74%;
   position: relative;
   padding: 20px;
   display: inline-block; }
@@ -476,7 +482,7 @@ a:visited {
 
 .films-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, 400px);
   grid-gap: 20px;
   width: 100%;
   margin: 0px 0px 75px 0px; }
