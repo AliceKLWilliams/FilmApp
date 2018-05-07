@@ -402,13 +402,16 @@ button {
 
 .user {
   display: inline-block;
-  position: fixed;
+  width: 22%;
   text-align: center;
   padding: 20px;
   vertical-align: top; }
   .user--full {
     width: 100%;
     position: relative; }
+  .user__btn {
+    margin-bottom: 0.3em;
+    width: 100%; }
   .user__name {
     margin: 10px 0px; }
   .user__image-container {
@@ -430,6 +433,9 @@ button {
     position: absolute; }
   .user__upload:focus + label {
     outline: 1px solid #4d90fe; }
+  @media screen and (max-width: 640px) {
+    .user {
+      width: 100%; } }
 
 .search-container {
   display: flex;
@@ -487,13 +493,15 @@ button {
   margin-bottom: 50px; }
 
 .list-container {
-  width: 74%;
+  width: 60%;
+  margin-left: 5%;
   position: relative;
   padding: 20px;
   display: inline-block; }
-  .list-container--full {
-    width: 100%;
-    left: 0; }
+  @media screen and (max-width: 640px) {
+    .list-container {
+      width: 100%;
+      margin-left: 0%; } }
 
 .films-list {
   display: grid;
@@ -501,5 +509,8 @@ button {
   grid-gap: 40px;
   width: 100%;
   margin: 50px 0px 75px 0px; }
+
+.user__section {
+  margin-bottom: 50px; }
 
 /*# sourceMappingURL=app.css.map */

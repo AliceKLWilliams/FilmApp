@@ -1,12 +1,13 @@
 .list-container{
-    width:74%;
+    width:60%;
+    margin-left:5%;
     position: relative;
     padding:20px;
     display: inline-block;
 
-    &--full{
+    @include breakpoint($smartphone){
         width:100%;
-        left:0;
+        margin-left: 0%;
     }
 }
 
@@ -17,4 +18,8 @@
     width:100%;
 
     margin:50px 0px 75px 0px;
+}
+
+.user__section{
+    margin-bottom:50px;
 }

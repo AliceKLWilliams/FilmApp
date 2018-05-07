@@ -1,6 +1,7 @@
 .user{
     display:inline-block;
-	position: fixed;
+
+    width:22%;
 
     text-align: center;
     padding:20px;
@@ -9,6 +10,11 @@
     &--full{
         width:100%;
         position: relative;
+    }
+
+    &__btn{
+        margin-bottom:0.3em;
+        width:100%;
     }
 
     &__name{
@@ -40,5 +46,9 @@
 
     &__upload:focus + label{
         outline: 1px solid rgb(77, 144, 254);;
+    }
+
+    @include breakpoint($smartphone){
+        width:100%;
     }
 }

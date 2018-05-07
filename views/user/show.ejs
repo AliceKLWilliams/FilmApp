@@ -13,40 +13,59 @@
         <% if(currentUser && currentUser._id.equals(user._id)) { %>
             <form action="/user/<%=user._id%>/photo" method="POST" enctype="multipart/form-data">
                 <input name="photo" id="user-photo" class="user__upload" type="file" onchange="form.submit()"/>
-                <label for="user-photo" class="btn btn--primary">Choose Photo</label>
+                <label for="user-photo" class="btn btn--primary user__btn">Edit Photo</label>
+            </form>
+            <form action="/user/watched?_method=DELETE" method="POST" enctype="multipart/form-data">
+                <button class="btn btn--primary user__btn">Clear Watched</button>
+            </form>
+            <form action="/user/want?_method=DELETE" method="POST" enctype="multipart/form-data">
+                <button class="btn btn--primary user__btn">Clear Wanted</button>
             </form>
         <% } %>
     </div>
     <div class="list-container">
-        <h2>Watched Films</h2>
-        <div class="films-list">
-            <% watched.forEach(film => { %>
-                <div class="basic-card">
-                    <img class="basic-card__poster" src="<%=film.poster%>"/>
-                    <div>
-                        <div>
-                            <h3><%= film.title %></h3>
-                            <p class="text--secondary"><%= film.year %></p>
+        <section class="user__section">
+            <h2>Watched Films</h2>
+            <% if(want.length == 0) { %>
+                <p class="text--secondary">Nothing to Show Here...</p>
+            <% } else {%>
+                <div class="films-list">
+                    <% watched.forEach(film => { %>
+                        <div class="basic-card">
+                            <img class="basic-card__poster" src="<%=film.poster%>"/>
+                            <div>
+                                <div>
+                                    <h3><%= film.title %></h3>
+                                    <p class="text--secondary"><%= film.year %></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <% }) %>
                 </div>
-            <% }) %>
-        </div>
-
-        <h2>Want-To-See</h2>
-        <div class="films-list">
-            <% want.forEach(film => { %>
-                <div class="basic-card">
-                    <img class="basic-card__poster" src="<%=film.poster%>"/>
-                    <div>
-                        <div>
-                            <h3><%= film.title %></h3>
-                            <p class="text--secondary"><%= film.year %></p>
+            <% } %>
+        </section>
+        
+        
+        <section class="user__section">
+            <h2>Want-To-See</h2>
+            <% if(want.length == 0) { %>
+                <p class="text--secondary">Nothing to Show Here...</p>
+            <% } else {%>
+                <div class="films-list">
+                    <% want.forEach(film => { %>
+                        <div class="basic-card">
+                            <img class="basic-card__poster" src="<%=film.poster%>"/>
+                            <div>
+                                <div>
+                                    <h3><%= film.title %></h3>
+                                    <p class="text--secondary"><%= film.year %></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <% }) %>
                 </div>
-            <% }) %>
-        </div>
+            <% } %>
+        </section>
     </div>
 
     

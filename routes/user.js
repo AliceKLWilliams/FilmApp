@@ -7,6 +7,7 @@ let fs = require("fs");
 let GridStream = require("gridfs-stream");
 
 let User = require("../models/User");
+let Film = require("../models/Film");
 let FilmAPI = require("../modules/FilmAPI");
 
 let multiparty = require("connect-multiparty")();
@@ -82,9 +83,65 @@ router.get("/user/:id/photo/:photoId", (req, res) => {
     });
 });
 
+router.delete("/user/watched", (req, res) => {
+    let watchedFilms = req.user.watched;
+    let findInDB = [];
+
+    watchedFilms.forEach((film) => {
+        findInDB.push(Film.find({filmID: film}));
+    });
+
+    Promise.all(findInDB)
+    .then((foundFilms) => {
+        let removeFromStats = [];
+        foundFilms[0].forEach((dbFilm) => {
+            removeFromStats.push(dbFilm.AddToWatched(-1));
+        });
+
+        return Promise.all(removeFromStats);
+    }).then(() => {
+        req.user.watched = [];
+        return req.user.save();
+    }).then(() => {
+        req.flash("success", "Cleared watched list.");
+        res.redirect("back");
+    })
+    .catch((err) => {
+        return handleError(err, res);
+    })
+});
+
+
+router.delete("/user/want", (req, res) => {
+    let wantedFilms = req.user.want;
+    let findInDB = [];
+
+    wantedFilms.forEach((film) => {
+        findInDB.push(Film.find({filmID: film}));
+    });
+
+    Promise.all(findFilms)
+    .then((foundFilms) => {
+        let removeFromStats = [];
+        foundFilms[0].forEach((dbFilm) => {
+            removeFromStats.push(dbFilm.AddToWanted(-1));
+        });
+        return Promise.all(removeFromStats);
+    }).then(() => {
+        req.user.want = [];
+        return req.user.save();
+    }).then(() => {
+        req.flash("success", "Cleared wanted list.");
+        res.redirect("back");
+    })
+    .catch((err) => {
+        return handleError(err, res);
+    })
+});
+
 function handleError(err, res){
     console.log(err);
-    return res.render("/error");
+    return res.render("error");
 }
 
 function writeProfilePic(req, res, user, fileObj) {
