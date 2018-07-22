@@ -12,6 +12,8 @@
         right:1rem;
         top:1rem;
 
+        color:white;
+
         background-color:transparent;
     }
 
@@ -34,9 +36,11 @@
 
         visibility: hidden;
 
-        background-color:$card-colour;
+        background-color:$primary-colour;
         left:0;
         top:0;
+
+        color:white;
 
         display:flex;
         flex-direction: column;
@@ -61,14 +65,14 @@
         &--link{
             text-transform: uppercase;
             font-weight: $bold;
-            color:$txt-dark;
+            color:white;
 
             z-index:2;
 
             display:inline-block;
 
             &:visited{
-                color:$txt-dark;
+                color:white;
             }
     
             &::after{
