@@ -1,58 +1,110 @@
-.card {
-    @include flex-container(row, center, flex-start);
+.results-container{
+    width:90%;
+    margin:0 auto;
 
-    max-width:45%;
-    margin:2%;
+    padding:75px;
+}
+
+.results{
+    background-color:white;
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+
+    align-items: center;
+
+    margin-top:75px;
+    margin-bottom: 75px;
+}
+
+.query{
+    color:$primary-colour;
+}
+
+.result {
+    @include flex-container(row, space-between, center);
 
     text-overflow: ellipsis;
 
     font-size:1rem;
 
-    margin-top:4em;
 
-    &__content{
-        @include flex-container(row, center, center);
+    &__name{
+        display:inline;
+        font-size:2rem;
+        color:$gray;
+        position: relative;
 
-        padding:1.25em;
+        &:after{
+            content:"";
+            position: absolute;
+            left:0;
+            bottom:0;
+            width:100%;
 
-        background-color: $card-colour;
-        box-shadow: $box-shadow;
-        
-        z-index:2;
+            background-color:$primary-colour;
+            opacity: 0.2;
+
+            height:13px;
+        }
+    }
+
+    &__desc{
+        color:$light-gray;
+    }
+
+    &__year{
+        margin-left:5px;
+        color:$light-gray;
+    }
+
+    &__links{
+        display:flex;
+        flex-wrap: wrap;
+        width:100%;
+        justify-content: space-between;
+
+        margin-top:30px;
+
+        color:$light-gray;
+
+        i{
+            margin-right:5px;
+            color:$gray;
+        }
+    }
+
+    &__link{
+        color:$light-gray;
+
+        cursor: pointer;
+
+        &:visited{
+            color:$light-gray;
+        }
     }
 
     &__poster {
-        width:40%;
+        width:35%;
         align-self:center;
     }
 
     &__text{
         margin:1.5em 1.25em;
+        flex-grow: 1;
     }
 
     &__header{
         margin-bottom: 1em;
     }
 
+
     &:hover{
         .btn--slide{
             left:0%;
         }
-    }
-
-    @include breakpoint($desktop){
-        max-width:95%;
-    }
-
-    @include breakpoint($smartphone){
-        flex-direction: column-reverse;
-    }
-}
-
-.basic-card{
-    @include flex-container(column, flex-start, flex-start);
-
-    &__poster{
-        max-width: 100%;
     }
 }

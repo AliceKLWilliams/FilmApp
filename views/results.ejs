@@ -1,80 +1,74 @@
 <% include partials/header.ejs %>
 
 <div class="container container--centre">
-    <form class="search search--med" method="GET" action="/search">
-        <input class="search__bar" type="text" name="filmName" placeholder="Film Name..." autocomplete="off">
-        <button class="btn search__btn"><i class="fa fa-arrow-right"></i></button>
+    <form class="search" method="GET" action="/search">
+        <input class="search__bar" type="text" name="filmName" placeholder="Search..." autocomplete="off">
+        <button class="search__btn">
+            <i class="fa fa-arrow-right"></i>
+        </button>
     </form>
 </div>
 
 <% if(searchResults.Search) { %>
-    <div class="card-container">
-    <h4 class="card-container__header">Search Results for <%=searchQuery%></h4>
-    <% searchResults.Search.forEach(film => { %>
-        <div class="card">
-            <div class="card__bttns">
-                <a class="btn btn--primary btn--slide" href="/films/<%=film.imdbID%>"><i class="fa fa-search btn__icon"></i></a>
-                <% if(currentUser) { %>
-                    <form method="POST" action="/films/<%=film.imdbID%>/want?_method=PUT">
-                        <button class="btn btn--want btn--slide">
-                            <% if (!currentUser.want.includes(film.imdbID)) { %>
-                                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                            <% } else { %>
-                                <i class="fa fa-heart" aria-hidden="true"></i>
+<div class="results-container">
+    <h4 class="query">Search Results for <%= searchQuery %></h4>
+       <div class="results">
+            <% searchResults.Search.forEach(film => { %>
+                <div class="result">
+                    <div class="result__text">
+                        <div class="result__header">
+                            <h3 class="result__name"><%= film.Title %></h3>
+                            <span class="result__year"><%= film.Year %></span>
+                        </div>
+                        <p class="result__desc">
+                            <%= film.Plot %>
+                        </p>
+                            
+                        <div class="result__links">
+                            <% if(currentUser) { %> 
+                                <p class="result__link"><i class="fa fa-eye"></i>Watched</p>
+                                <p class="result__link"><i class="fa fa-thumbs-up"></i>Want</p>
                             <% } %>
-                        </button>
-                    </form>
-                    <form method="POST" action="/films/<%=film.imdbID%>/watched?_method=PUT">
-                        <button class="btn btn--watched btn--slide">
-                            <% if (!currentUser.watched.includes(film.imdbID)) { %>
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                            <% } else { %>
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            <% } %>
-                        </button>
-                    </form>
-                <% } %>
-            </div>
-            
-            <div class="card__content">
-                <% if(film.Poster === "N/A") { %>
-                    <img class="card__poster" src= "http://via.placeholder.com/350x450" />
-                <% } else {%>
-                    <img class="card__poster" src= <%= film.Poster %> />
-                <% } %>
-                <div class="card__text">
-                    <div class="card__header">
-                        <h3 class="card__title"><%= film.Title %></h3>
-                        <p class="text--secondary"><%= film.Year %> </p>
+                            <a class="result__link" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i>More</a>
+                        </div>       
                     </div>
-                    <p class="card__desc"><%= film.Plot %></p>
+                    <% if(film.Poster === "N/A") { %>
+                        <img class="result__poster" src="http://via.placeholder.com/350x450" />
+                    <% } else { %>
+                        <img class="result__poster" src=<%=film.Poster %>/>
+                    <% } %>
                 </div>
-            </div>
+            <% }); %>
         </div>
-        
-    <% }); %>
-    </div>
 
-    <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
-    <div class="pagination">
-        <% if(currentPage !== 1) { %>
-            <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link"><i class="fa fa-arrow-left"></i></a>
-        <% } %>
-        <% paginationData.forEach((pageNum) => { %>
-            <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum%></a>
-        <% }); %>
-        <% if(currentPage !== numberPages) { %>
-            <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link"><i class="fa fa-arrow-right"></i></a>
-        <% } %>
-    </div>
+        <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
+        <div class="pagination">
+            <% if(currentPage !== 1) { %>
+                <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+            <% } %>
 
+            <% paginationData.forEach(pageNum => { %>
+                <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link">
+                    <%= pageNum %>
+                </a>
+            <% }); %>
+            <% if(currentPage !== numberPages) { %>
+                <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            <% } %>
+        </div>
+    </div>
 <% } else { %>
-    <div class="container">
+     <div class="container">
         <div class="msg">
-            <h4 class"msg__text">Sorry... Nothing matched <%= searchQuery %></h4>
+            <h4 class "msg__text">Sorry... Nothing matched
+                <%= searchQuery %>
+            </h4>
         </div>
-    </div>
+       </div>
 <% } %>
-
 
 <% include partials/footer.ejs %>

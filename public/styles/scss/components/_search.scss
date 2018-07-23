@@ -1,26 +1,19 @@
 .search{
-    font-size:1.5rem;
+    font-size:1.2rem;
     margin:3rem 0px;
 
     @include inline-flex-container(row, flex-start, center);
 
-    border-bottom:0.175em solid $txt-dark;
+    border-bottom:0.175em solid $primary-colour;
 
-    &--white{
-        border-bottom:0.175em solid $txt-light;
-        
-        .search__bar{
-            color:$txt-light;
-        }
+    width:70%;
 
-        .search__bar::placeholder{
-            color:$txt-light;
-        }
-        
-        .search__btn{
-            font-size:1.2em;
-            color:$txt-light;
-        }
+    &__btn{
+        font-size:1.2rem;
+        color:$primary-colour;
+        background-color: transparent;
+
+        margin: 0em 1em;
     }
 
     &__bar{
@@ -28,15 +21,16 @@
         border:none;
 
         font-family: $base-font-stack;
-        color:$txt-dark;
+        color:$primary-colour;
         font-size:1.75em;
 
         padding:0.75em;
+
+        flex-grow: 1;
     
         &::placeholder{
             font-family: $base-font-stack;
-            color:$txt-dark;
-            text-transform: uppercase;
+            color:$primary-colour;
 
             letter-spacing: 2px;
             font-weight:$bold;
@@ -49,9 +43,5 @@
 
     @include breakpoint($smartphone){
         font-size:0.8rem;
-    }
-
-    &--med{
-        font-size:1rem;
     }
 }
