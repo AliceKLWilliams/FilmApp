@@ -29,6 +29,14 @@ router.get("/:id", function(req, res){
 
     Promise.all([FilmPromise, FindFilm])
     .then((data) => {
+        let arrActors = data[0].Actors.split(",");
+
+        for(let actor in arrActors){
+            actor.replace(/\s/g, '');
+        }
+
+        data[0].Actors = arrActors;
+
         res.render("films/show", {
             data:data[0],
             modelData:data[1] 

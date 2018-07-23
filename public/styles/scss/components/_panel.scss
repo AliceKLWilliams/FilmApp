@@ -1,82 +1,106 @@
-.panel{
+.film{
     width:100%;
     font-size:1rem;
 
-    padding:2.5em;
+    display:flex;
+    flex-direction: row;
 
-    background-color:$card-colour;
-    box-shadow: $box-shadow;
+    &__info{
+        width:50%;
 
-    text-align: center;
-
-    &__title{
-        margin: 0 auto 0.3em auto;
+        padding:3em;
     }
 
     &__poster{
-        width:70%;
-        margin:auto;
+        width:50%;
+        object-fit: cover;
     }
 
-    &__content{
-        @include flex-container(row, center, center);
-        width:100%;
-
-        @include breakpoint($desktop){
-            flex-direction: column;
-        }
+    &__main{
+        margin-bottom:40px;
     }
 
-    &__column{
-        @include flex-container(column, center);
-        width:32.5%;
+    &__title{
+        margin:0 auto;
+        position: relative;
+        display:inline-block;
 
-        &--left{
-           align-items:flex-end;
-           text-align:right;
-           margin-right:2%;
+        margin-bottom:10px;
 
-           @include breakpoint($desktop){
-               order:2;
-           }
-        }
+        &::after{
+            content:"";
 
-        &--right{
-            align-items:flex-start;
-            text-align: left;
-            margin-left:2%;
+            background-color: $primary-colour;
+            opacity: 0.2;
 
-            @include breakpoint($desktop){
-                order:3;
-            }
-        }
+            height:30px;
 
-        &--centre{
-            @include breakpoint($desktop){
-                order:1;
-            }
-        }
-
-        @include breakpoint($desktop){
             width:100%;
-            text-align: left;
-            align-items:flex-start;
-
-            margin:0;
+            bottom:0;
+            left:0;
+            position: absolute;
         }
-
     }
 
-    &__section{
-        margin:2em 0px;
+    &__plot{
+        color:$light-gray;
+        margin-bottom:30px;
     }
 
-    &__btn{
-        @include flex-container(column, center, center);
-        width:30%;
+    &__extra{
+        display: flex;
+        justify-content: space-between;
+    }
 
-        button{
-            width:100%;
-        }
+    &__row{
+        display:flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+}
+
+.cast{
+    &__actor{
+        color:$light-gray;
+        margin:1em 0em;
+    }
+}
+
+.critic{
+    margin:1em 0em;
+}
+
+.critics{
+    &__val{
+        color:$gray;
+    }
+
+    &__name{
+        color:$light-gray;
+    }
+}
+
+
+.category{
+    color:$gray;
+}
+
+.unit{
+    color:$light-gray;
+}
+
+.stats{
+    text-align: center;
+
+    &__num{
+        font-size:50px;
+        color:$gray;
+        margin-bottom: 10px;
+    }
+
+    &__desc{
+        color:$light-gray;
+        font-size:20px;
+        margin-bottom:20px;
     }
 }

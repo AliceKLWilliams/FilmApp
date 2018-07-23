@@ -1,34 +1,38 @@
 .review{
 	font-size:1rem;
 
-	margin:3em 0px;
-	width:100%;
+	margin:0 auto;
+	width:70%;
 
-	display:grid;
-	grid-template-columns: max-content 1fr;
+	display:flex;
+	flex-direction: row;
 
-	&__header{
-		@include flex-container(row, space-between, center);
+	margin-bottom:100px;
+
+	&__more{
+		background-color:transparent;
+		font-size:16px;
+		color:$gray;
 	}
 
-	&__bttns{
-		text-align: right;
+	&__user{
+		margin-right:30px;
+		text-align: center;
 	}
 
-	&__user:hover{
-		text-decoration: underline;
+	&__delete{
+		background:transparent;
 	}
 
-	&__content{
-		background-color:$card-colour;
-		box-shadow: $box-shadow;
-		padding:1em;
+	&__img{
+		width:100px;
+		height:100px;
 
-		z-index:2;
-	}
+		margin:0em 1em;
 
-	&__text{
-		margin:0.6em 0em;
+		object-fit:cover;
+
+		border-radius: 150px;
 	}
 
 	&__extra{
@@ -36,8 +40,25 @@
 		overflow: hidden;
 	}
 
+	&__links{
+		display:flex;
+		flex-direction: row;
+
+		justify-content: space-between;
+	}
+
+	&__delete{
+		font-size:1rem;
+	}
+
 	&__extra--open{
 		margin:1.25em 0px;
+	}
+
+	&__username{
+		font-size:1.2rem;
+		display: inline-block;
+		margin:10px 0px;
 	}
 
 	&__stars{
@@ -46,9 +67,58 @@
 		margin:0.7em 2em 0.7em 0em;
 	}
 
-	&:hover{
-		.btn--slide{
-			left:0%;
-		}
+	&__title{
+		margin-right:10px;
+		color:$gray;
+	}
+
+	&__header{
+		display: flex;
+		align-items:flex-end;
+		margin-bottom:25px;
+	}
+
+	&__text{
+		color:$light-gray;
+		margin-bottom: 10px;
+	}
+}
+
+.bg-primary{
+	background-color:$primary-colour;
+	padding-top:100px;
+}
+
+.reviews{
+	width:80%;
+	margin:0 auto;
+	background-color:$card-colour;
+	box-shadow: $box-shadow;
+
+	padding:3em;
+
+	&__add{
+		float:right;
+	}
+
+	&__title{
+		position: relative;
+		display: inline-block;
+
+		margin-bottom:75px;
+
+		&::after{
+            content:"";
+
+            background-color: $primary-colour;
+            opacity: 0.2;
+
+            height:30px;
+
+            width:100%;
+            bottom:0;
+            left:0;
+            position: absolute;
+        }
 	}
 }
