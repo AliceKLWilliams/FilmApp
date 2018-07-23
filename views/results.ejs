@@ -9,66 +9,68 @@
     </form>
 </div>
 
+<% if(searchQuery) { %>
 <% if(searchResults.Search) { %>
-<div class="results-container">
-    <h4 class="query">Search Results for <%= searchQuery %></h4>
-       <div class="results">
-            <% searchResults.Search.forEach(film => { %>
-                <div class="result">
-                    <div class="result__text">
-                        <div class="result__header">
-                            <h3 class="result__name"><%= film.Title %></h3>
-                            <span class="result__year"><%= film.Year %></span>
+    <div class="results-container">
+        <h4 class="query">Search Results for <%= searchQuery %></h4>
+        <div class="results">
+                <% searchResults.Search.forEach(film => { %>
+                    <div class="result">
+                        <div class="result__text">
+                            <div class="result__header">
+                                <h3 class="result__name"><%= film.Title %></h3>
+                                <span class="result__year"><%= film.Year %></span>
+                            </div>
+                            <p class="result__desc">
+                                <%= film.Plot %>
+                            </p>
+                                
+                            <div class="result__links">
+                                <% if(currentUser) { %> 
+                                    <p class="result__link"><i class="fa fa-eye"></i>Watched</p>
+                                    <p class="result__link"><i class="fa fa-thumbs-up"></i>Want</p>
+                                <% } %>
+                                <a class="result__link" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i>More</a>
+                            </div>       
                         </div>
-                        <p class="result__desc">
-                            <%= film.Plot %>
-                        </p>
-                            
-                        <div class="result__links">
-                            <% if(currentUser) { %> 
-                                <p class="result__link"><i class="fa fa-eye"></i>Watched</p>
-                                <p class="result__link"><i class="fa fa-thumbs-up"></i>Want</p>
-                            <% } %>
-                            <a class="result__link" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i>More</a>
-                        </div>       
+                        <% if(film.Poster === "N/A") { %>
+                            <img class="result__poster" src="http://via.placeholder.com/350x450" />
+                        <% } else { %>
+                            <img class="result__poster" src=<%=film.Poster %>/>
+                        <% } %>
                     </div>
-                    <% if(film.Poster === "N/A") { %>
-                        <img class="result__poster" src="http://via.placeholder.com/350x450" />
-                    <% } else { %>
-                        <img class="result__poster" src=<%=film.Poster %>/>
-                    <% } %>
-                </div>
-            <% }); %>
-        </div>
+                <% }); %>
+            </div>
 
-        <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
-        <div class="pagination">
-            <% if(currentPage !== 1) { %>
-                <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-            <% } %>
+            <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
+            <div class="pagination">
+                <% if(currentPage !== 1) { %>
+                    <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                <% } %>
 
-            <% paginationData.forEach(pageNum => { %>
-                <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link">
-                    <%= pageNum %>
-                </a>
-            <% }); %>
-            <% if(currentPage !== numberPages) { %>
-                <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-            <% } %>
+                <% paginationData.forEach(pageNum => { %>
+                    <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link">
+                        <%= pageNum %>
+                    </a>
+                <% }); %>
+                <% if(currentPage !== numberPages) { %>
+                    <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link">
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                <% } %>
+            </div>
         </div>
-    </div>
-<% } else { %>
-     <div class="container">
-        <div class="msg">
-            <h4 class "msg__text">Sorry... Nothing matched
-                <%= searchQuery %>
-            </h4>
+    <% } else { %>
+        <div class="container">
+            <div class="msg">
+                <h4 class "msg__text">Sorry... Nothing matched
+                    <%= searchQuery %>
+                </h4>
+            </div>
         </div>
-       </div>
+    <% } %>
 <% } %>
 
 <% include partials/footer.ejs %>

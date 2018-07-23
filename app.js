@@ -70,63 +70,68 @@ let FilmAPI = require("./modules/FilmAPI");
 
 app.get("/search", function (req, res) {
     let filmName = req.query.filmName;
-    let page = (req.query.page) ? parseInt(req.query.page) : 1;
 
-    let pageParams = {};
-    pageParams.currentPage = page;
-    pageParams.searchQuery = filmName;
+    if(filmName){
+        let page = (req.query.page) ? parseInt(req.query.page) : 1;
 
-    let API = new FilmAPI(apikey);
-    let filmResultsPromise = API.SearchFilm(filmName, page);
-    filmResultsPromise.then(searchResults => {
-        let paginationRange = 2;
+        let pageParams = {};
+        pageParams.currentPage = page;
+        pageParams.searchQuery = filmName;
 
-        let paginationStart = page - paginationRange;
-        let numberPages = Math.ceil(searchResults.totalResults / 10);
-        if (page === numberPages) {
-            paginationStart = page - (paginationRange + 2);
-        } else if (page === 1) {
-            paginationStart = page;
-        }
+        let API = new FilmAPI(apikey);
+        let filmResultsPromise = API.SearchFilm(filmName, page);
+        filmResultsPromise.then(searchResults => {
+            let paginationRange = 2;
 
-        let paginationEnd = page + paginationRange;
-        if (page === numberPages) {
-            paginationEnd = page;
-        } else if (page === 1) {
-            paginationEnd = page + (paginationRange + 2);
-        }
-
-        let paginationData = [];
-        for (let i = paginationStart; i <= paginationEnd; i++) {
-            if (i > 0 && i <= numberPages) {
-                paginationData.push(i);
+            let paginationStart = page - paginationRange;
+            let numberPages = Math.ceil(searchResults.totalResults / 10);
+            if (page === numberPages) {
+                paginationStart = page - (paginationRange + 2);
+            } else if (page === 1) {
+                paginationStart = page;
             }
-        }
 
-        pageParams.paginationData = paginationData;
-        pageParams.searchResults = searchResults;
+            let paginationEnd = page + paginationRange;
+            if (page === numberPages) {
+                paginationEnd = page;
+            } else if (page === 1) {
+                paginationEnd = page + (paginationRange + 2);
+            }
 
-        let IDs = [];
-        searchResults.Search.forEach(film => {
-            IDs.push(film.imdbID);
+            let paginationData = [];
+            for (let i = paginationStart; i <= paginationEnd; i++) {
+                if (i > 0 && i <= numberPages) {
+                    paginationData.push(i);
+                }
+            }
+
+            pageParams.paginationData = paginationData;
+            pageParams.searchResults = searchResults;
+
+            let IDs = [];
+            searchResults.Search.forEach(film => {
+                IDs.push(film.imdbID);
+            });
+
+            return API.GetShortPlots(IDs);
+        })
+        .then(plots => {
+            for(let i = 0; i < pageParams.searchResults.Search.length; i++){
+                pageParams.searchResults.Search[i].Plot = plots[i];
+            }
+
+            res.render("results", pageParams);
+        })
+        .catch(error => {
+            if(error === "Movie not found!"){
+                res.render("results", {searchResults: {}, searchQuery:filmName});
+            } else {
+                res.render("error");
+            }
         });
-
-        return API.GetShortPlots(IDs);
-    })
-    .then(plots => {
-        for(let i = 0; i < pageParams.searchResults.Search.length; i++){
-            pageParams.searchResults.Search[i].Plot = plots[i];
-        }
-
-        res.render("results", pageParams);
-    })
-    .catch(error => {
-        if(error === "Movie not found!"){
-            res.render("results", {searchResults: {}, searchQuery:filmName});
-        } else {
-            res.render("error");
-        }
-    });
+    } else {
+        res.render("results", {searchResults: {}, searchQuery: filmName});
+    }
 });
 
 app.get("/error", function (req, res) {
