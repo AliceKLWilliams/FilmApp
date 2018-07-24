@@ -36,7 +36,7 @@
             height:30px;
 
             width:100%;
-            bottom:0;
+            bottom:20px;
             left:0;
             position: absolute;
         }
@@ -60,6 +60,26 @@
 }
 
 .cast{
+    &__header{
+
+        position:relative;
+        display:inline-block;
+
+         &::after{
+            content:"";
+
+            background-color: $primary-colour;
+            opacity: 0.2;
+
+            height:20px;
+
+            width:100%;
+            bottom:15px;
+            left:0;
+            position: absolute;
+        }
+    }
+
     &__actor{
         color:$light-gray;
         margin:1em 0em;
@@ -71,6 +91,26 @@
 }
 
 .critics{
+    &__header{
+
+        position:relative;
+        display:inline-block;
+
+         &::after{
+            content:"";
+
+            background-color: $primary-colour;
+            opacity: 0.2;
+
+            height:20px;
+
+            width:100%;
+            bottom:15px;
+            left:0;
+            position: absolute;
+        }
+    }
+
     &__val{
         color:$gray;
     }

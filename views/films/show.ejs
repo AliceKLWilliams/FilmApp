@@ -14,13 +14,13 @@
 
             <div class="film__row">
                 <div class="cast">
-                    <h2>Cast and Crew</h2>
+                    <h2 class="cast__header">Cast and Crew</h2>
                     <% data.Actors.forEach(actor => { %>
                         <p class="cast__actor"><%= actor %></p>
                     <% }) %>
                 </div>
                 <div class="critics">
-                    <h2>Critics</h2>
+                    <h2 class="critics__header">Critics</h2>
                     <% data.Ratings.forEach(rating => { %>
                         <p class="critic"><span class="critics__val"><%=rating.Value%></span><span class="critics__name"> <%=rating.Source%></span></p>
                     <% }); %>

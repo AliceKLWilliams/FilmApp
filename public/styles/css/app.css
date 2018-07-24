@@ -273,7 +273,7 @@ button, input[type=submit] {
       opacity: 0.2;
       height: 30px;
       width: 100%;
-      bottom: 0;
+      bottom: 20px;
       left: 0;
       position: absolute; }
   .film__plot {
@@ -287,6 +287,18 @@ button, input[type=submit] {
     justify-content: space-between;
     margin-bottom: 40px; }
 
+.cast__header {
+  position: relative;
+  display: inline-block; }
+  .cast__header::after {
+    content: "";
+    background-color: #FE6363;
+    opacity: 0.2;
+    height: 20px;
+    width: 100%;
+    bottom: 15px;
+    left: 0;
+    position: absolute; }
 .cast__actor {
   color: #888888;
   margin: 1em 0em; }
@@ -294,6 +306,18 @@ button, input[type=submit] {
 .critic {
   margin: 1em 0em; }
 
+.critics__header {
+  position: relative;
+  display: inline-block; }
+  .critics__header::after {
+    content: "";
+    background-color: #FE6363;
+    opacity: 0.2;
+    height: 20px;
+    width: 100%;
+    bottom: 15px;
+    left: 0;
+    position: absolute; }
 .critics__val {
   color: #404040; }
 .critics__name {
