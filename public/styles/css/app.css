@@ -34,9 +34,13 @@ html, body {
   color: black;
   font-size: 16px; }
 
+html {
+  height: 100%; }
+
 body {
   position: relative;
-  padding-bottom: 70px; }
+  padding-bottom: 70px;
+  min-height: 100%; }
 
 * {
   padding: 0px;
