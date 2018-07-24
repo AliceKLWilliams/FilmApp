@@ -522,10 +522,16 @@ button, input[type=submit] {
   padding: 3em; }
   .reviews__add {
     float: right; }
+  .reviews__header {
+    margin-bottom: 75px;
+    display: flex;
+    align-items: flex-end; }
+  .reviews__avg {
+    color: #888888; }
   .reviews__title {
     position: relative;
     display: inline-block;
-    margin-bottom: 75px; }
+    margin-right: 10px; }
     .reviews__title::after {
       content: "";
       background-color: #FE6363;

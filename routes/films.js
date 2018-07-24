@@ -29,6 +29,8 @@ router.get("/:id", function(req, res){
 
     Promise.all([FilmPromise, FindFilm])
     .then((data) => {
+
+        // Actors String -> Array
         let arrActors = data[0].Actors.split(",");
 
         for(let actor in arrActors){
@@ -37,9 +39,20 @@ router.get("/:id", function(req, res){
 
         data[0].Actors = arrActors;
 
+        // Get Average Review Score
+        let avgReview = 0;
+        if(data[1]){
+            data[1].reviews.forEach(review => {
+                avgReview += review.ratings.overall;
+            });
+            avgReview = avgReview / data[1].reviews.length;
+        }
+        
+
         res.render("films/show", {
             data:data[0],
-            modelData:data[1] 
+            modelData:data[1],
+            avgReview
         });
     })
     .catch((err) => {

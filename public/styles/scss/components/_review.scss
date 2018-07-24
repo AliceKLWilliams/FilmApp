@@ -101,11 +101,22 @@
 		float:right;
 	}
 
+	&__header{
+		margin-bottom:75px;
+
+		display:flex;
+		align-items: flex-end;
+	}
+
+	&__avg{
+		color:$light-gray;
+	}
+
 	&__title{
 		position: relative;
 		display: inline-block;
 
-		margin-bottom:75px;
+		margin-right: 10px;
 
 		&::after{
             content:"";

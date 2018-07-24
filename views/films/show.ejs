@@ -54,8 +54,17 @@
 
     <div class="bg-primary">
         <div class="reviews">
-            <% if(modelData) { %>
-                <h2 class="reviews__title">User Reviews</h2>
+            <div class="reviews__header">
+                 <h2 class="reviews__title">User Reviews</h2>
+                <% if(modelData && modelData.reviews.length > 0){ %>
+                    <p class="reviews__avg">Average Overall: <%= avgReview %></p>
+                <% } %>
+            </div>
+
+           <% if(!modelData){ %>
+                <p>No Reviews</p>
+            <% } else { %>
+
                 <% if(currentUser) { %>
                     <a class="btn btn--primary reviews__add" href="/films/<%=data.imdbID%>/reviews/new">Add a Review</a>
                 <% } %>
