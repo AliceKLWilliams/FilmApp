@@ -44,6 +44,25 @@ router.get("/user/:id", (req, res) =>{
     .catch((err) => handleError(err, res));
 });
 
+router.get("/user/:id/password", (req, res) => {
+    res.render("user/password", {userID:req.params.id});
+});
+
+router.post("/user/:id/password", (req, res) => {
+    User.findById(req.user._id) // Find current user
+    .then(user => {
+        // Change password
+        user.changePassword(req.body.oldPassword, req.body.newPassword, (err) => {
+            if(err){
+                req.flash("error", "Incorrect password entered.")
+                return res.redirect("/user/"+req.params.id+"/password");
+            }
+            req.flash("success", "Password changed successfully!");
+            res.redirect("/user/"+req.params.id);
+        });
+    });
+});
+
 router.post("/user/:id/photo", multiparty, (req, res) => {
     User.findById(req.user._id)
     .then((user) => {

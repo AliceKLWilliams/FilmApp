@@ -15,6 +15,7 @@
                 <input name="photo" id="user-photo" class="user__upload" type="file" onchange="form.submit()"/>
                 <label for="user-photo" class="btn btn--primary user__btn">Edit Photo</label>
             </form>
+            <a class="btn btn--primary user__btn" href="/user/<%=user._id%>/password">Change Password</a>
             <form action="/user/watched?_method=DELETE" method="POST" enctype="multipart/form-data">
                 <button class="btn btn--primary user__btn">Clear Watched</button>
             </form>
