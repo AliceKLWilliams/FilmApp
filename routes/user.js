@@ -14,9 +14,6 @@ let middleware = require("./middleware");
 
 let multiparty = require("connect-multiparty")();
 
-require("dotenv").config();
-let apikey = process.env.APIKEY;
-
 let db;
 let gfs;
 mongoose.connection.on('connected', () => {
@@ -31,9 +28,8 @@ router.get("/user/:id", (req, res) =>{
 
     User.findById(req.params.id)
     .then((user) =>{
-        let Search = new FilmAPI(apikey);
-        let watchedPromise = Search.GetBasicInfo(user.watched);
-        let wantPromise = Search.GetBasicInfo(user.want);
+        let watchedPromise = FilmAPI.GetBasicInfo(user.watched);
+        let wantPromise = FilmAPI.GetBasicInfo(user.want);
         foundUser = user;
         return Promise.all([watchedPromise, wantPromise]);
     }).then((films) => {

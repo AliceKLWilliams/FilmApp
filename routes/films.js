@@ -3,21 +3,17 @@ let router = express.Router({mergeParams:true});
 
 let fetch = require("node-fetch");
 
-require("dotenv").config();
-let apikey = process.env.APIKEY;
-
 let Film = require("../models/Film");
 let User = require("../models/User");
 
 let middleware = require("./middleware");
 
-let FilmAPI = require("../modules/FilmAPI");
+const FilmAPI = require("../modules/FilmAPI");
 
 router.get("/:id", function(req, res){
     let filmID = req.params.id;
-    let API = new FilmAPI(apikey);
 
-    let FilmPromise = API.SearchID(filmID, "full");
+    let FilmPromise = FilmAPI.SearchID(filmID, "full");
     let FindFilm = Film.findOne({filmID:filmID}).populate({
         path:"reviews",
         model:"Review",

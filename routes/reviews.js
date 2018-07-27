@@ -6,10 +6,7 @@ let middleware = require("./middleware");
 let Review = require("../models/Review");
 let Film = require("../models/Film");
 
-require("dotenv").config();
-let apikey = process.env.APIKEY;
-let APIRequire = require("../modules/FilmAPI");
-let FilmAPI = new APIRequire(apikey);
+let FilmAPI = require("../modules/FilmAPI");
 
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {

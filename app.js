@@ -1,5 +1,4 @@
 require("dotenv").config();
-let apikey = process.env.APIKEY;
 
 let express = require("express");
 let methodOverride = require("method-override");
@@ -66,7 +65,7 @@ app.use(userRoutes);
 global.__basedir = __dirname;
 
 // External JS
-let FilmAPI = require("./modules/FilmAPI");
+const FilmAPI = require("./modules/FilmAPI");
 
 app.get("/search", function (req, res) {
     let filmName = req.query.filmName;
@@ -78,8 +77,7 @@ app.get("/search", function (req, res) {
         pageParams.currentPage = page;
         pageParams.searchQuery = filmName;
 
-        let API = new FilmAPI(apikey);
-        let filmResultsPromise = API.SearchFilm(filmName, page);
+        let filmResultsPromise = FilmAPI.SearchFilm(filmName, page);
         filmResultsPromise.then(searchResults => {
             let paginationRange = 2;
 
@@ -112,8 +110,8 @@ app.get("/search", function (req, res) {
             searchResults.Search.forEach(film => {
                 IDs.push(film.imdbID);
             });
-
-            return API.GetShortPlots(IDs);
+            
+            return FilmAPI.GetShortPlots(IDs);
         })
         .then(plots => {
             for(let i = 0; i < pageParams.searchResults.Search.length; i++){
