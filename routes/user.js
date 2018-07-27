@@ -10,6 +10,8 @@ let User = require("../models/User");
 let Film = require("../models/Film");
 let FilmAPI = require("../modules/FilmAPI");
 
+let middleware = require("./middleware");
+
 let multiparty = require("connect-multiparty")();
 
 require("dotenv").config();
@@ -44,11 +46,11 @@ router.get("/user/:id", (req, res) =>{
     .catch((err) => handleError(err, res));
 });
 
-router.get("/user/:id/password", (req, res) => {
+router.get("/user/:id/password", middleware.isCurrentUser, (req, res) => {
     res.render("user/password", {userID:req.params.id});
 });
 
-router.post("/user/:id/password", (req, res) => {
+router.post("/user/:id/password", middleware.isCurrentUser, (req, res) => {
     User.findById(req.user._id) // Find current user
     .then(user => {
         // Change password

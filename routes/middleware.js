@@ -24,6 +24,20 @@ var middleware = {
             req.flash("error", "You need to be logged in.");
             res.redirect("/login");
         }
+    },
+
+    isCurrentUser: (req, res, next) => {
+        if(req.isAuthenticated()){
+            if(req.user._id == req.params.id){
+                next();
+            } else{
+                req.flash("error", "You cannot access someone else's profile.")
+                res.redirect("back");
+            }
+        } else{
+            req.flash("error", "You cannot access someone else's profile.")
+            res.redirect("back");
+        }
     }
 }
 
