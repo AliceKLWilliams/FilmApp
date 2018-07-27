@@ -1,8 +1,6 @@
 let express = require("express");
 let router = express.Router({mergeParams:true});
 
-let fetch = require("node-fetch");
-
 let Film = require("../models/Film");
 let User = require("../models/User");
 
