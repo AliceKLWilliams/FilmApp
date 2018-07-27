@@ -67,7 +67,7 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
 
         if(!foundUser.watched.includes(req.params.id)){
             foundUser.watched.push(req.params.id);
-            let filmPromise = foundFilm.AddToWatched(1);
+            let filmPromise = foundFilm.IncrementWatched();
 
             Promise.all([filmPromise, foundUser.save()])
             .then(() => {
@@ -78,7 +78,7 @@ router.put("/:id/watched", middleware.isLoggedIn, (req, res) => {
         } else{
             foundUser.watched.pull(req.params.id);
 
-            Promise.all([foundUser.save(), foundFilm.AddToWatched(-1)])
+            Promise.all([foundUser.save(), foundFilm.DecrementWatched()])
             .then(() => {
                 req.flash("success", "Removed from watch list!");
                 res.redirect("back");
@@ -105,7 +105,7 @@ router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
 
         if(!foundUser.want.includes(req.params.id)){
             foundUser.want.push(req.params.id);
-            let filmPromise = foundFilm.AddToWanted(1);
+            let filmPromise = foundFilm.IncrementWanted();
 
             Promise.all([filmPromise, foundUser.save()])
             .then(() => {
@@ -116,7 +116,7 @@ router.put("/:id/want", middleware.isLoggedIn, (req, res) => {
         } else{
             foundUser.want.pull(req.params.id);
 
-            Promise.all([foundUser.save(), foundFilm.AddToWanted(-1)])
+            Promise.all([foundUser.save(), foundFilm.DecrementWanted()])
             .then(() => {
                 req.flash("success", "Removed from wanted list!");
                 res.redirect("back");

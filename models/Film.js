@@ -34,13 +34,23 @@ filmSchema.statics.FindFilm = function(ID){
     });
 }
 
-filmSchema.methods.AddToWatched = function(num){
-    this.watched += num;
+filmSchema.methods.IncrementWatched = function(){
+    this.watched += 1;
     return this.save();
-};
+}
 
-filmSchema.methods.AddToWanted = function(num){
-    this.want += num;
+filmSchema.methods.DecrementWatched = function(){
+    this.watched -= 1;
+    return this.save();
+}
+
+filmSchema.methods.IncrementWanted = function(){
+    this.wanted += 1;
+    return this.save();
+}
+
+filmSchema.methods.DecrementWanted = function(){
+    this.wanted -= 1;
     return this.save();
 }
 

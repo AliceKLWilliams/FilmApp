@@ -3,16 +3,17 @@ let router = express.Router({mergeParams:true});
 
 let mongoose = require("mongoose");
 
+// Modules for profile picture
 let fs = require("fs");
 let GridStream = require("gridfs-stream");
+let multiparty = require("connect-multiparty")();
 
+// DB Models
 let User = require("../models/User");
 let Film = require("../models/Film");
 let FilmAPI = require("../modules/FilmAPI");
 
 let middleware = require("./middleware");
-
-let multiparty = require("connect-multiparty")();
 
 let db;
 let gfs;
@@ -112,7 +113,7 @@ router.delete("/user/watched", (req, res) => {
     .then((foundFilms) => {
         let removeFromStats = [];
         foundFilms[0].forEach((dbFilm) => {
-            removeFromStats.push(dbFilm.AddToWatched(-1));
+            removeFromStats.push(dbFilm.DecrementWatched());
         });
 
         return Promise.all(removeFromStats);
@@ -141,7 +142,7 @@ router.delete("/user/want", (req, res) => {
     .then((foundFilms) => {
         let removeFromStats = [];
         foundFilms[0].forEach((dbFilm) => {
-            removeFromStats.push(dbFilm.AddToWanted(-1));
+            removeFromStats.push(dbFilm.DecrementWanted());
         });
         return Promise.all(removeFromStats);
     }).then(() => {

@@ -1,13 +1,14 @@
-let express = require("express");
-let router = express.Router({mergeParams:true});
+const express = require("express");
+const router = express.Router({mergeParams:true});
 
-let middleware = require("./middleware");
+const middleware = require("./middleware");
 
-let Review = require("../models/Review");
-let Film = require("../models/Film");
+// DB Models
+const Review = require("../models/Review");
+const Film = require("../models/Film");
 
-let FilmAPI = require("../modules/FilmAPI");
-
+// External JS
+const FilmAPI = require("../modules/FilmAPI");
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
     Review.findByIdAndUpdate(req.params.reviewID, {
