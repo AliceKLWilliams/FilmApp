@@ -1,19 +1,31 @@
 .film{
-    width:100%;
     font-size:1rem;
 
-    display:flex;
-    flex-direction: row;
+    margin:100px auto 100px auto;
+
+    width:60%;
+
+    &__bttns{
+        display:flex;
+        justify-content: space-between;
+        margin-top:30px;
+    }
+    
 
     &__info{
-        width:50%;
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        align-items:center;
 
-        padding:3em;
+        margin-bottom: 75px;
     }
 
     &__poster{
-        width:50%;
+        width:25%;
         object-fit: cover;
+
+        margin-right:60px;
     }
 
     &__main{
@@ -27,19 +39,6 @@
 
         margin-bottom:10px;
 
-        &::after{
-            content:"";
-
-            background-color: $primary-colour;
-            opacity: 0.2;
-
-            height:30px;
-
-            width:100%;
-            bottom:20px;
-            left:0;
-            position: absolute;
-        }
     }
 
     &__plot{
@@ -61,54 +60,19 @@
 
 .cast{
     &__header{
-
         position:relative;
         display:inline-block;
-
-         &::after{
-            content:"";
-
-            background-color: $primary-colour;
-            opacity: 0.2;
-
-            height:20px;
-
-            width:100%;
-            bottom:15px;
-            left:0;
-            position: absolute;
-        }
     }
 
     &__actor{
         color:$light-gray;
-        margin:1em 0em;
     }
-}
-
-.critic{
-    margin:1em 0em;
 }
 
 .critics{
     &__header{
-
         position:relative;
         display:inline-block;
-
-         &::after{
-            content:"";
-
-            background-color: $primary-colour;
-            opacity: 0.2;
-
-            height:20px;
-
-            width:100%;
-            bottom:15px;
-            left:0;
-            position: absolute;
-        }
     }
 
     &__val{
@@ -129,18 +93,47 @@
     color:$light-gray;
 }
 
-.stats{
-    text-align: center;
+.stat{
+    display:inline-block;
+    margin-right:20px;
+}
 
-    &__num{
-        font-size:50px;
-        color:$gray;
-        margin-bottom: 10px;
+.slider{
+
+    &__line{
+        margin:1em 0em;
     }
 
-    &__desc{
-        color:$light-gray;
-        font-size:20px;
-        margin-bottom:20px;
+    &__links{
+        margin-bottom:10px;
+    }
+
+    &__link{
+        background-color:transparent;
+        font-size:1.9999rem;
+
+        margin-right:2em;
+    }
+
+    &__underline{
+        height:2px;
+        width:50px;
+
+        position: relative;
+
+        margin-bottom:10px;
+
+        background-color:$primary-colour;
+    }
+
+
+    &__content{
+        &--hidden{
+            display:none;
+        }
+
+        &--show{
+            display:block;
+        }
     }
 }

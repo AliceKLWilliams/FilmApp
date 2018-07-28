@@ -1,4 +1,4 @@
-footer{
+.footer{
 	background-color:$primary-colour;
 	color:white;
 
@@ -12,4 +12,8 @@ footer{
 	bottom:0;
 	left:0;
 	width:100%;
+
+	&__text{
+		color:white;
+	}
 }

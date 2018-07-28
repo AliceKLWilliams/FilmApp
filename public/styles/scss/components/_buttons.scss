@@ -4,7 +4,7 @@
 
     font-size:1.2rem;
 
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
     padding:0.8em 1.5em;
 
@@ -14,8 +14,11 @@
 
     &:hover{
         box-shadow: none;
-        position: relative;
-        top:2px;
+        transform: translateY(2px);
+    }
+
+    &__icon{
+        margin-right:10px;
     }
 
     &--primary{
@@ -25,7 +28,7 @@
 
     &--secondary{
         color: $primary-colour;
-        border: 1px solid $primary-colour;
+        background-color:white;
     }
 
     &--want{

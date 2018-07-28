@@ -23,7 +23,6 @@ router.get("/:id", function(req, res){
 
     Promise.all([FilmPromise, FindFilm])
     .then((data) => {
-
         // Actors String -> Array
         let arrActors = data[0].Actors.split(",");
 

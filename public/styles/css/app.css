@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5, h6, p {
-  line-height: 1.4; }
+  line-height: 1.4;
+  color: #404040; }
 
 h1 {
   font-size: 4.5rem; }
@@ -39,7 +40,6 @@ html {
 
 body {
   position: relative;
-  padding-bottom: 70px;
   min-height: 100%; }
 
 * {
@@ -61,7 +61,7 @@ button, input[type=submit] {
 
 .container {
   width: 80%;
-  margin: 20px auto 75px auto; }
+  margin: 20px auto 0px auto; }
   .container--centre {
     text-align: center; }
 
@@ -146,7 +146,8 @@ button, input[type=submit] {
   width: 100%;
   padding: 1.25rem;
   font-size: 1rem;
-  z-index: 1; }
+  z-index: 1;
+  background-color: #FE6363; }
   .nav__close {
     position: absolute;
     font-size: 4rem;
@@ -157,7 +158,7 @@ button, input[type=submit] {
   .nav__open {
     background-color: transparent;
     font-size: 2rem;
-    color: #FE6363; }
+    color: white; }
   .nav__top {
     display: flex;
     justify-content: space-between; }
@@ -176,7 +177,7 @@ button, input[type=submit] {
     align-items: center;
     justify-content: center; }
   .nav__logo {
-    color: #FE6363; }
+    color: white; }
   .nav__item {
     position: relative;
     display: inline-block;
@@ -217,20 +218,21 @@ button, input[type=submit] {
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 0.8em 1.5em;
   background-color: transparent;
   display: inline-block; }
   .btn:hover {
     box-shadow: none;
-    position: relative;
-    top: 2px; }
+    transform: translateY(2px); }
+  .btn__icon {
+    margin-right: 10px; }
   .btn--primary {
     background-color: #FE6363;
     color: #E8F1F2; }
   .btn--secondary {
     color: #FE6363;
-    border: 1px solid #FE6363; }
+    background-color: white; }
   .btn--want {
     background-color: #e1ae41;
     color: #E8F1F2; }
@@ -254,16 +256,23 @@ button, input[type=submit] {
         transition: none; } }
 
 .film {
-  width: 100%;
   font-size: 1rem;
-  display: flex;
-  flex-direction: row; }
+  margin: 100px auto 100px auto;
+  width: 60%; }
+  .film__bttns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px; }
   .film__info {
-    width: 50%;
-    padding: 3em; }
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 75px; }
   .film__poster {
-    width: 50%;
-    object-fit: cover; }
+    width: 25%;
+    object-fit: cover;
+    margin-right: 60px; }
   .film__main {
     margin-bottom: 40px; }
   .film__title {
@@ -271,15 +280,6 @@ button, input[type=submit] {
     position: relative;
     display: inline-block;
     margin-bottom: 10px; }
-    .film__title::after {
-      content: "";
-      background-color: #FE6363;
-      opacity: 0.2;
-      height: 30px;
-      width: 100%;
-      bottom: 20px;
-      left: 0;
-      position: absolute; }
   .film__plot {
     color: #888888;
     margin-bottom: 30px; }
@@ -294,34 +294,12 @@ button, input[type=submit] {
 .cast__header {
   position: relative;
   display: inline-block; }
-  .cast__header::after {
-    content: "";
-    background-color: #FE6363;
-    opacity: 0.2;
-    height: 20px;
-    width: 100%;
-    bottom: 15px;
-    left: 0;
-    position: absolute; }
 .cast__actor {
-  color: #888888;
-  margin: 1em 0em; }
-
-.critic {
-  margin: 1em 0em; }
+  color: #888888; }
 
 .critics__header {
   position: relative;
   display: inline-block; }
-  .critics__header::after {
-    content: "";
-    background-color: #FE6363;
-    opacity: 0.2;
-    height: 20px;
-    width: 100%;
-    bottom: 15px;
-    left: 0;
-    position: absolute; }
 .critics__val {
   color: #404040; }
 .critics__name {
@@ -333,16 +311,28 @@ button, input[type=submit] {
 .unit {
   color: #888888; }
 
-.stats {
-  text-align: center; }
-  .stats__num {
-    font-size: 50px;
-    color: #404040;
-    margin-bottom: 10px; }
-  .stats__desc {
-    color: #888888;
-    font-size: 20px;
-    margin-bottom: 20px; }
+.stat {
+  display: inline-block;
+  margin-right: 20px; }
+
+.slider__line {
+  margin: 1em 0em; }
+.slider__links {
+  margin-bottom: 10px; }
+.slider__link {
+  background-color: transparent;
+  font-size: 1.9999rem;
+  margin-right: 2em; }
+.slider__underline {
+  height: 2px;
+  width: 50px;
+  position: relative;
+  margin-bottom: 10px;
+  background-color: #FE6363; }
+.slider__content--hidden {
+  display: none; }
+.slider__content--show {
+  display: block; }
 
 .results-container {
   width: 90%;
@@ -360,7 +350,8 @@ button, input[type=submit] {
   margin-bottom: 75px; }
 
 .query {
-  color: #FE6363; }
+  color: #FE6363;
+  font-size: 1.999rem; }
 
 .result {
   display: flex;
@@ -461,19 +452,24 @@ button, input[type=submit] {
 .review {
   font-size: 1rem;
   margin: 0 auto;
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 100px; }
+  align-items: flex-start;
+  margin-bottom: 100px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 2.5em; }
   .review__more {
     background-color: transparent;
     font-size: 16px;
     color: #404040; }
   .review__user {
     margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center; }
-  .review__delete {
-    background: transparent; }
   .review__img {
     width: 100px;
     height: 100px;
@@ -494,7 +490,7 @@ button, input[type=submit] {
   .review__username {
     font-size: 1.2rem;
     display: inline-block;
-    margin: 10px 0px; }
+    margin: 10px 0px 20px 0px; }
   .review__stars {
     display: inline-block;
     text-align: center;
@@ -509,38 +505,35 @@ button, input[type=submit] {
   .review__text {
     color: #888888;
     margin-bottom: 10px; }
+  .review__btn {
+    color: #404040;
+    background-color: transparent;
+    font-size: 1rem; }
 
-.bg-primary {
-  background-color: #FE6363;
-  padding-top: 100px; }
+.reviews-container {
+  padding: 100px 0px;
+  background-color: #FE6363; }
 
 .reviews {
-  width: 80%;
   margin: 0 auto;
-  background-color: #ffffff;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  padding: 3em; }
-  .reviews__add {
-    float: right; }
+  width: 70%;
+  position: relative; }
   .reviews__header {
     margin-bottom: 75px;
-    display: flex;
-    align-items: flex-end; }
+    text-align: center; }
   .reviews__avg {
-    color: #888888; }
+    color: white; }
+  .reviews__add {
+    position: absolute;
+    right: 0; }
   .reviews__title {
     position: relative;
     display: inline-block;
+    color: white;
     margin-right: 10px; }
-    .reviews__title::after {
-      content: "";
-      background-color: #FE6363;
-      opacity: 0.2;
-      height: 30px;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      position: absolute; }
+  .reviews__msg {
+    color: white;
+    font-size: 1.999rem; }
 
 .user {
   display: inline-block;
@@ -579,7 +572,7 @@ button, input[type=submit] {
     .user {
       width: 100%; } }
 
-footer {
+.footer {
   background-color: #FE6363;
   color: white;
   display: flex;
@@ -590,6 +583,8 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%; }
+  .footer__text {
+    color: white; }
 
 .search-container {
   display: flex;

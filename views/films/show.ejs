@@ -1,76 +1,77 @@
 <% include ../partials/header %>
     <div class="film">
         <div class="film__info">
+            <img class="film__poster" src="<%=data.Poster%>"/>
             <div class="film__main">
                 <h1 class="film__title"><%= data.Title %></h1>
                 <p class="film__plot"><%= data.Plot %></p>
+                
+                <p class="stat">Wanted By: <span><%= (modelData ? modelData.want : 0)%></span></p>
+                <p class="stat">Watched By: <span><%= (modelData ? modelData.watched : 0)%></span></p>
 
-                <div class="film__extra">
-                    <p><span class="category">Runtime: </span><span class="unit"><%=data.Runtime%></span></p>
-                    <p><span class="category">Genre: </span><span class="unit"><%=data.Genre%></span></p>
-                    <p><span class="category">Released: </span><span class="unit"><%=data.Released%></span></p>
-                </div>
-            </div>
-
-            <div class="film__row">
-                <div class="cast">
-                    <h2 class="cast__header">Cast and Crew</h2>
-                    <% data.Actors.forEach(actor => { %>
-                        <p class="cast__actor"><%= actor %></p>
-                    <% }) %>
-                </div>
-                <div class="critics">
-                    <h2 class="critics__header">Critics</h2>
-                    <% data.Ratings.forEach(rating => { %>
-                        <p class="critic"><span class="critics__val"><%=rating.Value%></span><span class="critics__name"> <%=rating.Source%></span></p>
-                    <% }); %>
-                </div>
-            </div>
-
-            <div class="film__row">
-                <div class="stats">
-                    <span class="stats__num"><%= (modelData ? modelData.want : 0)%></span>
-                    <p class="stats__desc">Want to See This</p>
-                    <% if(currentUser) { %>
+                
+                <% if(currentUser) { %>
+                    <div class="film__bttns">
                         <form class="btn--form " method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
-                            <button class="btn btn--primary">I Want to Watch This</button>
+                            <button class="btn btn--primary"><i class="fa fa-thumbs-up btn__icon"></i>Want</button>
                         </form>
-                    <% } %>
-                </div>
-                <div class="stats">
-                    <span class="stats__num"><%= (modelData ? modelData.watched : 0) %></span>
-                    <p class="stats__desc">Have Seen This</p>
-                    <% if(currentUser) { %>
                         <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
-                            <button class="btn btn--primary">I Have Watched This</button>
+                            <button class="btn btn--primary"><i class="fa fa-eye btn__icon"></i>Watched</button>
                         </form>
-                    <% } %>
-                </div>
+                    </div>
+                <% } %>
+                
             </div>
+
         </div>
 
-        <img class="film__poster" src="<%=data.Poster%>"/>
-    </div>
+        <div class="slider">
+            <div class="slider__links">
+                <button class="slider__link" data-name="cast">Cast and Crew</button>
+                <button class="slider__link" data-name="critics">Critics</button>
+                <button class="slider__link" data-name="extra">Other</button>
+            </div>
+            <div class="slider__underline"></div>
+                <div class="slider__content cast" data-name="cast">
+                    <% data.Actors.forEach(actor => { %>
+                        <p class="slider__line cast__actor"><%= actor %></p>
+                    <% }) %>
+                </div>
 
-    <div class="bg-primary">
+                <div class="slider__content slider__content--hidden critics" data-name="critics">
+                    <% data.Ratings.forEach(rating => { %>
+                        <p class="slider__line critic"><span class="critics__val"><%=rating.Value%></span><span class="critics__name"> <%=rating.Source%></span></p>
+                    <% }); %>
+                </div>
+
+                <div class="slider__content slider__content--hidden" data-name="extra">
+                    <p class="slider__line"><span class="category">Runtime: </span><span class="unit"><%=data.Runtime%></span></p>
+                    <p class="slider__line"><span class="category">Genre: </span><span class="unit"><%=data.Genre%></span></p>
+                    <p class="slider__line"><span class="category">Released: </span><span class="unit"><%=data.Released%></span></p>
+                </div>
+            
+        </div>
+    </div> 
+
+    <div class="reviews-container">
         <div class="reviews">
             <div class="reviews__header">
-                 <h2 class="reviews__title">User Reviews</h2>
+                <% if(currentUser) { %>
+                    <a class="btn btn--secondary reviews__add" href="/films/<%=data.imdbID%>/reviews/new">Add a Review</a>
+                <% } %>
+                <h2 class="reviews__title">User Reviews</h2>
                 <% if(modelData && modelData.reviews.length > 0){ %>
                     <p class="reviews__avg">Average Overall: <%= avgReview %></p>
                 <% } %>
+
             </div>
 
            <% if(!modelData){ %>
-                <p>No Reviews</p>
+                <p class="reviews__msg">No Reviews</p>
             <% } else { %>
-
-                <% if(currentUser) { %>
-                    <a class="btn btn--primary reviews__add" href="/films/<%=data.imdbID%>/reviews/new">Add a Review</a>
-                <% } %>
                 
                 <% if(modelData.reviews.length == 0){ %>
-                    <p>No Reviews</p>
+                    <p class="reviews__msg">No Reviews</p>
                 <% } %>
 
                 <% modelData.reviews.forEach(review => { %>
@@ -84,13 +85,13 @@
                             <a class="review__username" href="/user/<%=review.author._id%>"><%= review.author.username %></a>
                             <% if(currentUser && review.author.equals(currentUser._id)) { %>
                                 <div class="review__links">
-                                    <a href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit">
+                                    <a href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit" class="review__btn">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                         Edit
                                     </a>
                                     <form class= method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
-                                        <button class="review__delete">
-                                            <i class="fa fa-trash btn__icon" aria-hidden="true"></i>
+                                        <button class="review__btn">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
                                             Delete
                                         </button>
                                     </form>
@@ -135,5 +136,6 @@
     </div>
 
 <script type="text/javascript" src="../js/showReview.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
 
 <% include ../partials/footer %>

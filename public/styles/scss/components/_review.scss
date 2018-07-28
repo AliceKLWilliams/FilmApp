@@ -2,12 +2,18 @@
 	font-size:1rem;
 
 	margin:0 auto;
-	width:70%;
+	width:100%;
 
 	display:flex;
 	flex-direction: row;
+	align-items: flex-start;
 
 	margin-bottom:100px;
+
+	background-color:$card-colour;
+	box-shadow: $box-shadow;
+
+	padding:2.5em;
 
 	&__more{
 		background-color:transparent;
@@ -17,11 +23,10 @@
 
 	&__user{
 		margin-right:30px;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
 		text-align: center;
-	}
-
-	&__delete{
-		background:transparent;
 	}
 
 	&__img{
@@ -58,7 +63,7 @@
 	&__username{
 		font-size:1.2rem;
 		display: inline-block;
-		margin:10px 0px;
+		margin:10px 0px 20px 0px;
 	}
 
 	&__stars{
@@ -82,54 +87,54 @@
 		color:$light-gray;
 		margin-bottom: 10px;
 	}
+
+	
+	&__btn{
+		color:$gray;
+		background-color: transparent;
+		font-size:1rem;
+	}
 }
 
-.bg-primary{
+.reviews-container{
+	padding:100px 0px;
+
 	background-color:$primary-colour;
-	padding-top:100px;
 }
 
 .reviews{
-	width:80%;
 	margin:0 auto;
-	background-color:$card-colour;
-	box-shadow: $box-shadow;
+	
 
-	padding:3em;
-
-	&__add{
-		float:right;
-	}
+	width:70%;
+	position: relative;
 
 	&__header{
 		margin-bottom:75px;
 
-		display:flex;
-		align-items: flex-end;
+		text-align: center;
 	}
 
 	&__avg{
-		color:$light-gray;
+		color:white;
+	}
+
+	&__add{
+		position: absolute;
+		right:0;
 	}
 
 	&__title{
 		position: relative;
 		display: inline-block;
 
+		color:white;
+
 		margin-right: 10px;
+	}
 
-		&::after{
-            content:"";
-
-            background-color: $primary-colour;
-            opacity: 0.2;
-
-            height:30px;
-
-            width:100%;
-            bottom:0;
-            left:0;
-            position: absolute;
-        }
+	&__msg{
+		color:white;
+		font-size:1.999rem;
 	}
 }

@@ -12,7 +12,7 @@
 <% if(searchQuery) { %>
 <% if(searchResults.Search) { %>
     <div class="results-container">
-        <h4 class="query">Search Results for <%= searchQuery %></h4>
+        <p class="query">Search Results for <%= searchQuery %></p>
         <div class="results">
                 <% searchResults.Search.forEach(film => { %>
                     <div class="result">
@@ -64,11 +64,9 @@
         </div>
     <% } else { %>
         <div class="container">
-            <div class="msg">
-                <h4 class "msg__text">Sorry... Nothing matched
-                    <%= searchQuery %>
-                </h4>
-            </div>
+            <p class="query">Sorry... Nothing matched
+                <%= searchQuery %>
+            </p>
         </div>
     <% } %>
 <% } %>

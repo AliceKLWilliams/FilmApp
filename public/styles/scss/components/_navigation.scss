@@ -6,6 +6,8 @@
 
     z-index:1;
 
+    background-color:$primary-colour;
+
     &__close{
         position: absolute;
         font-size:4rem;
@@ -21,7 +23,7 @@
         background-color:transparent;
         font-size:2rem;
 
-         color:$primary-colour;
+         color:white;
     }
 
     &__top{
@@ -51,7 +53,7 @@
     }
 
     &__logo{
-        color:$primary-colour;
+        color:white;
     }
 
     &__item{
