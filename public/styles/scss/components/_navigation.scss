@@ -8,6 +8,23 @@
 
     background-color:$primary-colour;
 
+    $this: &;
+
+    &--light{
+        #{$this}__logo, #{$this}__open {
+            color:$primary-colour;
+        }
+    }
+
+    &--absolute{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+
+        background-color: transparent;
+    }
+
     &__close{
         position: absolute;
         font-size:4rem;
