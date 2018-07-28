@@ -371,17 +371,7 @@ button, input[type=submit] {
   .result__name {
     display: inline;
     font-size: 2rem;
-    color: #404040;
-    position: relative; }
-    .result__name:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #FE6363;
-      opacity: 0.2;
-      height: 13px; }
+    color: #404040; }
   .result__desc {
     color: #888888; }
   .result__year {

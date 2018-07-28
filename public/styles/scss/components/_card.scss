@@ -37,20 +37,6 @@
         display:inline;
         font-size:2rem;
         color:$gray;
-        position: relative;
-
-        &:after{
-            content:"";
-            position: absolute;
-            left:0;
-            bottom:0;
-            width:100%;
-
-            background-color:$primary-colour;
-            opacity: 0.2;
-
-            height:13px;
-        }
     }
 
     &__desc{
