@@ -33,5 +33,9 @@
         &:hover::after{
             display:inline-block;
         }
+
+        &--current::after{
+            display:inline-block;
+        }
     }
 }

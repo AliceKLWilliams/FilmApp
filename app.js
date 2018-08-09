@@ -104,6 +104,7 @@ app.get("/search", function (req, res) {
             }
 
             pageParams.paginationData = paginationData;
+            pageParams.numberPages = numberPages;
             pageParams.searchResults = searchResults;
 
             let IDs = [];

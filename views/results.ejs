@@ -42,7 +42,6 @@
                 <% }); %>
             </div>
 
-            <% let numberPages = Math.ceil(searchResults.totalResults/10); %>
             <div class="pagination">
                 <% if(currentPage !== 1) { %>
                     <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage-1%>" class="pagination__link">
@@ -51,10 +50,13 @@
                 <% } %>
 
                 <% paginationData.forEach(pageNum => { %>
-                    <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link">
-                        <%= pageNum %>
-                    </a>
+                    <% if (currentPage == pageNum) { %>
+                        <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link pagination__link--current"><%= pageNum %></a>
+                    <% } else { %>
+                        <a href="/search?filmName=<%=searchQuery%>&page=<%=pageNum%>" class="pagination__link"><%= pageNum %></a>
+                    <% } %>
                 <% }); %>
+
                 <% if(currentPage !== numberPages) { %>
                     <a href="/search?filmName=<%=searchQuery%>&page=<%=currentPage+1%>" class="pagination__link">
                         <i class="fa fa-arrow-right"></i>

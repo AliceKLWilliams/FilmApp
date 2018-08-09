@@ -141,6 +141,8 @@ button, input[type=submit] {
       display: none; }
     .pagination__link:hover::after {
       display: inline-block; }
+    .pagination__link--current::after {
+      display: inline-block; }
 
 .nav {
   width: 100%;
