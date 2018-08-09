@@ -117,13 +117,15 @@
 
     &__underline{
         height:2px;
-        width:50px;
+        left:0px;
 
         position: relative;
 
         margin-bottom:10px;
 
         background-color:$primary-colour;
+
+        transition: width 0.5s, left 0.5s;
     }
 
 

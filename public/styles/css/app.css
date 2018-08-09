@@ -336,10 +336,11 @@ button, input[type=submit] {
   margin-right: 2em; }
 .slider__underline {
   height: 2px;
-  width: 50px;
+  left: 0px;
   position: relative;
   margin-bottom: 10px;
-  background-color: #FE6363; }
+  background-color: #FE6363;
+  transition: width 0.5s, left 0.5s; }
 .slider__content--hidden {
   display: none; }
 .slider__content--show {
