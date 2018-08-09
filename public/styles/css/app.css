@@ -147,7 +147,8 @@ button, input[type=submit] {
   padding: 1.25rem;
   font-size: 1rem;
   z-index: 1;
-  background-color: #FE6363; }
+  background-color: #FE6363;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .nav--light .nav__logo, .nav--light .nav__open {
     color: #FE6363; }
   .nav--absolute {
@@ -593,37 +594,35 @@ button, input[type=submit] {
   height: 100%;
   margin: auto; }
 
-.centre-screen {
+.landing {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 625px;
-  position: relative; }
-
-.landing__headline {
-  color: white; }
-.landing__subheading {
-  color: white; }
-.landing__overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  background-color: #FE6363;
-  opacity: 0.2;
-  z-index: -1; }
-.landing__img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  width: 100%; }
+  align-items: center; }
+  .landing__headline {
+    color: white; }
+  .landing__subheading {
+    color: white; }
+  .landing__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FE6363;
+    opacity: 0.2;
+    z-index: -1; }
+  .landing__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%; }
 
 .tile-row {
   display: flex;

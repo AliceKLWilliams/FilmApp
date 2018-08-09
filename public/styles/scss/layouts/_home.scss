@@ -5,14 +5,14 @@
     margin:auto;
 }
 
-.centre-screen{
-    @include flex-container(column, center, center);
-    width:100%;
-    min-height:625px;
-    position: relative;
-}
-
 .landing{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     &__headline{
         color:white;
     }
