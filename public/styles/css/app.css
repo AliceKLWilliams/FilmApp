@@ -149,8 +149,7 @@ button, input[type=submit] {
   padding: 1.25rem;
   font-size: 1rem;
   z-index: 1;
-  background-color: #FE6363;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  background-color: #FE6363; }
   .nav--light .nav__logo, .nav--light .nav__open {
     color: #FE6363; }
   .nav--absolute {
