@@ -50,6 +50,8 @@
 		flex-direction: row;
 
 		justify-content: space-between;
+
+		margin-top:20px;
 	}
 
 	&__delete{
@@ -63,7 +65,13 @@
 	&__username{
 		font-size:1.2rem;
 		display: inline-block;
-		margin:10px 0px 20px 0px;
+		margin:10px 0px 0px 0px;
+
+		color:$gray;
+
+		&:visited{
+			color:$gray;
+		}
 	}
 
 	&__stars{
@@ -80,14 +88,12 @@
 	&__header{
 		display: flex;
 		align-items:flex-end;
-		margin-bottom:25px;
 	}
 
 	&__text{
 		color:$light-gray;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
-
 	
 	&__btn{
 		color:$gray;

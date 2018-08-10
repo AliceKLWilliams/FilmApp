@@ -5,6 +5,9 @@
     <h3><%=filmData.Title%></h3>
 
     <form class="form" method="POST" action="/films/<%=filmID %>/reviews">
+        <label for="review__title">Review Title</label>
+        <input type="text" class="form__text" name="title" id="review__title">
+
         <label class="form__label" for="review__text">Review</label>
         <textarea class="form__textarea" name="review" id="review__text"></textarea>
         

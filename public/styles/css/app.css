@@ -483,7 +483,8 @@ button, input[type=submit] {
   .review__links {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; }
+    justify-content: space-between;
+    margin-top: 20px; }
   .review__delete {
     font-size: 1rem; }
   .review__extra--open {
@@ -491,7 +492,10 @@ button, input[type=submit] {
   .review__username {
     font-size: 1.2rem;
     display: inline-block;
-    margin: 10px 0px 20px 0px; }
+    margin: 10px 0px 0px 0px;
+    color: #404040; }
+    .review__username:visited {
+      color: #404040; }
   .review__stars {
     display: inline-block;
     text-align: center;
@@ -501,11 +505,10 @@ button, input[type=submit] {
     color: #404040; }
   .review__header {
     display: flex;
-    align-items: flex-end;
-    margin-bottom: 25px; }
+    align-items: flex-end; }
   .review__text {
     color: #888888;
-    margin-bottom: 10px; }
+    margin-bottom: 20px; }
   .review__btn {
     color: #404040;
     background-color: transparent;

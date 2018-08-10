@@ -12,6 +12,7 @@ const FilmAPI = require("../modules/FilmAPI");
 
 router.put("/:reviewID", middleware.isReviewOwner, (req, res) => {
     Review.findByIdAndUpdate(req.params.reviewID, {
+        title:req.body.title,
         text:req.body.review, 
         ratings: {
             overall:req.body.overall, 
@@ -67,6 +68,7 @@ router.get("/:reviewID/edit", middleware.isReviewOwner, (req, res) => {
 
 router.post("/", function(req, res){
     var createReview = Review.create({
+        title:req.body.title,
         text:req.body.review, 
         author:req.user._id,
         ratings:{
