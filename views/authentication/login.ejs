@@ -1,23 +1,25 @@
 <% include ../partials/header %>
 
-<div class="container container--centre">
+<div class="bg-primary">
+    <div class="container container--centre">
 
-    <h1>Login</h1>
 
-    <form class="form" method="POST" action="/login">
-        <div class="form__group">
-            <input class="form__text" type="text" name="username" autocomplete="off" placeholder="Username">
-        </div>
-        
-        <div class="form__group">
-            <input class="form__text" type="password" name="password" autocomplete="off" placeholder="Password">
-        </div>
+        <form class="form" method="POST" action="/login">
+            <div class="form__header">
+                <h1>Login</h1>
+            </div>
+            <div class="form__group">
+                <input class="form__text" type="text" name="username" autocomplete="off" placeholder="Username">
+            </div>
+            
+            <div class="form__group">
+                <input class="form__text" type="password" name="password" autocomplete="off" placeholder="Password">
+            </div>
 
-        <div class="form__group">
-            <button class="btn btn--primary form__button">Login</button>
-        </div>
-    </form>
+            <button class="btn btn--primary form__button form__group">Login</button>
+        </form>
 
+    </div>
 </div>
 
 <% include ../partials/footer %>

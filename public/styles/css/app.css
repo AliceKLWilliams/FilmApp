@@ -3,22 +3,22 @@ h1, h2, h3, h4, h5, h6, p {
   color: #404040; }
 
 h1 {
-  font-size: 4.5rem; }
+  font-size: 3.998rem; }
 
 h2 {
-  font-size: 3.375rem; }
+  font-size: 2.827rem; }
 
 h3 {
-  font-size: 2.25rem; }
+  font-size: 1.999rem; }
 
 h4 {
-  font-size: 1.5rem; }
+  font-size: 1.414rem; }
 
 h5 {
   font-size: 1rem; }
 
 h6 {
-  font-size: 0.667rem; }
+  font-size: 0.707rem; }
 
 p {
   font-size: 1rem; }
@@ -61,14 +61,15 @@ button, input[type=submit] {
 
 .container {
   width: 80%;
-  margin: 0px auto 0px auto; }
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px; }
   .container--centre {
     text-align: center; }
 
 .bg-primary {
   background-color: #FE6363;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  min-height: calc(100vh - 90.4px); }
 
 .container {
   width: 80%;
@@ -428,13 +429,13 @@ button, input[type=submit] {
 
 .search {
   font-size: 1.2rem;
-  margin: 3rem 0px;
-  display: inline-flex;
+  margin: 50px auto;
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   border-bottom: 0.175em solid #FE6363;
-  width: 70%; }
+  width: 60%; }
   .search__btn {
     font-size: 1.2rem;
     color: #FE6363;

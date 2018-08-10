@@ -1,13 +1,11 @@
 <% include partials/header.ejs %>
 
-<div class="container container--centre">
-    <form class="search" method="GET" action="/search">
-        <input class="search__bar" type="text" name="filmName" placeholder="Search..." autocomplete="off">
-        <button class="search__btn">
-            <i class="fa fa-arrow-right"></i>
-        </button>
-    </form>
-</div>
+<form class="search" method="GET" action="/search">
+    <input class="search__bar" type="text" name="filmName" placeholder="Search..." autocomplete="off">
+    <button class="search__btn">
+        <i class="fa fa-arrow-right"></i>
+    </button>
+</form>
 
 <% if(searchQuery) { %>
 <% if(searchResults.Search) { %>

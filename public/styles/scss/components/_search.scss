@@ -1,12 +1,12 @@
 .search{
     font-size:1.2rem;
-    margin:3rem 0px;
+    margin:50px auto;
 
-    @include inline-flex-container(row, flex-start, center);
+    @include flex-container(row, flex-start, center);
 
     border-bottom:0.175em solid $primary-colour;
 
-    width:70%;
+    width:60%;
 
     &__btn{
         font-size:1.2rem;
