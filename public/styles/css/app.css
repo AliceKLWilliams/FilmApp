@@ -61,9 +61,18 @@ button, input[type=submit] {
 
 .container {
   width: 80%;
-  margin: 20px auto 0px auto; }
+  margin: 0px auto 0px auto; }
   .container--centre {
     text-align: center; }
+
+.bg-primary {
+  background-color: #FE6363;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
 
 .star {
   font-size: 1.3rem;
@@ -77,35 +86,46 @@ button, input[type=submit] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   font-size: 1rem;
-  padding: 1.25em 2em;
+  padding: 2em;
   width: 60%;
-  text-align: center;
-  margin: 3em auto; }
+  margin: 0 auto;
+  background-color: white; }
+  .form__header {
+    text-align: center;
+    width: 100%; }
   .form__group {
     margin: 1.5em 0em;
     width: 100%; }
   .form__button {
-    margin: 0 auto; }
+    margin: 1.5em auto; }
+  .form__stars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    text-align: center; }
   .form__textarea {
     resize: none;
     width: 100%;
     min-height: 6em;
     padding: 0.7em;
     font-size: 1.4em;
-    font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif; }
+    font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #FE6363; }
   .form__text {
     padding: 0.7em;
     font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4em;
-    width: 80%;
+    width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: 0.2em solid #FE6363; }
+    border-bottom: 0.1em solid #FE6363; }
   .form__label {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
+    text-align: left;
+    color: #404040;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
     display: inline-block; }
   .form__review {
     display: flex;

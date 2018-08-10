@@ -1,14 +1,19 @@
 .form{
-    @include flex-container(column, center, center);
+    @include flex-container(column, center, flex-start);
     font-size:1rem;
 
-    padding:1.25em 2em;
+    padding:2em;
 
     width:60%;
-    
-    text-align: center;
 
-    margin:3em auto;
+    margin:0 auto;
+
+    background-color: white;
+
+    &__header{
+        text-align: center;
+        width:100%;
+    }
 
     &__group{
         margin:1.5em 0em;
@@ -16,7 +21,15 @@
     }
 
     &__button{
-        margin: 0 auto;
+        margin: 1.5em auto;
+    }
+    
+
+    &__stars{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        width:100%;
+        text-align:center;
     }
 
 
@@ -30,6 +43,8 @@
 
         font-size:1.4em;
         font-family:$base-font-stack;
+
+        border: 2px solid $primary-colour;
     }
 
     &__text{
@@ -38,16 +53,18 @@
         font-family:$base-font-stack;
         font-size:1.4em;
 
-        width:80%;
+        width:100%;
 
         background-color: transparent;
         border:none;
-        border-bottom: 0.2em solid $primary-colour;
+        border-bottom: 0.1em solid $primary-colour;
     }
 
     &__label{
-        font-size:1.5em;
-        margin-bottom:0.5em;
+        text-align: left;
+		color:$gray;
+		margin-bottom:15px;
+		font-size:1.2rem;
         display: inline-block;
     }
 

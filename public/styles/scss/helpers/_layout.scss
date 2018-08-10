@@ -1,8 +1,19 @@
 .container{
     width:80%;
-    margin: 20px auto 0px auto;
+    margin: 0px auto 0px auto;
 
     &--centre{
         text-align:center;
     }
+}
+
+.bg-primary{
+    background-color: $primary-colour;
+    padding-top:50px;
+    padding-bottom:50px;
+}
+
+.container{
+    width:80%;
+    margin: 0 auto;
 }

@@ -1,35 +1,46 @@
 <% include ../partials/header %>
 
-<div class="container container--centre">
-    <h2>Edit Review</h2>
-    <h3><%=filmData.Title%></h3>
+<div class="bg-primary">
+    <div class="container">
 
-    <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
-        <label class="form__label" for="review__title"> Review Title </label>
-        <input class="form__text" name="title" id="review__title" value="<%=review.title%>">
-
-        <label class="form__label" for="review__text"> Review </label>
-        <textarea class="form__textarea" name="review" id="review__text"><%=review.text%></textarea>
-        <% for(let category in review.ratings.toObject()){ %>
-            <div class="form__group">
-                <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
-                <div class="form__review" id="<%=category%>"> 
-                    <% for(let i = 5; i >= 1; i--){ %>
-                        <% if(review.ratings[category] === i) { %>
-                            <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>" checked>
-                            <label for="<%=category+i%>"><i class="fa fa-star star"></i></label> 
-                        <% } else { %>
-                            <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>">
-                            <label for="<%=category+i%>"><i class="fa fa-star star"></i></label> 
-                        <% } %>   
-                    <% } %>
-                </div>
+        <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
+            <div class="form__header">
+                <h2>Edit Review</h2>
+                <h3><%=filmData.Title%></h3>
             </div>
-        <% } %>
-        <div class="form__group">
+
+            <div class="form__group">
+                <label class="form__label input__label" for="review__title"> Review Title </label>
+                <input class="form__text input__title" name="title" id="review__title" value="<%=review.title%>">
+            </div>
+
+            <div class="form__group">
+                <label class="form__label input__label" for="review__text"> Review </label>
+                <textarea class="form__textarea input__review" name="review" id="review__text"><%=review.text%></textarea>
+            </div>
+
+            <div class="form__stars">
+
+                <% for(let category in review.ratings.toObject()){ %>
+                    <div class="form__group">
+                        <label class="form__label" for="<%=category%>"><%=category.charAt(0).toUpperCase() + category.slice(1)%></label>
+                        <div class="form__review" id="<%=category%>"> 
+                            <% for(let i = 5; i >= 1; i--){ %>
+                                <% if(review.ratings[category] === i) { %>
+                                    <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>" checked>
+                                    <label for="<%=category+i%>"><i class="fa fa-star star"></i></label> 
+                                <% } else { %>
+                                    <input type="radio" name="<%=category%>" value="<%=i%>" id="<%=category + i%>">
+                                    <label for="<%=category+i%>"><i class="fa fa-star star"></i></label> 
+                                <% } %>   
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
             <input class="btn btn--primary form__button" type="submit">
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 <% include ../partials/footer %>
