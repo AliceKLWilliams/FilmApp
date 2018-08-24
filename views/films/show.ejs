@@ -77,22 +77,22 @@
                 <% modelData.reviews.forEach(review => { %>
                     <div class="review">
                         <div class="review__user">
-                            <% if (review.author.profilePic) { %>
-                                <img class="review__img" src="/user/<%=review.author._id%>/photo/<%=review.author.profilePic%>" alt="">
-                            <% } else { %>
-                                <img src="/pics/placeholder.jpg" class="review__img"/>
-                            <% } %>          
-                            <a class="review__username" href="/user/<%=review.author._id%>"><%= review.author.username %></a>
+                            <div class="review__user-info">
+                                <% if (review.author.profilePic) { %>
+                                    <img class="review__img" src="/user/<%=review.author._id%>/photo/<%=review.author.profilePic%>" alt="">
+                                <% } else { %>
+                                    <img src="/pics/placeholder.jpg" class="review__img"/>
+                                <% } %>          
+                                <a class="review__username" href="/user/<%=review.author._id%>"><%= review.author.username %></a>   
+                            </div>
                             <% if(currentUser && review.author.equals(currentUser._id)) { %>
                                 <div class="review__links">
                                     <a href="/films/<%=data.imdbID%>/reviews/<%=review._id%>/edit" class="review__btn">
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        Edit
                                     </a>
                                     <form class= method="POST" action="/films/<%=data.imdbID%>/reviews/<%=review._id%>?_method=DELETE">
                                         <button class="review__btn">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
-                                            Delete
                                         </button>
                                     </form>
                                 </div>
@@ -102,7 +102,7 @@
                         <div class="review__content">
                             <div class="review__header">
                                 <h3 class="review__title"><%=review.title%></h3>
-                                <div class="review__stars">
+                                <div class="review__overall">
                                     <%for(let i = 0; i < parseInt(review.ratings.overall); i++) { %>
                                         <i class= "fa fa-star star star--active"></i>
                                     <% } %>

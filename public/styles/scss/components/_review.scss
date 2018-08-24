@@ -5,7 +5,7 @@
 	width:100%;
 
 	display:flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: flex-start;
 
 	margin-bottom:100px;
@@ -13,28 +13,36 @@
 	background-color:$card-colour;
 	box-shadow: $box-shadow;
 
-	padding:2.5em;
+	padding:1.5em;
 
 	&__more{
 		background-color:transparent;
 		font-size:16px;
-		color:$gray;
+		color:$primary-colour;
 	}
 
 	&__user{
-		margin-right:30px;
 		display:flex;
-		flex-direction: column;
-		justify-content: center;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items:center;
 		text-align: center;
+
+		margin-bottom: 20px;
+
+		width:100%;
+	}
+
+	&__user-info{
+		display: flex;
+		align-items: center;
 	}
 
 	&__img{
-		width:100px;
-		height:100px;
+		width:50px;
+		height:50px;
 
-		margin:0em 1em;
-
+		margin-right:1em; 
 		object-fit:cover;
 
 		border-radius: 150px;
@@ -48,10 +56,7 @@
 	&__links{
 		display:flex;
 		flex-direction: row;
-
 		justify-content: space-between;
-
-		margin-top:20px;
 	}
 
 	&__delete{
@@ -60,14 +65,16 @@
 
 	&__extra--open{
 		margin:1.25em 0px;
+		margin-top:2em;
 	}
 
 	&__username{
 		font-size:1.2rem;
 		display: inline-block;
-		margin:10px 0px 0px 0px;
 
 		color:$gray;
+
+		margin-right:1em;
 
 		&:visited{
 			color:$gray;
@@ -76,18 +83,22 @@
 
 	&__stars{
 		display:inline-block;
-		text-align: center;
-		margin:0.7em 2em 0.7em 0em;
+		margin-bottom: 10px;
+		margin-right: 20px;
+	}
+
+	&__overall{
+		margin-bottom: 10px;
 	}
 
 	&__title{
-		margin-right:10px;
 		color:$gray;
+		margin-bottom: 5px;
 	}
 
 	&__header{
 		display: flex;
-		align-items:flex-end;
+		flex-direction: column;
 	}
 
 	&__text{
@@ -96,9 +107,58 @@
 	}
 	
 	&__btn{
-		color:$gray;
+		color:$primary-colour;
 		background-color: transparent;
 		font-size:1rem;
+
+		margin: 0em 0.5em;
+	}
+
+	@include breakpoint($desktop){
+		flex-direction: row;
+		padding:2.5em;
+
+		&__title{
+			margin-right:10px;
+			margin-bottom: 0;
+		}
+
+		&__header{
+			flex-direction: row;
+			align-items:flex-end;
+		}
+
+		&__stars{
+			text-align: center;
+			margin:0.7em 2em 0.7em 0em;
+		}
+
+		&__username{
+			margin-top:10px;
+			margin-right: 0;
+		}
+
+		&__links{
+			margin-top:10px;
+		}
+
+		&__user{
+			flex-direction: column;
+			margin-right:30px;
+			width: auto;
+		}
+
+		&__user-info{
+			flex-direction: column;
+		}
+
+		&__img{
+			width:100px;
+			height:100px;
+
+			margin:0em 1em;
+		}
+
 	}
 }
 
@@ -111,7 +171,6 @@
 .reviews{
 	margin:0 auto;
 	
-
 	width:70%;
 	position: relative;
 
@@ -140,10 +199,15 @@
 		font-size:1.999rem;
 	}
 
+	&__add{
+		margin-bottom: 10px;
+	}
+
 	@include breakpoint($desktop){
 		&__add{
 			position: absolute;
 			right:0;
+			margin-bottom: 0;
 		}
 
 		&__title{
