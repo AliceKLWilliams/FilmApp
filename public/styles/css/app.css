@@ -76,6 +76,9 @@ button, input[type=submit] {
     padding-top: 5em;
     padding-bottom: 5em; }
 
+.hidden {
+  display: none; }
+
 .star {
   font-size: 1.6rem;
   color: #cccccc;
@@ -245,6 +248,11 @@ button, input[type=submit] {
     color: #FE6363;
     background-color: white;
     border: 1px solid #FE6363; }
+  .btn--center {
+    display: block;
+    margin: 0 auto; }
+  .btn--hidden {
+    display: none; }
 
 .error {
   background: #f08080;
@@ -774,10 +782,15 @@ button, input[type=submit] {
 
 .films-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-columns: repeat(auto-fill, 200px);
   grid-gap: 40px;
   width: 100%;
-  align-items: center;
-  margin: 50px 0px 75px 0px; }
+  margin-top: 50px; }
+
+.more__btn {
+  margin-top: 25px; }
+
+.user__section {
+  margin-bottom: 5.0em; }
 
 /*# sourceMappingURL=app.css.map */

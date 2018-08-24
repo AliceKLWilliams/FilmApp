@@ -54,6 +54,9 @@ module.exports = {
             fetch(searchURL)
             .then(response => response.json())
             .then(APIData => {
+                if(APIData.Poster == "N/A"){
+                    APIData.Poster = "/pics/poster-placeholder.png";
+                }
                 resolve(APIData);
             }).catch(error => {
                 reject(error);
@@ -74,9 +77,6 @@ module.exports = {
             Promise.all(promises)
             .then(films => {
                 films.forEach(film =>{
-                    if(film.poster == "N/A"){
-                        film.poster = "http://via.placeholder.com/350x450";
-                    }
                     basicData.push({
                         imdbID:film.imdbID,
                         title:film.Title,

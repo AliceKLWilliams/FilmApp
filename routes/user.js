@@ -138,7 +138,7 @@ router.delete("/user/want", (req, res) => {
         findInDB.push(Film.find({filmID: film}));
     });
 
-    Promise.all(findFilms)
+    Promise.all(findInDB)
     .then((foundFilms) => {
         let removeFromStats = [];
         foundFilms[0].forEach((dbFilm) => {

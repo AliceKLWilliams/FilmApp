@@ -36,4 +36,13 @@
 
         border:1px solid $primary-colour;
     }
+
+    &--center{
+        display: block;
+        margin:0 auto;
+    }
+    
+    &--hidden{
+        display: none;
+    }
 }

@@ -32,21 +32,24 @@
             <% if(want.length == 0) { %>
                 <p class="text--secondary">Nothing to Show Here...</p>
             <% } else {%>
-                <div class="films-list">
-                    <% watched.forEach(film => { %>
-                        <a href="/films/<%=film.imdbID%>">
-                            <div class="basic-card">
+                <div class="films-list films-list--watched">
+                    <% for(let i = 0; i < watched.length; i++) { %>
+                        <% let film = watched[i]; %>
+                        <div class="basic-card <%= i >= 5 ? 'hidden' : '' %>">
+                            <a href="/films/<%=film.imdbID%>">
                                 <img class="basic-card__poster" src="<%=film.poster%>"/>
-                                <div>
-                                    <div>
-                                        <h3><%= film.title %></h3>
-                                        <p class="text--secondary"><%= film.year %></p>
-                                    </div>
-                                </div>
+                            </a>
+                            <div>
+                                <h3><%= film.title %></h3>
+                                <p class="text--secondary"><%= film.year %></p>
                             </div>
-                        </a>
-                    <% }) %>
+                        </div>
+                    <% } %>
+
                 </div>
+                    <% if(watched.length > 5) { %>
+                        <button class="btn btn--secondary btn--center more__btn watched-more" onclick="watchedMore()">Show More</button>
+                    <% } %>
             <% } %>
         </section>
         
@@ -56,24 +59,28 @@
             <% if(want.length == 0) { %>
                 <p class="text--secondary">Nothing to Show Here...</p>
             <% } else {%>
-                <div class="films-list">
-                    <% want.forEach(film => { %>
-                        <a href="/films/<%=film.imdbID%>">
-                            <div class="basic-card">
-                                <img class="basic-card__poster" src="<%=film.poster%>"/>
+                <div class="films-list films-list--want">
+                    <% for(let i = 0; i < want.length; i++) { %>
+                        <% let film = want[i]; %>
+                            <div class="basic-card <%= i >= 5 ? 'hidden' : '' %>">
+                                <a href="/films/<%=film.imdbID%>">
+                                    <img class="basic-card__poster" src="<%=film.poster%>"/>
+                                </a>
                                 <div>
-                                    <div>
-                                        <h3><%= film.title %></h3>
-                                        <p class="text--secondary"><%= film.year %></p>
-                                    </div>
+                                    <h3><%= film.title %></h3>
+                                    <p class="text--secondary"><%= film.year %></p>
                                 </div>
                             </div>
-                        </a>
-                    <% }) %>
+                    <% } %>
                 </div>
+                <% if(want.length > 5) { %>
+                    <button class="btn btn--secondary btn--center more__btn want-more" onclick="wantMore()">Show More</button>
+                <% } %> 
             <% } %>
         </section>
     </div>
 </div>
+
+<script src="../js/moreFilms.js"></script>
 
 <% include ../partials/footer %>

@@ -13,11 +13,17 @@
 
 .films-list{
     display:grid;
-    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-columns: repeat(auto-fill, 200px);
     grid-gap:40px;
     width:100%;
 
-    align-items: center;
+    margin-top:50px;
+}
 
-    margin:50px 0px 75px 0px;
+.more__btn{
+    margin-top: 25px;
+}
+
+.user__section{
+    margin-bottom: 5.0em;
 }
