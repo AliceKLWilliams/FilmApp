@@ -1,4 +1,7 @@
-@import "helpers/colours";
+@import "variables/breakpoints";
+@import "variables/colours";
+@import "variables/typography";
+
 @import "helpers/mixins";
 @import "helpers/typography";
 @import "helpers/reset";
@@ -6,17 +9,20 @@
 
 @import "components/star";
 @import "components/form";
-@import "components/pagination";
 @import "components/navigation";
 @import "components/buttons";
-@import "components/panel";
-@import "components/card";
-@import "components/search";
 @import "components/messages";
-@import "components/review";
-@import "components/user";
-@import "components/footer";
 
-@import "layouts/home";
-@import "layouts/search";
-@import "layouts/user";
+@import "pages/film/film";
+@import "pages/film/review";
+
+@import "pages/home/landing";
+@import "pages/home/cta";
+@import "pages/home/tiles";
+
+@import "pages/results/pagination";
+@import "pages/results/results";
+@import "pages/results/search";
+
+@import "pages/user/user";
+@import "pages/user/layout";

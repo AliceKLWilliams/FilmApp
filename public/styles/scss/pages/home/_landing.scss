@@ -1,0 +1,61 @@
+.landing{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__text{
+        width:90%;
+        margin: auto;
+    }
+
+    &__headline{
+        color:white;
+        font-size:3.7rem;
+
+        text-align: center;
+    }
+
+    &__subheading{
+        color:white;
+
+        text-align: center;
+    }
+
+    &__overlay{
+        position: absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0; 
+
+        width:100%;
+
+        background-color: $primary-colour;
+        opacity: 0.2;
+        
+        z-index:-1;
+    }
+
+    &__img{
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+
+        z-index:-1;
+
+        width:100%;
+        height:100vh;
+        object-fit: cover;
+    }
+
+    @include breakpoint($smartphone){
+        &__headline{
+            font-size:5rem;
+        }
+    }
+}

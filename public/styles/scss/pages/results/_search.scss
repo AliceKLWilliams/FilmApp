@@ -2,7 +2,10 @@
     font-size:1rem;
     margin:50px auto;
 
-    @include flex-container(row, flex-start, center);
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 
     border-bottom:0.175em solid $primary-colour;
 

@@ -1,5 +1,9 @@
 .form{
-    @include flex-container(column, center, flex-start);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
     font-size:1.2rem;
 
     padding:3.6em;
@@ -69,7 +73,10 @@
     }
 
     &__review{
-        @include flex-container(row-reverse, center, center);
+        display:flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
 
         input[type=radio]{
             display:none;

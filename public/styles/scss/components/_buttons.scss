@@ -1,5 +1,7 @@
 .btn{
-    @include flex-container(column, center, center);
+    display:flex;
+    align-items:center;
+    justify-content: center;
     text-align: center;
 
     font-size:1.6rem;
@@ -29,40 +31,5 @@
     &--secondary{
         color: $primary-colour;
         background-color:white;
-    }
-
-    &--want{
-        background-color:$want-colour;
-        color:$txt-light;
-
-        *{
-            color:$txt-light;
-        }
-    }
-
-    &--watched{
-        background-color:$watched-colour;
-        color:$txt-light;
-
-        *{
-            color:$txt-light;
-        }
-    }
-
-    &--slide{
-       position: relative;
-       left:85%;
-       transition: all 0.5s;
-
-       height: 50px;
-       width: 50px;
-
-       margin-bottom: 0.2em;
-    
-        @include breakpoint($smartphone){
-            left:0%;
-            transition: none;
-        }
-       
     }    
 }
