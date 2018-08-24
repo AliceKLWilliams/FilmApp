@@ -2,7 +2,22 @@
     background-color: $primary-colour;
 }
 
+.full-screen{
+    height:100vh;
+
+    &--center{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .container{
     width:80%;
     margin: 0 auto;
+
+    &--padded{
+        padding-top:5em;
+        padding-bottom: 5em;
+    }
 }

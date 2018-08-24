@@ -1,9 +1,7 @@
-<% include ../partials/header %>
+<% include ../partials/header-absolute %>
 
-<div class="bg-primary full-screen">
-    <div class="container container--centre">
-
-
+<div class="bg-primary full-screen full-screen--center">
+    <div class="container">
         <form class="form" method="POST" action="/login">
             <div class="form__header">
                 <h1>Login</h1>
@@ -16,12 +14,12 @@
                 <input class="form__text" type="password" name="password" autocomplete="off" placeholder="Password">
             </div>
 
-            <button class="btn btn--primary form__button form__group">Login</button>
+            <div class="form__group">
+                <button class="btn btn--primary form__btn">Login</button>
+            </div>
         </form>
 
     </div>
 </div>
-
-<script src="../js/homeSizing.js"></script>
 
 <% include ../partials/footer %>

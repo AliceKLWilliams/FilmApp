@@ -59,9 +59,19 @@ button, input[type=submit] {
 .bg-primary {
   background-color: #FE6363; }
 
+.full-screen {
+  height: 100vh; }
+  .full-screen--center {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
 .container {
   width: 80%;
   margin: 0 auto; }
+  .container--padded {
+    padding-top: 5em;
+    padding-bottom: 5em; }
 
 .star {
   font-size: 1.6rem;
@@ -127,6 +137,10 @@ button, input[type=submit] {
       color: #f2b01e; }
     .form__review input[type=radio]:hover ~ label .star {
       color: #f2b01e; }
+  .form__btn {
+    width: 100%; }
+  .form--review {
+    padding-top: 5em; }
   @media screen and (min-width: 768px) {
     .form {
       width: 60%; }
@@ -207,9 +221,6 @@ button, input[type=submit] {
         display: inline-block; }
 
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   font-size: 1.6rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);

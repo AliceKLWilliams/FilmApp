@@ -1,8 +1,7 @@
 <% include ../partials/header %>
 
 <div class="bg-primary">
-    <div class="container">
-
+    <div class="container container--padded">
         <form class="form" method="POST" action="/films/<%=filmID%>/reviews/<%=review._id%>?_method=PUT">
             <div class="form__header">
                 <h2>Edit Review</h2>
