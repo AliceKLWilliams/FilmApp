@@ -1,8 +1,8 @@
 .form{
     @include flex-container(column, center, flex-start);
-    font-size:1rem;
+    font-size:1.2rem;
 
-    padding:2em;
+    padding:3.6em;
 
     width:95%;
 
@@ -41,7 +41,7 @@
 
         padding:0.7em;
 
-        font-size:1.4em;
+        font-size:1.6em;
         font-family:$base-font-stack;
 
         border: 2px solid $primary-colour;
@@ -51,7 +51,7 @@
         padding:0.7em;
 
         font-family:$base-font-stack;
-        font-size:1.4em;
+        font-size:1.6em;
 
         width:100%;
 
@@ -64,7 +64,7 @@
         text-align: left;
 		color:$gray;
 		margin-bottom:15px;
-		font-size:1.2rem;
+		font-size:1.6em;
         display: inline-block;
     }
 
@@ -85,8 +85,8 @@
 
     }
 
-    @include breakpoint($smartphone){
-        width:70%;
+    @include breakpoint($tablet){
+        width:60%;
 
         &__stars{
             grid-template-columns: 1fr 1fr;

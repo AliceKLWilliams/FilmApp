@@ -13,7 +13,7 @@
 	background-color:$card-colour;
 	box-shadow: $box-shadow;
 
-	padding:1.5em;
+	padding:2.4em;
 
 	&__more{
 		background-color:transparent;
@@ -60,7 +60,7 @@
 	}
 
 	&__delete{
-		font-size:1rem;
+		font-size:1.6rem;
 	}
 
 	&__extra--open{
@@ -69,7 +69,7 @@
 	}
 
 	&__username{
-		font-size:1.2rem;
+		font-size:1.6rem;
 		display: inline-block;
 
 		color:$gray;
@@ -109,7 +109,7 @@
 	&__btn{
 		color:$primary-colour;
 		background-color: transparent;
-		font-size:1rem;
+		font-size:1.6rem;
 
 		margin: 0em 0.5em;
 	}

@@ -9,37 +9,25 @@ h1, h2, h3, h4, h5, h6, p{
     color:$gray;
 }
 
-@include breakpoint($tablet){
 
     h1{
-        font-size:3.998rem;
+        font-size:5.0rem;
     }
 
     h2{
-        font-size:2.827rem
+        font-size:3.7rem
     }
 
     h3{
-        font-size:1.999rem
+        font-size:2.8rem
     }
 
     h4{
-        font-size:1.414rem;
+        font-size:2.1rem;
     }
-
-    h5{
-        font-size:1rem;
-    }
-
-    h6{
-        font-size:0.707rem;
-    }
-
-}
-    
 
 p{
-    font-size:1rem;
+    font-size:1.6rem;
 }
 
 
