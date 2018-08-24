@@ -38,6 +38,9 @@ body {
   position: relative;
   min-height: 100%; }
 
+button {
+  font-size: 1.6rem; }
+
 * {
   padding: 0px;
   margin: 0px;
@@ -238,6 +241,10 @@ button, input[type=submit] {
   .btn--secondary {
     color: #FE6363;
     background-color: white; }
+  .btn--outlined {
+    color: #FE6363;
+    background-color: white;
+    border: 1px solid #FE6363; }
 
 .error {
   background: #f08080;
@@ -618,7 +625,8 @@ button, input[type=submit] {
 
 .results {
   background-color: white;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 50px;
@@ -627,6 +635,7 @@ button, input[type=submit] {
   margin-bottom: 75px; }
   @media screen and (min-width: 768px) {
     .results {
+      width: 100%;
       grid-template-columns: 1fr 1fr;
       grid-gap: 100px; } }
 
@@ -639,43 +648,35 @@ button, input[type=submit] {
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  text-overflow: ellipsis;
-  font-size: 1rem; }
+  text-overflow: ellipsis; }
   .result__name {
     display: inline;
-    font-size: 2rem;
+    font-size: 2em;
     color: #404040; }
   .result__desc {
     color: #888888; }
   .result__year {
     margin-left: 5px;
     color: #888888;
-    font-size: 1.6rem; }
+    font-size: 1.6em; }
   .result__links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
-    margin-top: 30px;
-    color: #888888; }
-    .result__links i {
-      margin-right: 5px;
-      color: #404040; }
-  .result__link {
-    color: #888888;
-    cursor: pointer; }
-    .result__link:visited {
-      color: #888888; }
+    margin-top: 30px; }
   .result__poster {
-    width: 80%;
-    align-self: center; }
+    width: 100%;
+    align-self: center;
+    margin-bottom: 2em; }
   .result__text {
     margin-right: 4em;
     flex-grow: 1; }
   .result__header {
     margin-bottom: 1em; }
-  .result:hover .btn--slide {
-    left: 0%; }
+  .result__btn {
+    margin-bottom: 0.5em; }
   @media screen and (min-width: 768px) {
     .result {
       flex-direction: row; }

@@ -5,7 +5,9 @@
 
 .results{
     background-color:white;
-    width:100%;
+    width:90%;
+
+    margin:0 auto;
 
     display:grid;
 
@@ -18,6 +20,7 @@
     margin-bottom: 75px;
 
     @include breakpoint($tablet){
+        width:100%;
         grid-template-columns: 1fr 1fr;
         grid-gap: 100px;
     }
@@ -36,12 +39,9 @@
 
     text-overflow: ellipsis;
 
-    font-size:1rem;
-
-
     &__name{
         display:inline;
-        font-size:2rem;
+        font-size:2em;
         color:$gray;
     }
 
@@ -53,38 +53,24 @@
         margin-left:5px;
         color:$light-gray;
 
-        font-size:1.6rem;
+        font-size:1.6em;
     }
 
     &__links{
         display:flex;
         flex-wrap: wrap;
+        align-items: center;
         width:100%;
         justify-content: space-between;
 
         margin-top:30px;
-
-        color:$light-gray;
-
-        i{
-            margin-right:5px;
-            color:$gray;
-        }
-    }
-
-    &__link{
-        color:$light-gray;
-
-        cursor: pointer;
-
-        &:visited{
-            color:$light-gray;
-        }
     }
 
     &__poster {
-        width:80%;
+        width:100%;
         align-self:center;
+
+        margin-bottom: 2em;
     }
 
     &__text{
@@ -95,12 +81,10 @@
     &__header{
         margin-bottom: 1em;
     }
+    
 
-
-    &:hover{
-        .btn--slide{
-            left:0%;
-        }
+    &__btn{
+        margin-bottom: 0.5em;
     }
 
     @include breakpoint($tablet){

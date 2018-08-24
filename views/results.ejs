@@ -25,10 +25,22 @@
                                 
                             <div class="result__links">
                                 <% if(currentUser) { %> 
-                                    <p class="result__link"><i class="fa fa-eye"></i>Watched</p>
-                                    <p class="result__link"><i class="fa fa-thumbs-up"></i>Want</p>
+                                    <form class="btn--form" method="POST" action="/films/<%=film.imdbID%>/watched?_method=PUT">
+                                        <% if(currentUser.watched.includes(film.imdbID)) { %>
+                                            <button class="btn btn--outlined result__btn"><i class="fa fa-eye"></i></button>
+                                        <% } else { %>
+                                            <button class="btn btn--primary result__btn"><i class="fa fa-eye"></i></button>
+                                        <% } %>
+                                    </form>
+                                    <form class="btn--form" method="POST" action="/films/<%=film.imdbID%>/want?_method=PUT">
+                                        <% if(currentUser.want.includes(film.imdbID)) { %>
+                                            <button class="btn btn--outlined result__btn"><i class="fa fa-thumbs-up"></i></button>
+                                        <% } else { %>
+                                            <button class="btn btn--primary result__btn"><i class="fa fa-thumbs-up"></i></button>
+                                        <% } %>
+                                    </form>
                                 <% } %>
-                                <a class="result__link" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i>More</a>
+                                <a class="btn btn--primary result__btn" href="/films/<%=film.imdbID%>"><i class="fa fa-search"></i></a>
                             </div>       
                         </div>
                         <% if(film.Poster === "N/A") { %>

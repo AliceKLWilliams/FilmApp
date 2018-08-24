@@ -12,12 +12,25 @@
                 
                 <% if(currentUser) { %>
                     <div class="film__bttns">
-                        <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
-                            <button class="btn btn--primary"><i class="fa fa-thumbs-up btn__icon"></i>Want</button>
-                        </form>
-                        <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
-                            <button class="btn btn--primary"><i class="fa fa-eye btn__icon"></i>Watched</button>
-                        </form>
+                        <% if(currentUser.want.includes(data.imdbID)) { %>
+                            <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                                <button class="btn btn--outlined"><i class="fa fa-thumbs-up btn__icon"></i>Want</button>
+                            </form>
+                        <% } else { %>
+                            <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                                <button class="btn btn--primary"><i class="fa fa-thumbs-up btn__icon"></i>Want</button>
+                            </form>
+                        <% } %>
+
+                        <% if(currentUser.watched.includes(data.imdbID)) { %>
+                            <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                                <button class="btn btn--outlined"><i class="fa fa-eye btn__icon"></i>Watched</button>
+                            </form>
+                        <% } else { %>
+                            <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                                <button class="btn btn--primary"><i class="fa fa-eye btn__icon"></i>Watched</button>
+                            </form>
+                        <% } %>
                     </div>
                 <% } %>
                 

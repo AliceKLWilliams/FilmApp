@@ -29,4 +29,11 @@
         color: $primary-colour;
         background-color:white;
     }    
+
+    &--outlined{
+        color:$primary-colour;
+        background-color: white;
+
+        border:1px solid $primary-colour;
+    }
 }
