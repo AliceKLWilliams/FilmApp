@@ -34,15 +34,17 @@
             <% } else {%>
                 <div class="films-list">
                     <% watched.forEach(film => { %>
-                        <div class="basic-card">
-                            <img class="basic-card__poster" src="<%=film.poster%>"/>
-                            <div>
+                        <a href="/films/<%=film.imdbID%>">
+                            <div class="basic-card">
+                                <img class="basic-card__poster" src="<%=film.poster%>"/>
                                 <div>
-                                    <h3><%= film.title %></h3>
-                                    <p class="text--secondary"><%= film.year %></p>
+                                    <div>
+                                        <h3><%= film.title %></h3>
+                                        <p class="text--secondary"><%= film.year %></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     <% }) %>
                 </div>
             <% } %>
@@ -56,15 +58,17 @@
             <% } else {%>
                 <div class="films-list">
                     <% want.forEach(film => { %>
-                        <div class="basic-card">
-                            <img class="basic-card__poster" src="<%=film.poster%>"/>
-                            <div>
+                        <a href="/films/<%=film.imdbID%>">
+                            <div class="basic-card">
+                                <img class="basic-card__poster" src="<%=film.poster%>"/>
                                 <div>
-                                    <h3><%= film.title %></h3>
-                                    <p class="text--secondary"><%= film.year %></p>
+                                    <div>
+                                        <h3><%= film.title %></h3>
+                                        <p class="text--secondary"><%= film.year %></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     <% }) %>
                 </div>
             <% } %>
