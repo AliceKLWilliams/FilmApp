@@ -15,10 +15,14 @@
 
     &__headline{
         color:white;
+
+        text-align: center;
     }
 
     &__subheading{
         color:white;
+
+        text-align: center;
     }
 
     &__overlay{
@@ -46,12 +50,14 @@
         z-index:-1;
 
         width:100%;
+        height:100vh;
+        object-fit: cover;
     }
 }
 
 .tile-row{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
 
     &:nth-of-type(2n){
         .tile:nth-child(2){
@@ -64,11 +70,15 @@
             background-color:$primary-colour;
         }
     }
+
+    @include breakpoint($smartphone){
+        flex-direction: row;
+    }
 }
 
 .tile{
-    width:50%;
-    padding-top:50%;
+    width:100%;
+    padding-top:100%;
 
     position: relative;
 
@@ -101,6 +111,11 @@
         height:100%;
 
         object-fit: cover;
+    }
+
+    @include breakpoint($smartphone){
+        width:50%;
+        padding-top:50%;
     }
 }
 

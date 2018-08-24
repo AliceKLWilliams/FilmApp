@@ -2,24 +2,24 @@ h1, h2, h3, h4, h5, h6, p {
   line-height: 1.4;
   color: #404040; }
 
-h1 {
-  font-size: 3.998rem; }
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.998rem; }
 
-h2 {
-  font-size: 2.827rem; }
+  h2 {
+    font-size: 2.827rem; }
 
-h3 {
-  font-size: 1.999rem; }
+  h3 {
+    font-size: 1.999rem; }
 
-h4 {
-  font-size: 1.414rem; }
+  h4 {
+    font-size: 1.414rem; }
 
-h5 {
-  font-size: 1rem; }
+  h5 {
+    font-size: 1rem; }
 
-h6 {
-  font-size: 0.707rem; }
-
+  h6 {
+    font-size: 0.707rem; } }
 p {
   font-size: 1rem; }
 
@@ -234,7 +234,7 @@ button, input[type=submit] {
         content: ""; }
       .nav__item--link:hover::after {
         display: inline-block; }
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 640px) {
     .nav {
       flex-direction: column;
       font-size: 1.2rem; }
@@ -281,7 +281,7 @@ button, input[type=submit] {
     height: 50px;
     width: 50px;
     margin-bottom: 0.2em; }
-    @media screen and (max-width: 640px) {
+    @media screen and (min-width: 640px) {
       .btn--slide {
         left: 0%;
         transition: none; } }
@@ -454,10 +454,10 @@ button, input[type=submit] {
       color: #FE6363;
       letter-spacing: 2px;
       font-weight: 700; }
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 640px) {
     .search {
       font-size: 1rem; } }
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 640px) {
     .search {
       font-size: 0.8rem; } }
 
@@ -593,7 +593,7 @@ button, input[type=submit] {
     position: absolute; }
   .user__upload:focus + label {
     outline: 1px solid #4d90fe; }
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 640px) {
     .user {
       width: 100%; } }
 
@@ -628,9 +628,11 @@ button, input[type=submit] {
   justify-content: center;
   align-items: center; }
   .landing__headline {
-    color: white; }
+    color: white;
+    text-align: center; }
   .landing__subheading {
-    color: white; }
+    color: white;
+    text-align: center; }
   .landing__overlay {
     position: absolute;
     top: 0;
@@ -648,19 +650,24 @@ button, input[type=submit] {
     bottom: 0;
     right: 0;
     z-index: -1;
-    width: 100%; }
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; }
 
 .tile-row {
   display: flex;
-  flex-direction: row; }
+  flex-direction: column; }
   .tile-row:nth-of-type(2n) .tile:nth-child(2) {
     background-color: #FE6363; }
   .tile-row:nth-of-type(2n + 1) .tile:nth-child(1) {
     background-color: #FE6363; }
+  @media screen and (min-width: 640px) {
+    .tile-row {
+      flex-direction: row; } }
 
 .tile {
-  width: 50%;
-  padding-top: 50%;
+  width: 100%;
+  padding-top: 100%;
   position: relative; }
   .tile__content {
     position: absolute;
@@ -681,6 +688,10 @@ button, input[type=submit] {
     left: 0;
     height: 100%;
     object-fit: cover; }
+  @media screen and (min-width: 640px) {
+    .tile {
+      width: 50%;
+      padding-top: 50%; } }
 
 .cta {
   width: 100%;
@@ -706,7 +717,7 @@ button, input[type=submit] {
   position: relative;
   padding: 20px;
   display: inline-block; }
-  @media screen and (max-width: 640px) {
+  @media screen and (min-width: 640px) {
     .list-container {
       width: 100%;
       margin-left: 0%; } }
