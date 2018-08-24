@@ -125,22 +125,30 @@
 		color:white;
 	}
 
-	&__add{
-		position: absolute;
-		right:0;
-	}
-
 	&__title{
 		position: relative;
-		display: inline-block;
+		display: block;
 
 		color:white;
 
 		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 
 	&__msg{
 		color:white;
 		font-size:1.999rem;
+	}
+
+	@include breakpoint($desktop){
+		&__add{
+			position: absolute;
+			right:0;
+		}
+
+		&__title{
+			margin-bottom: 0px;
+			display: inline-block;
+		}
 	}
 }

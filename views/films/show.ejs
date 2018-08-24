@@ -12,10 +12,10 @@
                 
                 <% if(currentUser) { %>
                     <div class="film__bttns">
-                        <form class="btn--form " method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
+                        <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/want?_method=PUT">
                             <button class="btn btn--primary"><i class="fa fa-thumbs-up btn__icon"></i>Want</button>
                         </form>
-                        <form class="btn--form" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
+                        <form class="btn--form film__bttn" method="POST" action="/films/<%=data.imdbID%>/watched?_method=PUT">
                             <button class="btn btn--primary"><i class="fa fa-eye btn__icon"></i>Watched</button>
                         </form>
                     </div>
@@ -56,10 +56,10 @@
     <div class="reviews-container">
         <div class="reviews">
             <div class="reviews__header">
+                <h2 class="reviews__title">User Reviews</h2>
                 <% if(currentUser) { %>
                     <a class="btn btn--secondary reviews__add" href="/films/<%=data.imdbID%>/reviews/new">Add a Review</a>
                 <% } %>
-                <h2 class="reviews__title">User Reviews</h2>
                 <% if(modelData && modelData.reviews.length > 0){ %>
                     <p class="reviews__avg">Average Overall: <%= avgReview %></p>
                 <% } %>

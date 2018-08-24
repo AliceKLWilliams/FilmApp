@@ -297,18 +297,24 @@ button, input[type=submit] {
   width: 60%; }
   .film__bttns {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-top: 30px; }
+  .film__bttn {
+    width: 100%;
+    margin-bottom: 25px; }
+    .film__bttn button {
+      width: 100%; }
   .film__info {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 75px; }
+    justify-content: center; }
   .film__poster {
-    width: 25%;
+    width: 90%;
     object-fit: cover;
-    margin-right: 60px; }
+    margin-bottom: 50px; }
   .film__main {
     margin-bottom: 40px; }
   .film__title {
@@ -326,6 +332,21 @@ button, input[type=submit] {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px; }
+  @media screen and (min-width: 1024px) {
+    .film__info {
+      flex-direction: row;
+      margin-bottom: 75px; }
+    .film__poster {
+      width: 25%;
+      margin-bottom: 0;
+      margin-right: 60px; }
+    .film__bttns {
+      flex-direction: row; }
+    .film__bttn {
+      width: auto;
+      margin-bottom: 0px; }
+      .film__bttn button {
+        width: auto; } }
 
 .cast__header {
   position: relative;
@@ -356,20 +377,30 @@ button, input[type=submit] {
 .slider__links {
   margin-bottom: 10px; }
 .slider__link {
+  display: block;
+  margin-bottom: 20px;
+  text-align: left;
   background-color: transparent;
-  font-size: 1.9999rem;
-  margin-right: 2em; }
+  font-size: 1.9999rem; }
 .slider__underline {
   height: 2px;
   left: 0px;
   position: relative;
   margin-bottom: 10px;
   background-color: #FE6363;
-  transition: width 0.5s, left 0.5s; }
+  transition: width 0.5s, left 0.5s;
+  display: none; }
 .slider__content--hidden {
   display: none; }
 .slider__content--show {
   display: block; }
+@media screen and (min-width: 1024px) {
+  .slider__link {
+    margin-right: 2em;
+    display: inline-block;
+    margin-bottom: 0; }
+  .slider__underline {
+    display: block; } }
 
 .results-container {
   width: 90%;
@@ -560,17 +591,22 @@ button, input[type=submit] {
     text-align: center; }
   .reviews__avg {
     color: white; }
-  .reviews__add {
-    position: absolute;
-    right: 0; }
   .reviews__title {
     position: relative;
-    display: inline-block;
+    display: block;
     color: white;
-    margin-right: 10px; }
+    margin-right: 10px;
+    margin-bottom: 10px; }
   .reviews__msg {
     color: white;
     font-size: 1.999rem; }
+  @media screen and (min-width: 1024px) {
+    .reviews__add {
+      position: absolute;
+      right: 0; }
+    .reviews__title {
+      margin-bottom: 0px;
+      display: inline-block; } }
 
 .user {
   display: inline-block;
