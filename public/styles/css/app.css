@@ -68,8 +68,7 @@ button, input[type=submit] {
     text-align: center; }
 
 .bg-primary {
-  background-color: #FE6363;
-  min-height: calc(100vh - 90.4px); }
+  background-color: #FE6363; }
 
 .container {
   width: 80%;
@@ -90,7 +89,7 @@ button, input[type=submit] {
   align-items: flex-start;
   font-size: 1rem;
   padding: 2em;
-  width: 60%;
+  width: 95%;
   margin: 0 auto;
   background-color: white; }
   .form__header {
@@ -139,11 +138,17 @@ button, input[type=submit] {
       color: #f2b01e; }
     .form__review input[type=radio]:hover ~ label .star {
       color: #f2b01e; }
+  @media screen and (min-width: 640px) {
+    .form {
+      width: 60%; } }
 
 .pagination {
   width: 100%;
   text-align: center;
-  margin: 30px 0px; }
+  margin: 30px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
   .pagination__link {
     padding: 5px;
     position: relative;
@@ -368,18 +373,21 @@ button, input[type=submit] {
 
 .results-container {
   width: 90%;
-  margin: 0 auto;
-  padding: 75px; }
+  margin: 0 auto; }
 
 .results {
   background-color: white;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 100px;
+  grid-template-columns: 1fr;
+  grid-gap: 50px;
   align-items: center;
   margin-top: 75px;
   margin-bottom: 75px; }
+  @media screen and (min-width: 768px) {
+    .results {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 100px; } }
 
 .query {
   color: #FE6363;
@@ -387,7 +395,7 @@ button, input[type=submit] {
 
 .result {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
   text-overflow: ellipsis;
@@ -417,7 +425,7 @@ button, input[type=submit] {
     .result__link:visited {
       color: #888888; }
   .result__poster {
-    width: 35%;
+    width: 80%;
     align-self: center; }
   .result__text {
     margin: 1.5em 1.25em;
@@ -426,16 +434,21 @@ button, input[type=submit] {
     margin-bottom: 1em; }
   .result:hover .btn--slide {
     left: 0%; }
+  @media screen and (min-width: 768px) {
+    .result {
+      flex-direction: row; }
+      .result__poster {
+        width: 35%; } }
 
 .search {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   margin: 50px auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   border-bottom: 0.175em solid #FE6363;
-  width: 60%; }
+  width: 90%; }
   .search__btn {
     font-size: 1.2rem;
     color: #FE6363;
@@ -448,18 +461,17 @@ button, input[type=submit] {
     color: #FE6363;
     font-size: 1.75em;
     padding: 0.75em;
-    flex-grow: 1; }
+    flex-grow: 1;
+    min-width: 0; }
     .search__bar::placeholder {
       font-family: "Josefin Sans", Tahoma, Geneva, Verdana, sans-serif;
       color: #FE6363;
       letter-spacing: 2px;
       font-weight: 700; }
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 768px) {
     .search {
-      font-size: 1rem; } }
-  @media screen and (min-width: 640px) {
-    .search {
-      font-size: 0.8rem; } }
+      width: 60%;
+      font-size: 1.2rem; } }
 
 .error {
   background: #f08080;

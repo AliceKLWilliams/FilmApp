@@ -1,8 +1,6 @@
 .results-container{
     width:90%;
     margin:0 auto;
-
-    padding:75px;
 }
 
 .results{
@@ -11,13 +9,18 @@
 
     display:grid;
 
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 100px;
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
 
     align-items: center;
 
     margin-top:75px;
     margin-bottom: 75px;
+
+    @include breakpoint($tablet){
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 100px;
+    }
 }
 
 .query{
@@ -26,7 +29,7 @@
 }
 
 .result {
-    @include flex-container(row, space-between, center);
+    @include flex-container(column-reverse, space-between, center);
 
     text-overflow: ellipsis;
 
@@ -75,7 +78,7 @@
     }
 
     &__poster {
-        width:35%;
+        width:80%;
         align-self:center;
     }
 
@@ -92,6 +95,14 @@
     &:hover{
         .btn--slide{
             left:0%;
+        }
+    }
+
+    @include breakpoint($tablet){
+        flex-direction: row;
+
+        &__poster{
+            width:35%;
         }
     }
 }

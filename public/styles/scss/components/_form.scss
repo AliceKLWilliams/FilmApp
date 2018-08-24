@@ -4,7 +4,7 @@
 
     padding:2em;
 
-    width:60%;
+    width:95%;
 
     margin:0 auto;
 
@@ -83,5 +83,9 @@
             color: $star-colour;
         }
 
+    }
+
+    @include breakpoint($smartphone){
+        width:60%;
     }
 }

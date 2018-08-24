@@ -1,4 +1,4 @@
-let container = document.querySelector(".centre-screen");
+let container = document.querySelector(".full-screen");
 
 function resizeHome(){
 	let windowHeight = window.innerHeight;
