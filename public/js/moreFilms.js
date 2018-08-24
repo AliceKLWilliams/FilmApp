@@ -1,8 +1,8 @@
 const INCREMENT = 5;
 
 function wantMore(){
-	const filmsList = document.querySelector(".films-list--want");
-	let films = filmsList.querySelectorAll(".basic-card");
+	const filmsList = document.querySelector("#want");
+	let films = filmsList.querySelectorAll(".basic");
 
 	let numShown = [...films].filter(film =>{return !film.classList.contains("hidden")}).length;
 	let numRemaining = [...films].filter(film =>{return film.classList.contains("hidden")}).length;
@@ -14,7 +14,7 @@ function wantMore(){
 		film.classList.remove("hidden");
 	}
 
-	let hiddenFilms = filmsList.querySelectorAll(".basic-card:not(.hidden)");
+	let hiddenFilms = filmsList.querySelectorAll(".basic:not(.hidden)");
 	if(hiddenFilms.length == films.length){
 		document.querySelector(".want-more").classList.add("btn--hidden");
 	}
@@ -23,8 +23,8 @@ function wantMore(){
 
 
 function watchedMore(){
-	const filmsList = document.querySelector(".films-list--watched");
-	let films = filmsList.querySelectorAll(".basic-card");
+	const filmsList = document.querySelector("#watched");
+	let films = filmsList.querySelectorAll(".basic");
 
 	let numShown = [...films].filter(film =>{return !film.classList.contains("hidden")}).length;
 	let numRemaining = [...films].filter(film =>{return film.classList.contains("hidden")}).length;
@@ -36,7 +36,7 @@ function watchedMore(){
 		film.classList.remove("hidden");
 	}
 
-	let hiddenFilms = filmsList.querySelectorAll(".basic-card:not(.hidden)");
+	let hiddenFilms = filmsList.querySelectorAll(".basic:not(.hidden)");
 	if(hiddenFilms.length == films.length){
 		document.querySelector(".watched-more").classList.add("btn--hidden");
 	}

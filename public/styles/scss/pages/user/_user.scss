@@ -28,6 +28,8 @@
         width:200px;
         height:200px;
         object-fit: cover;
+
+        max-width: none;
     }
 
     &__upload{
@@ -55,13 +57,9 @@
     display:flex;
     flex-direction: column;
 
+    margin-top:4em;
+
     @include breakpoint($tablet){
         flex-direction: row;
-    }
-}
-
-.basic-card{
-    &__poster{
-        max-width: 100%;
     }
 }

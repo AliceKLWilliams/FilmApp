@@ -1,4 +1,4 @@
-.list-container{
+.lists{
     width:60%;
     margin-left:5%;
     position: relative;
@@ -11,19 +11,18 @@
     }
 }
 
-.films-list{
+.list{
     display:grid;
     grid-template-columns: repeat(auto-fill, 200px);
     grid-gap:40px;
     width:100%;
+    margin-bottom: 3em;
 
-    margin-top:50px;
-}
+    &__title{
+        margin-bottom: 1em;
+    }
 
-.more__btn{
-    margin-top: 25px;
-}
-
-.user__section{
-    margin-bottom: 5.0em;
+    &-container{
+        margin-bottom:7.5em;
+    }
 }
