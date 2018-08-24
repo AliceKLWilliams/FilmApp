@@ -102,7 +102,7 @@ button, input[type=submit] {
     margin: 1.5em auto; }
   .form__stars {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     width: 100%;
     text-align: center; }
   .form__textarea {
@@ -140,7 +140,9 @@ button, input[type=submit] {
       color: #f2b01e; }
   @media screen and (min-width: 640px) {
     .form {
-      width: 60%; } }
+      width: 70%; }
+      .form__stars {
+        grid-template-columns: 1fr 1fr; } }
 
 .pagination {
   width: 100%;
