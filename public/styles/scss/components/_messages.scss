@@ -2,10 +2,20 @@
     background: #f08080;
     width:100%;
     padding:1rem;
+
+    &--absolute{
+        position:absolute;
+        top:70px;
+    }
 }
 
 .success{
     background:#90ee90;
     width:100%;
     padding:1rem;
+
+    &--absolute{
+        position:absolute;
+        top:70px;
+    }
 }
