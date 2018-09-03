@@ -1,6 +1,6 @@
 .search{
     font-size:1rem;
-    margin:50px auto;
+    margin:5em auto;
 
     display:flex;
     flex-direction: row;
@@ -36,7 +36,7 @@
             font-family: $base-font-stack;
             color:$primary-colour;
 
-            letter-spacing: 2px;
+            letter-spacing: 0.2rem;
             font-weight:$bold;
         }
     }

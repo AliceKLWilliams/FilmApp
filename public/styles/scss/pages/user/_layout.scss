@@ -2,7 +2,7 @@
     width:60%;
     margin-left:5%;
     position: relative;
-    padding:20px;
+    padding:2em;
     display: inline-block;
 
     @include breakpoint($smartphone){
@@ -13,8 +13,8 @@
 
 .list{
     display:grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap:40px;
+    grid-template-columns: repeat(auto-fill, 20em);
+    grid-gap:4em;
     width:100%;
     margin-bottom: 3em;
 

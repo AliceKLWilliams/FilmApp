@@ -100,25 +100,6 @@
             &:visited{
                 color:white;
             }
-    
-            &::after{
-                display:none;
-    
-                width:110%;
-    
-                position: absolute;
-                left:0px;
-                top:0.5em;
-                border-bottom:0.8em solid $primary-colour;
-
-                z-index:-1;
-    
-                content:"";
-            }
-    
-            &:hover::after{
-                display:inline-block;
-            }
         }
     }
     

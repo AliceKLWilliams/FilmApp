@@ -7,22 +7,19 @@
     background-color:white;
     width:90%;
 
-    margin:0 auto;
+    margin:7.5em auto;
 
     display:grid;
 
     grid-template-columns: 1fr;
-    grid-gap: 50px;
+    grid-gap: 5em;
 
     align-items: center;
-
-    margin-top:75px;
-    margin-bottom: 75px;
 
     @include breakpoint($tablet){
         width:100%;
         grid-template-columns: 1fr 1fr;
-        grid-gap: 100px;
+        grid-gap: 10em;
     }
 }
 
@@ -50,7 +47,7 @@
     }
 
     &__year{
-        margin-left:5px;
+        margin-left:0.5rem;
         color:$light-gray;
 
         font-size:1.6em;
@@ -63,7 +60,7 @@
         width:100%;
         justify-content: space-between;
 
-        margin-top:30px;
+        margin-top:3em;
     }
 
     &__poster {
