@@ -49,12 +49,8 @@ app.use((req, res, next) => {
     next();
 });
 
-const dbName = process.env.DBNAME;
-const dbPassword = process.env.DBPASSWORD;
-mongoose.connect(`mongodb://${dbName}:${dbPassword}@ds143242.mlab.com:43242/film-app-db`)
+mongoose.connect(process.env.DATABASEURL)
 .catch(err => console.log("Couldn't connect to database."));
-
-//mongoose.connect(mongodb://localhost/FilmApp);
 
 // Routes
 let filmRoutes = require("./routes/films");
