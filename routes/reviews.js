@@ -93,8 +93,8 @@ router.post("/", function(req, res){
                 console.log(err);
                 return res.redirect("/error");
             }
+            res.redirect("/films/"+req.params.filmID);
         });
-        res.redirect("/films/"+req.params.filmID);
     }).catch((err) =>{
         console.log(err);
         res.redirect("/error");
